@@ -15,9 +15,9 @@ public class Books {
 
     @Override
     public String toString() {
-        String booksList=new String();
+        String bookList=new String();
         for (String book : booksDetails)
-            booksList+=book+"\n";
-        return booksList;
+            bookList+=book+"\n";
+        return bookList;
     }
 }
