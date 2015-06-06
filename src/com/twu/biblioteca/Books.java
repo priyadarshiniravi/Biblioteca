@@ -4,21 +4,18 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class Books {
-    private ArrayList<String> booksDetails = new ArrayList<String>();
+    private ArrayList<Book> booksDetails = new ArrayList<Book>();
 
-    public Books() {
-        booksDetails.add("Java");
-        booksDetails.add("OOP");
-        booksDetails.add("C++");
+    public Books(ArrayList<Book> booksDetails) {
+        this.booksDetails=booksDetails;
     }
 
 
     @Override
     public String toString() {
-        String booksList=new String();
-        for (String book : booksDetails)
-            booksList+=booksDetails;
-        return booksList;
-
+        String bookList=new String();
+        for (Book book : booksDetails)
+            bookList+=book.toString()+"\n";
+        return bookList;
     }
 }
