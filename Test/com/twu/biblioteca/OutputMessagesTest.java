@@ -17,7 +17,7 @@ public class OutputMessagesTest {
     }
 
     @Test
-    public void shouldBeWelcomeMessage() {
+    public void shouldDisplayWelcomeMessage() {
         OutputMessages system = new OutputMessages();
 
         system.displayWelcomeMessage();
