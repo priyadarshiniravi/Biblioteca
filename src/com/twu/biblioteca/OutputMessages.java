@@ -7,4 +7,9 @@ public class OutputMessages {
     {
         System.out.println("Welcome To Biblioteca!!!");
     }
+
+    public void displayBookList(Books books)
+    {
+        System.out.println(books.toString());
+    }
 }

@@ -8,6 +8,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static junit.framework.TestCase.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class OutputMessagesTest {
     final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -24,6 +26,19 @@ public class OutputMessagesTest {
 
         assertEquals("Welcome To Biblioteca!!!\n", outContent.toString());
     }
+
+    @Test
+    public void shouldDisplayBookList() {
+        Books books=mock(Books.class);
+        OutputMessages system = new OutputMessages();
+        when(books.toString())
+                .thenReturn("BookList");
+
+        system.displayBookList(books);
+
+        assertEquals("BookList\n", outContent.toString());
+    }
+
 
     @After
     public void cleanUpStreams() {
