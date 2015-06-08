@@ -7,9 +7,9 @@ public class Book {
     private int yearOfPublication;
 
     public Book(String name, String author, int yearOfPublication) {
-        this.name=name;
-        this.author=author;
-        this.yearOfPublication=yearOfPublication;
+        this.name = name;
+        this.author = author;
+        this.yearOfPublication = yearOfPublication;
     }
 
     @Override

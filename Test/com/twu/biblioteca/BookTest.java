@@ -9,9 +9,9 @@ import static junit.framework.TestCase.assertEquals;
 public class BookTest {
     @Test
     public void shouldBeBooksList() {
-        Book book = new Book("Java","Jones",1992);
+        Book book = new Book("Java", "Jones", 1992);
 
-        String bookdetails=book.toString();
+        String bookdetails = book.toString();
 
         assertEquals("Java,Jones,1992", bookdetails);
     }

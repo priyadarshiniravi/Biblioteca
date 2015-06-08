@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
-import junit.framework.TestCase;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,8 +11,9 @@ import java.io.PrintStream;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class BooksToConsoleTest extends TestCase {
+public class BooksToConsoleTest {
     final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
     @Before
     public void setUpStreams() {
         System.setOut(new PrintStream(outContent));
@@ -22,12 +23,12 @@ public class BooksToConsoleTest extends TestCase {
     public void shouldDisplayBookList() {
         Books books = mock(Books.class);
         when(books.toString())
-                .thenReturn("Java,Jones,1992");
+                .thenReturn("BookList");
         BooksToConsole system = new BooksToConsole(books);
 
         system.displayBookList();
 
-        assertEquals("BookList\n", outContent.toString());
+        Assert.assertEquals("BookList\n", outContent.toString());
     }
 
 
