@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class MenuToConsole {
     String menu;
-    int option;
+
 
     public MenuToConsole(String menu) {
         this.menu = menu;
