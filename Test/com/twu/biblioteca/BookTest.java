@@ -26,7 +26,17 @@ public class BookTest {
         Assert.assertEquals(4, nameLength);
 
     }
-    
+
+    @Test
+    public void shouldReturnLengthOfBookAuthor() {
+        Book book = new Book("Java", "Jones", 1992);
+
+        int nameLength = book.authorLength();
+
+        Assert.assertEquals(5, nameLength);
+
+    }
+
 
 
 }
