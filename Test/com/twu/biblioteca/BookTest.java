@@ -18,7 +18,7 @@ public class BookTest {
     }
 
     @Test
-    public void shouldReturnLengthOfBook() {
+    public void shouldReturnLengthOfBookTitle() {
         Book book = new Book("Java", "Jones", 1992);
 
         int nameLength = book.nameLength();
@@ -26,5 +26,7 @@ public class BookTest {
         Assert.assertEquals(4, nameLength);
 
     }
+    
+
 
 }
