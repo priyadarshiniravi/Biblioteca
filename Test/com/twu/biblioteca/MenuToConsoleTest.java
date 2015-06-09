@@ -15,6 +15,7 @@ public class MenuToConsoleTest {
 
     @Before
     public void setUpStreams() {
+        System.setIn(in);
         System.setOut(new PrintStream(outContent));
     }
 
@@ -31,7 +32,7 @@ public class MenuToConsoleTest {
     public void ShouldTakeInput() throws IOException {
         MenuToConsole system = new MenuToConsole("1.List Books");
 
-        Assert.assertEquals(1, system.getMenuOption(in));
+        Assert.assertEquals(1, system.getMenuOption());
 
     }
 
@@ -39,6 +40,7 @@ public class MenuToConsoleTest {
     @After
     public void cleanUpStreams() {
         System.setOut(null);
+        System.setIn(System.in);
 
     }
 

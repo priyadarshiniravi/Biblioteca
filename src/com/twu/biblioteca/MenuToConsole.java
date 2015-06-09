@@ -16,9 +16,9 @@ public class MenuToConsole {
         System.out.println(menu);
     }
 
-    public int getMenuOption(InputStream ByteArrayInputStream) throws IOException {
-        Scanner in = new Scanner(ByteArrayInputStream);
-        option = in.nextInt();
+    public int getMenuOption() throws IOException {
+        Scanner in = new Scanner(System.in);
+        int option = in.nextInt();
         return option;
     }
 
