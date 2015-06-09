@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class ListBooks implements MenuListener {
+public class ListBooks implements MenuInterface {
     BooksToConsole booksToConsole;
     ListBooks(BooksToConsole booksToConsole)
     {

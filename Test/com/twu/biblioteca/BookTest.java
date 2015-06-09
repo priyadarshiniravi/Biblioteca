@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import junit.framework.Assert;
 import junit.framework.TestCase;
 import org.junit.Test;
 
@@ -14,6 +15,16 @@ public class BookTest {
         String bookdetails = book.toString();
 
         assertEquals("Java,Jones,1992", bookdetails);
+    }
+
+    @Test
+    public void shouldReturnLengthOfBook() {
+        Book book = new Book("Java", "Jones", 1992);
+
+        int nameLength = book.nameLength();
+
+        Assert.assertEquals(4, nameLength);
+
     }
 
 }
