@@ -29,4 +29,23 @@ public class BooksTest {
         assertEquals("Java,Jones,1992\nOOPs,Patric,1992\n", bookList);
     }
 
+    @Test
+    public void shouldBeMaxSizeOfAuthor() {
+        ArrayList<Book> bookDetailsList=new ArrayList<Book>();
+        Book firstBookStub=mock(Book.class);
+        Book secondBookStub=mock(Book.class);
+        when(firstBookStub.authorLength())
+                .thenReturn(5);
+        when(secondBookStub.authorLength())
+                .thenReturn(6);
+        bookDetailsList.add(firstBookStub);
+        bookDetailsList.add(secondBookStub);
+
+        Books books = new Books(bookDetailsList);
+        String actualMaxAuthorSize=books.toString();
+
+        assertEquals(6, actualMaxAuthorSize);
+    }
+
+
 }
