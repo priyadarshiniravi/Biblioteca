@@ -15,7 +15,10 @@ public class Menu {
     void chooseOption() {
         int input = consoleInputOutput.getInput();
         Options option = parser.parse(input);
-        option.displayStrategy();
+        if (option == null) {
+            consoleInputOutput.print(Messages.INVALID_MESSAGE);
+        } else
+            option.displayStrategy();
 
 
     }

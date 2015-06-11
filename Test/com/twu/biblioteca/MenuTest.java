@@ -9,7 +9,7 @@ import static org.mockito.Mockito.when;
 
 public class MenuTest {
     @Test
-    public void ShouldTakeInput()
+    public void ShouldTakeInputValid()
     {
         ConsoleInputOutput consoleInputOutput=mock(ConsoleInputOutput.class);
         Parser parser=mock(Parser.class);
@@ -25,5 +25,6 @@ public class MenuTest {
         verify(consoleInputOutput).getInput();
     }
 
+    
 
 }
