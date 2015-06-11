@@ -4,9 +4,20 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class Menu {
+    ConsoleInputOutput consoleInputOutput;
+    Parser parser;
 
-    public void listenToOption(ConsoleInputOutput menuDisplay) throws IOException {
-        int optionAsInteger = menuDisplay.getInput();
+    public Menu(ConsoleInputOutput consoleInputOutput, Parser parser) {
+        this.consoleInputOutput = consoleInputOutput;
+        this.parser = parser;
+    }
+
+    void chooseOperation() {
+        int input=consoleInputOutput.getInput();
+        Options option=parser.parse(input);
+        option.displayStrategy();
+
+
 
     }
 

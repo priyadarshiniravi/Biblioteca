@@ -1,16 +1,17 @@
 package com.twu.biblioteca;
 
 public class ListBooks implements Options {
-    BooksToConsole booksToConsole;
-    ListBooks(BooksToConsole booksToConsole)
-    {
-        this.booksToConsole=booksToConsole;
-    }
+    ConsoleInputOutput consoleInputOutput;
+    Books books;
 
+    public ListBooks(ConsoleInputOutput consoleInputOutput, Books books) {
+        this.consoleInputOutput = consoleInputOutput;
+        this.books = books;
+    }
 
     @Override
     public void displayStrategy() {
-        booksToConsole.displayBookList();
+        consoleInputOutput.print(books.toString());
 
     }
 }
