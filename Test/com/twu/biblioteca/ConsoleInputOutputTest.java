@@ -38,9 +38,9 @@ public class ConsoleInputOutputTest {
     public void ShouldDisplayOutputToUser() {
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(new Scanner(System.in));
 
-        consoleInputOutput.print("Welcome To Biblioteca!!!");
+        consoleInputOutput.print(Messages.WELCOME_MESSAGE);
 
-        assertEquals("Welcome To Biblioteca!!!\n", outContent.toString());
+        assertEquals(Messages.WELCOME_MESSAGE+"\n", outContent.toString());
 
 
     }
