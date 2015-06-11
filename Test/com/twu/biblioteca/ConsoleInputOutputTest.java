@@ -9,6 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.*;
 
 public class ConsoleInputOutputTest {
@@ -26,9 +27,20 @@ public class ConsoleInputOutputTest {
 
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(new Scanner(System.in));
 
-        int actualInput=consoleInputOutput.getInput();
+        int actualInput = consoleInputOutput.getInput();
 
-        assertEquals(1,actualInput);
+        assertEquals(1, actualInput);
+
+
+    }
+
+    @Test
+    public void ShouldDisplayOutputToUser() {
+        ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(new Scanner(System.in));
+
+        consoleInputOutput.print("Welcome To Biblioteca!!!");
+
+        assertEquals("Welcome To Biblioteca!!!\n", outContent.toString());
 
 
     }

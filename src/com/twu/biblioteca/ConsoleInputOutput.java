@@ -9,10 +9,14 @@ public class ConsoleInputOutput {
         this.consoleInput = consoleInput;
     }
 
-
     public int getInput() {
 
         int option = consoleInput.nextInt();
         return option;
+    }
+
+    public void print(String output) {
+        System.out.println(output);
+
     }
 }
