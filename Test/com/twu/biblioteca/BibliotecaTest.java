@@ -12,7 +12,8 @@ public class BibliotecaTest {
     public void shouldDisplayWelcomeMessage()
     {
         ConsoleInputOutput consoleInputOutput=mock(ConsoleInputOutput.class);
-        Biblioteca biblioteca=new Biblioteca(consoleInputOutput);
+        Menu menu=mock(Menu.class);
+        Biblioteca biblioteca=new Biblioteca(consoleInputOutput,menu);
 
         biblioteca.start();
 

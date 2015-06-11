@@ -1,18 +1,19 @@
 package com.twu.biblioteca;
 
-import java.util.Scanner;
-
 public class Biblioteca {
     ConsoleInputOutput consoleInputOutput;
-    Parser parser;
-    
+    Menu menu;
 
-    public Biblioteca(ConsoleInputOutput consoleInputOutput) {
+
+    public Biblioteca(ConsoleInputOutput consoleInputOutput, Menu menu) {
         this.consoleInputOutput = consoleInputOutput;
+        this.menu=menu;
     }
 
     public void start() {
         consoleInputOutput.print(Messages.WELCOME_MESSAGE);
+        menu.chooseOption();
+
 
 
     }

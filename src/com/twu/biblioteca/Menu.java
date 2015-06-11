@@ -12,11 +12,10 @@ public class Menu {
         this.parser = parser;
     }
 
-    void chooseOperation() {
-        int input=consoleInputOutput.getInput();
-        Options option=parser.parse(input);
+    void chooseOption() {
+        int input = consoleInputOutput.getInput();
+        Options option = parser.parse(input);
         option.displayStrategy();
-
 
 
     }
