@@ -40,7 +40,7 @@ public class MenuTest {
     public void shouldListenToInvalidOption() throws IOException {
         MenuToConsole menuToConsoleStub = mock(MenuToConsole.class);
         when(menuToConsoleStub.getMenuOption())
-                .thenReturn(2);
+                .thenReturn(300);
         BooksToConsole bookToConsoleStub = mock(BooksToConsole.class);
         Menu menu = new Menu(bookToConsoleStub);
 
