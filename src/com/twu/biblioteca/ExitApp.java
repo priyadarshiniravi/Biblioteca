@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class ExitApp implements MenuInterface {
+public class ExitApp implements Options {
 
     @Override
     public void displayStrategy() {
