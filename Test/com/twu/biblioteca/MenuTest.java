@@ -25,6 +25,22 @@ public class MenuTest {
         verify(consoleInputOutput).getInput();
     }
 
+    @Test
+    public void ShouldTakeInputInvalid()
+    {
+        ConsoleInputOutput consoleInputOutput=mock(ConsoleInputOutput.class);
+        Parser parser=mock(Parser.class);
+        Menu menu=new Menu(consoleInputOutput,parser);
+        Options options=mock(Options.class);
+        when(consoleInputOutput.getInput())
+                .thenReturn(300);
+
+
+        menu.chooseOption();
+
+        verify(consoleInputOutput).print(Messages.INVALID_MESSAGE);
+    }
+
     
 
 }
