@@ -2,10 +2,11 @@ package com.twu.biblioteca;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+import org.mockito.Matchers;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import java.util.ArrayList;
+
+import static org.mockito.Mockito.*;
 
 public class MenuTest {
     @Test
@@ -13,16 +14,20 @@ public class MenuTest {
     {
         ConsoleInputOutput consoleInputOutput=mock(ConsoleInputOutput.class);
         Parser parser=mock(Parser.class);
-        Menu menu=new Menu(consoleInputOutput,parser);
-        Options options=mock(Options.class);
+        ArrayList<String> options=new ArrayList<>();
+        options.add("Display Books");
+        options.add("Exit");
+        MenuOption menuOption=new MenuOption(options);
+        Menu menu=new Menu(consoleInputOutput,parser,menuOption);
+        Options optionsStub=mock(Options.class);
         when(consoleInputOutput.getInput())
-                .thenReturn(1);
+                .thenReturn(1,2);
         when(parser.parse(1))
-                .thenReturn(options);
+                .thenReturn(optionsStub);
 
         menu.chooseOption();
 
-        verify(consoleInputOutput).getInput();
+        verify(consoleInputOutput,times(2)).getInput();
     }
 
     @Test
@@ -30,17 +35,43 @@ public class MenuTest {
     {
         ConsoleInputOutput consoleInputOutput=mock(ConsoleInputOutput.class);
         Parser parser=mock(Parser.class);
-        Menu menu=new Menu(consoleInputOutput,parser);
-        Options options=mock(Options.class);
+        ArrayList<String> options=new ArrayList<>();
+        options.add("Display Books");
+        options.add("Exit");
+        MenuOption menuOption=new MenuOption(options);
+        Menu menu=new Menu(consoleInputOutput,parser,menuOption);
+        Options optionsStub=mock(Options.class);
         when(consoleInputOutput.getInput())
-                .thenReturn(300);
+                .thenReturn(300,2);
 
 
         menu.chooseOption();
 
-        verify(consoleInputOutput).print(Messages.INVALID_MESSAGE);
+        verify(consoleInputOutput,times(3)).print(Matchers.<String>any());
     }
 
-    
+    @Test
+    public void ShouldTakeExitInput()
+    {
+        ConsoleInputOutput consoleInputOutput=mock(ConsoleInputOutput.class);
+        Parser parser=mock(Parser.class);
+        ArrayList<String> options=new ArrayList<>();
+        options.add("Display Books");
+        options.add("Exit");
+        MenuOption menuOption=new MenuOption(options);
+        Menu menu=new Menu(consoleInputOutput,parser,menuOption);
+        Options optionsStub=mock(Options.class);
+        when(consoleInputOutput.getInput())
+                .thenReturn(2);
+
+
+
+        menu.chooseOption();
+
+        verify(consoleInputOutput,times(1)).getInput();
+    }
+
+
+
 
 }

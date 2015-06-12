@@ -14,7 +14,11 @@ public class BibliotecaApp {
         ListBooks listBooks=new ListBooks(consoleInputOutput, books);
         menuOptions.put(1, listBooks);
         Parser parser=new Parser(menuOptions);
-        Menu menu=new Menu(consoleInputOutput,parser);
+        ArrayList<String> options=new ArrayList<>();
+        options.add("Display Books");
+        options.add("Exit");
+        MenuOption menuOption=new MenuOption(options);
+        Menu menu=new Menu(consoleInputOutput,parser,menuOption);
         Biblioteca biblioteca=new Biblioteca(consoleInputOutput,menu);
         biblioteca.start();
     }
