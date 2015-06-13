@@ -9,7 +9,15 @@ public class EntryPoint {
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(new Scanner(System.in));
         HashMap<Integer, Options> menuOptions = new HashMap<>();
         ArrayList<Book> bookList = new ArrayList<>();
-        bookList.add(new Book("C++", "Jones", 1992));
+        Book bookone = new Book("C++", "Jones", 1992);
+        bookList.add(bookone);
+        Book booktwo = new Book("Java", "Charles", 1993);
+        bookList.add(booktwo);
+
+        HashMap<Book,Boolean> booksDetail=new HashMap<>();
+        booksDetail.put(bookone,true);
+        booksDetail.put(booktwo,false);
+
         Books books = new Books(bookList);
         ListBooks listBooks = new ListBooks(consoleInputOutput, books);
         menuOptions.put(1, listBooks);

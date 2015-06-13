@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Books {
     private ArrayList<Book> booksDetails = new ArrayList<Book>();
 
+
     public Books(ArrayList<Book> booksDetails) {
         this.booksDetails = booksDetails;
     }

@@ -17,14 +17,14 @@ public class ListBooksTest {
     @Test
     public void shouldCheckBookDisplayStrategy() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
-        ArrayList<Book> bookList = new ArrayList<>();
-        bookList.add(new Book("C++", "Jones", 1992));
-        Books books = new Books(bookList);
+        Books books = mock(Books.class);
+        when(books.toString())
+                .thenReturn("Books list");
         ListBooks listBooks = new ListBooks(consoleInputOutput, books);
 
         listBooks.displayStrategy();
 
-        verify(consoleInputOutput).print(Matchers.<String>any());
+        verify(consoleInputOutput).print("Books list");
 
 
     }
