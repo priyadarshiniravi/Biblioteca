@@ -38,5 +38,21 @@ public class CheckoutBookTest {
 
     }
 
+    @Test
+    public void shouldBeUnsuccessfulCheckout()
+    {
+        ConsoleInputOutput consoleInputOutput=mock(ConsoleInputOutput.class);
+        Books books=mock(Books.class);
+        when(books.checkout(anyString()))
+                .thenReturn(false);
+        CheckoutBook checkoutBook=new CheckoutBook(consoleInputOutput,books);
+
+        checkoutBook.displayStrategy();
+
+        verify(consoleInputOutput,times(1)).print(Messages.UNSUCCESS_CHECKOUT);
+
+
+    }
+
 
 }

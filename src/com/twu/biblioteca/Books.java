@@ -16,7 +16,7 @@ public class Books {
     public boolean checkout(String title)
     {
         for (Book book : bookBooleanHashMap.keySet()) {
-            if (bookBooleanHashMap.get(book) && book.equals(parser.Parse(title))) {
+            if (bookBooleanHashMap.get(book) && book.equals(parser.parse(title))) {
                 bookBooleanHashMap.put(book,false);
                 return true;
             }
