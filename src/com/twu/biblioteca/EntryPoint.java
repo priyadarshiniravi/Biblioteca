@@ -18,7 +18,7 @@ public class EntryPoint {
         booksDetail.put(bookone,true);
         booksDetail.put(booktwo,false);
 
-        Books books = new Books(bookList);
+        Books books = new Books(booksDetail);
         ListBooks listBooks = new ListBooks(consoleInputOutput, books);
         menuOptions.put(1, listBooks);
         Parser parser = new Parser(menuOptions);

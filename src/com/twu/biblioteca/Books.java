@@ -1,22 +1,23 @@
 package com.twu.biblioteca;
 
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Books {
-    private ArrayList<Book> booksDetails = new ArrayList<Book>();
+    private HashMap<Book, Boolean> bookBooleanHashMap = new HashMap<>();
 
 
-    public Books(ArrayList<Book> booksDetails) {
-        this.booksDetails = booksDetails;
+    public Books(HashMap<Book, Boolean> bookBooleanHashMap) {
+        this.bookBooleanHashMap = bookBooleanHashMap;
     }
-
 
     @Override
     public String toString() {
         String bookList = new String();
-        for (Book book : booksDetails)
+        for (Book book : bookBooleanHashMap.keySet()) {
+            if (bookBooleanHashMap.get(book))
             bookList += book.toString() + "\n";
+        }
         return bookList;
     }
 }

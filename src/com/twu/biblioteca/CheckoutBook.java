@@ -11,7 +11,7 @@
 //
 //    @Override
 //    public void displayStrategy() {
-//        String input = consoleInputOutput.getInputAsNumber();
+//        String input = consoleInputOutput.getInputAsString();
 //
 //
 //    }
