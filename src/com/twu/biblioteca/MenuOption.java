@@ -12,12 +12,12 @@ public class MenuOption {
     @Override
     public String toString() {
         String DisplayOption = "";
-        int iterator=1;
+        int iterator = 1;
         for (String IndividualOption : menuOptions) {
-            DisplayOption = DisplayOption + "\n" + iterator+IndividualOption;
+            DisplayOption = DisplayOption + "\n" + iterator + IndividualOption;
             iterator++;
 
         }
-        return  DisplayOption;
+        return DisplayOption;
     }
 }

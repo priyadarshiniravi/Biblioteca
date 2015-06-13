@@ -16,12 +16,11 @@ import static org.mockito.Mockito.when;
 public class ListBooksTest {
     @Test
     public void shouldCheckBookDisplayStrategy() {
-        Scanner consoleInput = new Scanner(System.in);
-        ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(consoleInput);
+        ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("C++", "Jones", 1992));
         Books books = new Books(bookList);
-        ListBooks listBooks = new ListBooks(consoleInputOutput,books);
+        ListBooks listBooks = new ListBooks(consoleInputOutput, books);
 
         listBooks.displayStrategy();
 

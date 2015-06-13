@@ -12,8 +12,7 @@ public class Book {
         this.yearOfPublication = yearOfPublication;
     }
 
-    public int nameLength()
-    {
+    public int nameLength() {
         return name.length();
     }
 

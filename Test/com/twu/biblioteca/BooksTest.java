@@ -12,9 +12,9 @@ import static org.mockito.Mockito.when;
 public class BooksTest {
     @Test
     public void shouldBeBooksDetailList() {
-        ArrayList<Book> bookDetailsList=new ArrayList<Book>();
-        Book firstBookStub=mock(Book.class);
-        Book secondBookStub=mock(Book.class);
+        ArrayList<Book> bookDetailsList = new ArrayList<Book>();
+        Book firstBookStub = mock(Book.class);
+        Book secondBookStub = mock(Book.class);
         when(firstBookStub.toString())
                 .thenReturn("Java,Jones,1992");
         when(secondBookStub.toString())
@@ -24,11 +24,10 @@ public class BooksTest {
 
         Books books = new Books(bookDetailsList);
 
-        String bookList=books.toString();
+        String bookList = books.toString();
 
         assertEquals("Java,Jones,1992\nOOPs,Patric,1992\n", bookList);
     }
-
 
 
 }
