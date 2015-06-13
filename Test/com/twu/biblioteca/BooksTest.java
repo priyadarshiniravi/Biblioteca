@@ -27,7 +27,7 @@ public class BooksTest {
 
         String bookList = books.toString();
 
-        assertEquals("OOPs,Patric,1992\nJava,Jones,1992\n", bookList);
+        assertEquals("Java,Jones,1992\nOOPs,Patric,1992\n", bookList);
     }
 
 
@@ -70,5 +70,23 @@ public class BooksTest {
         assertEquals(true, success);
     }
 
+    @Test
+    public void shouldNotCheckoutIfBookIsCheckoutAndAvailable() {
+        Book book=new Book("C","Jones",1995);
+        Book firstBookStub = mock(Book.class);
+        Book secondBookStub = mock(Book.class);
+        HashMap<Book, Boolean> bookDetailsList = new HashMap<>();
+        bookDetailsList.put(firstBookStub, true);
+        bookDetailsList.put(secondBookStub, false);
+        bookDetailsList.put(book,false);
+        BookParser parser = mock(BookParser.class);
+        when(parser.parse("any"))
+                .thenReturn(book);
+        Books books = new Books(bookDetailsList, parser);
+
+        boolean success = books.checkout("any");
+
+        assertEquals(false, success);
+    }
 
 }
