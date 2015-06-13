@@ -1,9 +1,7 @@
 package com.twu.biblioteca;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static junit.framework.TestCase.assertEquals;
@@ -23,8 +21,8 @@ public class BooksTest {
         HashMap<Book,Boolean> bookDetailsList= new HashMap<>();
         bookDetailsList.put(firstBookStub,true);
         bookDetailsList.put(secondBookStub,true);
-
-        Books books = new Books(bookDetailsList);
+        BookParser parser=new BookParser();
+        Books books = new Books(bookDetailsList, parser);
 
         String bookList = books.toString();
 
@@ -44,8 +42,8 @@ public class BooksTest {
         HashMap<Book,Boolean> bookDetailsList= new HashMap<>();
         bookDetailsList.put(firstBookStub,true);
         bookDetailsList.put(secondBookStub,false);
-
-        Books books = new Books(bookDetailsList);
+        BookParser parser=new BookParser();
+        Books books = new Books(bookDetailsList, parser);
 
         String bookList = books.toString();
 
