@@ -9,10 +9,15 @@ public class ConsoleInputOutput {
         this.consoleInput = consoleInput;
     }
 
-    public int getInput() {
+    public int getInputAsNumber() {
 
         int option = consoleInput.nextInt();
         return option;
+    }
+
+    public String getInputAsString() {
+        String input=consoleInput.nextLine();
+        return input;
     }
 
     public void print(String output) {

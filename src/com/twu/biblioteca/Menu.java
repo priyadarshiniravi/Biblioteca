@@ -1,8 +1,5 @@
 package com.twu.biblioteca;
 
-import java.io.IOException;
-import java.util.HashMap;
-
 public class Menu {
     ConsoleInputOutput consoleInputOutput;
     Parser parser;
@@ -16,7 +13,7 @@ public class Menu {
 
     void chooseOption() {
         consoleInputOutput.print(menuOption.toString());
-        int input = consoleInputOutput.getInput();
+        int input = consoleInputOutput.getInputAsNumber();
         while (input != 2) {
 
             Options option = parser.parse(input);
@@ -26,7 +23,7 @@ public class Menu {
                 option.displayStrategy();
             }
             consoleInputOutput.print(menuOption.toString());
-            input = consoleInputOutput.getInput();
+            input = consoleInputOutput.getInputAsNumber();
 
 
         }

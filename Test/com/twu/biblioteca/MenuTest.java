@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 import org.mockito.Matchers;
 
@@ -20,14 +19,14 @@ public class MenuTest {
         MenuOption menuOption=new MenuOption(options);
         Menu menu=new Menu(consoleInputOutput,parser,menuOption);
         Options optionsStub=mock(Options.class);
-        when(consoleInputOutput.getInput())
+        when(consoleInputOutput.getInputAsNumber())
                 .thenReturn(1,2);
         when(parser.parse(1))
                 .thenReturn(optionsStub);
 
         menu.chooseOption();
 
-        verify(consoleInputOutput,times(2)).getInput();
+        verify(consoleInputOutput,times(2)).getInputAsNumber();
     }
 
     @Test
@@ -41,7 +40,7 @@ public class MenuTest {
         MenuOption menuOption=new MenuOption(options);
         Menu menu=new Menu(consoleInputOutput,parser,menuOption);
         Options optionsStub=mock(Options.class);
-        when(consoleInputOutput.getInput())
+        when(consoleInputOutput.getInputAsNumber())
                 .thenReturn(300,2);
 
 
@@ -61,14 +60,14 @@ public class MenuTest {
         MenuOption menuOption=new MenuOption(options);
         Menu menu=new Menu(consoleInputOutput,parser,menuOption);
         Options optionsStub=mock(Options.class);
-        when(consoleInputOutput.getInput())
+        when(consoleInputOutput.getInputAsNumber())
                 .thenReturn(2);
 
 
 
         menu.chooseOption();
 
-        verify(consoleInputOutput,times(1)).getInput();
+        verify(consoleInputOutput,times(1)).getInputAsNumber();
     }
 
 
