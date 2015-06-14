@@ -14,7 +14,7 @@ public class ReturnBook implements Options {
     @Override
     public void displayStrategy() {
         String input = consoleInputOutput.getInputAsString();
-        boolean success=books.checkout(input);
+        boolean success=books.returnBook(input);
         if (success)
         {
             consoleInputOutput.print(Messages.SUCCESS_RETURN);

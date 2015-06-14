@@ -37,4 +37,20 @@ public class ReturnBookTest {
 
     }
 
+    @Test
+    public void shouldBesuccessfulReturn()
+    {
+        ConsoleInputOutput consoleInputOutput=mock(ConsoleInputOutput.class);
+        Books books=mock(Books.class);
+        when(books.returnBook(anyString()))
+                .thenReturn(true);
+        ReturnBook returnBook=new ReturnBook(consoleInputOutput,books);
+
+        returnBook.displayStrategy();
+
+        verify(consoleInputOutput,times(1)).print(Messages.SUCCESS_RETURN);
+
+
+    }
+
 }
