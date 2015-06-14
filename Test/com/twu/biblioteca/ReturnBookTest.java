@@ -3,9 +3,8 @@ package com.twu.biblioteca;
 import junit.framework.TestCase;
 import org.junit.Test;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.*;
 
 public class ReturnBookTest {
     @Test
@@ -18,6 +17,22 @@ public class ReturnBookTest {
         checkoutBook.displayStrategy();
 
         verify(consoleInputOutput,times(1)).getInputAsString();
+
+
+    }
+
+    @Test
+    public void shouldBeUnsuccessfulReturn()
+    {
+        ConsoleInputOutput consoleInputOutput=mock(ConsoleInputOutput.class);
+        Books books=mock(Books.class);
+        when(books.returnBook(anyString()))
+                .thenReturn(false);
+        ReturnBook returnBook=new ReturnBook(consoleInputOutput,books);
+
+        returnBook.displayStrategy();
+
+        verify(consoleInputOutput,times(1)).print(Messages.UNSUCCESSFUL_RETURN);
 
 
     }

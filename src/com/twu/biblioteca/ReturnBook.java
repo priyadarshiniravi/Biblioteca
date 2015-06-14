@@ -14,12 +14,12 @@ public class ReturnBook implements Options {
     @Override
     public void displayStrategy() {
         String input = consoleInputOutput.getInputAsString();
-//        boolean success=books.checkout(input);
-//        if (success)
-//        {
-//            consoleInputOutput.print(Messages.SUCCESS_RETURN);
-//        }
-//        else
-//            consoleInputOutput.print(Messages.UNSUCCESSFUL_RETURN);
+        boolean success=books.checkout(input);
+        if (success)
+        {
+            consoleInputOutput.print(Messages.SUCCESS_RETURN);
+        }
+        else
+            consoleInputOutput.print(Messages.UNSUCCESSFUL_RETURN);
     }
 }
