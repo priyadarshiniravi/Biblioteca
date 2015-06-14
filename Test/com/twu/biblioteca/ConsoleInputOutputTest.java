@@ -34,6 +34,19 @@ public class ConsoleInputOutputTest {
     }
 
     @Test
+    public void ShouldHandleInputException() {
+        ByteArrayInputStream in = new ByteArrayInputStream("aabbbb".getBytes());
+        System.setIn(in);
+        ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(new Scanner(System.in));
+
+        int actualInput = consoleInputOutput.getInputAsNumber();
+
+        assertEquals(-1, actualInput);
+
+
+    }
+
+    @Test
     public void ShouldGetUserInputString() {
         ByteArrayInputStream in = new ByteArrayInputStream("String".getBytes());
         System.setIn(in);

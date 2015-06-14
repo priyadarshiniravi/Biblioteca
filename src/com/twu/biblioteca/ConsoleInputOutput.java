@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConsoleInputOutput {
@@ -10,9 +11,12 @@ public class ConsoleInputOutput {
     }
 
     public int getInputAsNumber() {
-
-        int option = consoleInput.nextInt();
-        return option;
+        try {
+            return consoleInput.nextInt();
+        }catch (InputMismatchException e)
+        {   consoleInput.nextLine();
+            return -1;
+        }
     }
 
     public String getInputAsString() {

@@ -1,14 +1,14 @@
 package com.twu.biblioteca;
 
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Books {
-    private HashMap<Book, Boolean> bookBooleanHashMap = new HashMap<>();
+    private LinkedHashMap<Book, Boolean> bookBooleanHashMap = new LinkedHashMap<>();
     private BookParser parser;
 
 
-    public Books(HashMap<Book, Boolean> bookBooleanHashMap, BookParser parser) {
+    public Books(LinkedHashMap<Book, Boolean> bookBooleanHashMap, BookParser parser) {
         this.bookBooleanHashMap = bookBooleanHashMap;
         this.parser = parser;
     }

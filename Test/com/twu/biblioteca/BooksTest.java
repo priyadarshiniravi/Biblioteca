@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.mockito.Matchers.anyString;
@@ -19,7 +20,7 @@ public class BooksTest {
                 .thenReturn("Java,Jones,1992");
         when(secondBookStub.toString())
                 .thenReturn("OOPs,Patric,1992");
-        HashMap<Book, Boolean> bookDetailsList = new HashMap<>();
+        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
         bookDetailsList.put(firstBookStub, true);
         bookDetailsList.put(secondBookStub, true);
         BookParser parser = new BookParser();
@@ -40,7 +41,7 @@ public class BooksTest {
                 .thenReturn("Java,Jones,1992");
         when(secondBookStub.toString())
                 .thenReturn("OOPs,Patric,1992");
-        HashMap<Book, Boolean> bookDetailsList = new HashMap<>();
+        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
         bookDetailsList.put(firstBookStub, true);
         bookDetailsList.put(secondBookStub, false);
         BookParser parser = new BookParser();
@@ -56,7 +57,7 @@ public class BooksTest {
         Book book=new Book("C","Jones",1995);
         Book firstBookStub = mock(Book.class);
         Book secondBookStub = mock(Book.class);
-        HashMap<Book, Boolean> bookDetailsList = new HashMap<>();
+        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
         bookDetailsList.put(firstBookStub, true);
         bookDetailsList.put(secondBookStub, false);
         bookDetailsList.put(book,true);
@@ -75,7 +76,7 @@ public class BooksTest {
         Book book=new Book("C","Jones",1995);
         Book firstBookStub = mock(Book.class);
         Book secondBookStub = mock(Book.class);
-        HashMap<Book, Boolean> bookDetailsList = new HashMap<>();
+        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
         bookDetailsList.put(firstBookStub, true);
         bookDetailsList.put(secondBookStub, false);
         bookDetailsList.put(book,false);
@@ -94,7 +95,7 @@ public class BooksTest {
         Book book=new Book("C","Jones",1995);
         Book firstBookStub = mock(Book.class);
         Book secondBookStub = mock(Book.class);
-        HashMap<Book, Boolean> bookDetailsList = new HashMap<>();
+        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
         bookDetailsList.put(firstBookStub, true);
         bookDetailsList.put(secondBookStub, false);
         bookDetailsList.put(book,false);
@@ -113,7 +114,7 @@ public class BooksTest {
         Book book=new Book("C","Jones",1995);
         Book firstBookStub = mock(Book.class);
         Book secondBookStub = mock(Book.class);
-        HashMap<Book, Boolean> bookDetailsList = new HashMap<>();
+        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
         bookDetailsList.put(firstBookStub, true);
         bookDetailsList.put(secondBookStub, false);
         bookDetailsList.put(book,true);
