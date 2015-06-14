@@ -24,6 +24,17 @@ public class Books {
         return false;
     }
 
+    public boolean returnBook(String title)
+    {
+        for (Book book : bookBooleanHashMap.keySet()) {
+            if (!bookBooleanHashMap.get(book) && book.equals(parser.parse(title))) {
+                bookBooleanHashMap.put(book,true);
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         String bookList = new String();
