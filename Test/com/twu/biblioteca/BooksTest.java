@@ -108,4 +108,23 @@ public class BooksTest {
         assertEquals(true, success);
     }
 
+    @Test
+    public void shouldNotReturnIfBookIsNotCheckoutOrNotAvailable() {
+        Book book=new Book("C","Jones",1995);
+        Book firstBookStub = mock(Book.class);
+        Book secondBookStub = mock(Book.class);
+        HashMap<Book, Boolean> bookDetailsList = new HashMap<>();
+        bookDetailsList.put(firstBookStub, true);
+        bookDetailsList.put(secondBookStub, false);
+        bookDetailsList.put(book,true);
+        BookParser parser = mock(BookParser.class);
+        when(parser.parse("any"))
+                .thenReturn(book);
+        Books books = new Books(bookDetailsList, parser);
+
+        boolean success = books.returnBook("any");
+
+        assertEquals(false, success);
+    }
+
 }
