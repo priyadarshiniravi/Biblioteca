@@ -42,7 +42,7 @@
     100%
   </span>
   <span class="absValue">
-    (2/ 2)
+    (4/ 4)
   </span>
 </td>
 <td class="coverageStat">
@@ -50,12 +50,12 @@
     100%
   </span>
   <span class="absValue">
-    (8/ 8)
+    (23/ 23)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">Books$$EnhancerByMockitoWithCGLIB$$f05672c4</td>
+    <td class="name">Books$$EnhancerByMockitoWithCGLIB$$43bae5a</td>
   </tr>
 <tr>
   <td class="name"><strong>total</strong></td>
@@ -64,7 +64,7 @@
     100%
   </span>
   <span class="absValue">
-    (2/ 2)
+    (4/ 4)
   </span>
 </td>
 <td class="coverageStat">
@@ -72,7 +72,7 @@
     100%
   </span>
   <span class="absValue">
-    (8/ 8)
+    (23/ 23)
   </span>
 </td>
 </tr>
@@ -85,31 +85,56 @@
 <div class="sourceCode"><i>1</i>&nbsp;package com.twu.biblioteca;
 <i>2</i>&nbsp;
 <i>3</i>&nbsp;
-<i>4</i>&nbsp;import java.util.ArrayList;
+<i>4</i>&nbsp;import java.util.LinkedHashMap;
 <i>5</i>&nbsp;
 <i>6</i>&nbsp;public class Books {
-<b class="fc"><i>7</i>&nbsp;    private ArrayList&lt;Book&gt; bookBooleanHashMap = new ArrayList&lt;Book&gt;();</b>
-<i>8</i>&nbsp;
+<b class="fc"><i>7</i>&nbsp;    private LinkedHashMap&lt;Book, Boolean&gt; bookBooleanHashMap = new LinkedHashMap&lt;&gt;();</b>
+<i>8</i>&nbsp;    private BookParser parser;
 <i>9</i>&nbsp;
-<b class="fc"><i>10</i>&nbsp;    public Books(ArrayList&lt;Book&gt; bookBooleanHashMap) {</b>
-<b class="fc"><i>11</i>&nbsp;        this.bookBooleanHashMap = bookBooleanHashMap;</b>
-<b class="fc"><i>12</i>&nbsp;    }</b>
-<i>13</i>&nbsp;
-<i>14</i>&nbsp;
-<i>15</i>&nbsp;    @Override
-<i>16</i>&nbsp;    public String toString() {
-<b class="fc"><i>17</i>&nbsp;        String bookList = new String();</b>
-<b class="fc"><i>18</i>&nbsp;        for (Book book : bookBooleanHashMap)</b>
-<b class="fc"><i>19</i>&nbsp;            bookList += book.toString() + &quot;\n&quot;;</b>
-<b class="fc"><i>20</i>&nbsp;        return bookList;</b>
-<i>21</i>&nbsp;    }
-<i>22</i>&nbsp;}
+<i>10</i>&nbsp;
+<b class="fc"><i>11</i>&nbsp;    public Books(LinkedHashMap&lt;Book, Boolean&gt; bookBooleanHashMap, BookParser parser) {</b>
+<b class="fc"><i>12</i>&nbsp;        this.bookBooleanHashMap = bookBooleanHashMap;</b>
+<b class="fc"><i>13</i>&nbsp;        this.parser = parser;</b>
+<b class="fc"><i>14</i>&nbsp;    }</b>
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    public boolean checkout(String title)
+<i>17</i>&nbsp;    {
+<b class="fc"><i>18</i>&nbsp;        for (Book book : bookBooleanHashMap.keySet()) {</b>
+<b class="fc"><i>19</i>&nbsp;            if (bookBooleanHashMap.get(book) &amp;&amp; book.equals(parser.parse(title))) {</b>
+<b class="fc"><i>20</i>&nbsp;                bookBooleanHashMap.put(book,false);</b>
+<b class="fc"><i>21</i>&nbsp;                return true;</b>
+<i>22</i>&nbsp;            }
+<b class="fc"><i>23</i>&nbsp;        }</b>
+<b class="fc"><i>24</i>&nbsp;        return false;</b>
+<i>25</i>&nbsp;    }
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    public boolean returnBook(String title)
+<i>28</i>&nbsp;    {
+<b class="fc"><i>29</i>&nbsp;        for (Book book : bookBooleanHashMap.keySet()) {</b>
+<b class="fc"><i>30</i>&nbsp;            if (!bookBooleanHashMap.get(book) &amp;&amp; book.equals(parser.parse(title))) {</b>
+<b class="fc"><i>31</i>&nbsp;                bookBooleanHashMap.put(book,true);</b>
+<b class="fc"><i>32</i>&nbsp;                return true;</b>
+<i>33</i>&nbsp;            }
+<b class="fc"><i>34</i>&nbsp;        }</b>
+<b class="fc"><i>35</i>&nbsp;        return false;</b>
+<i>36</i>&nbsp;    }
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    @Override
+<i>39</i>&nbsp;    public String toString() {
+<b class="fc"><i>40</i>&nbsp;        String bookList = new String();</b>
+<b class="fc"><i>41</i>&nbsp;        for (Book book : bookBooleanHashMap.keySet()) {</b>
+<b class="fc"><i>42</i>&nbsp;            if (bookBooleanHashMap.get(book))</b>
+<b class="fc"><i>43</i>&nbsp;            bookList += book.toString() + &quot;\n&quot;;</b>
+<b class="fc"><i>44</i>&nbsp;        }</b>
+<b class="fc"><i>45</i>&nbsp;        return bookList;</b>
+<i>46</i>&nbsp;    }
+<i>47</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2015-06-13 21:53</div>
+    <div style="float:right;">generated on 2015-06-15 00:44</div>
 </div>
 </body>
 </html>

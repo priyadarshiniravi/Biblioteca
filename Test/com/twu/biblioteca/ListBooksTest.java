@@ -1,13 +1,6 @@
 package com.twu.biblioteca;
 
-import junit.framework.TestCase;
 import org.junit.Test;
-import org.mockito.Matchers;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.regex.Matcher;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -22,7 +15,7 @@ public class ListBooksTest {
                 .thenReturn("Books list");
         ListBooks listBooks = new ListBooks(consoleInputOutput, books);
 
-        listBooks.displayStrategy();
+        listBooks.action();
 
         verify(consoleInputOutput).print("Books list");
 

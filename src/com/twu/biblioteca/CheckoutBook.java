@@ -12,7 +12,7 @@ public class CheckoutBook implements Options {
     }
 
     @Override
-    public void displayStrategy() {
+    public void action() {
         String input = consoleInputOutput.getInputAsString();
         boolean success=books.checkout(input);
         if (success)

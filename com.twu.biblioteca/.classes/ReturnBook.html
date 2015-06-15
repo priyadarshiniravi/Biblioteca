@@ -5,7 +5,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html id="htmlId">
 <head>
-  <title>Coverage Report :: App</title>
+  <title>Coverage Report :: ReturnBook</title>
   <style type="text/css">
     @import "../../.css/coverage.css";
   </style>
@@ -20,7 +20,7 @@
     [ <a href="../index.html">com.twu.biblioteca</a> ]
 </div>
 
-<h1>Coverage Summary for Class: App (com.twu.biblioteca)</h1>
+<h1>Coverage Summary for Class: ReturnBook (com.twu.biblioteca)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -39,7 +39,7 @@
 </th>
 </tr>
 <tr>
-  <td class="name">App</td>
+  <td class="name">ReturnBook</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -61,7 +61,7 @@
     100%
   </span>
   <span class="absValue">
-    (7/ 7)
+    (10/ 10)
   </span>
 </td>
 </tr>
@@ -74,23 +74,28 @@
 
 <div class="sourceCode"><i>1</i>&nbsp;package com.twu.biblioteca;
 <i>2</i>&nbsp;
-<i>3</i>&nbsp;public class App {
-<i>4</i>&nbsp;    ConsoleInputOutput consoleInputOutput;
-<i>5</i>&nbsp;    Menu menu;
-<i>6</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;public class ReturnBook implements Options {
+<i>5</i>&nbsp;    ConsoleInputOutput consoleInputOutput;
+<i>6</i>&nbsp;    Books books;
 <i>7</i>&nbsp;
-<b class="fc"><i>8</i>&nbsp;    public App(ConsoleInputOutput consoleInputOutput, Menu menu) {</b>
+<b class="fc"><i>8</i>&nbsp;    public ReturnBook(ConsoleInputOutput consoleInputOutput, Books books) {</b>
 <b class="fc"><i>9</i>&nbsp;        this.consoleInputOutput = consoleInputOutput;</b>
-<b class="fc"><i>10</i>&nbsp;        this.menu = menu;</b>
+<b class="fc"><i>10</i>&nbsp;        this.books = books;</b>
 <b class="fc"><i>11</i>&nbsp;    }</b>
 <i>12</i>&nbsp;
-<i>13</i>&nbsp;    public void start() {
-<b class="fc"><i>14</i>&nbsp;        consoleInputOutput.print(Messages.WELCOME_MESSAGE);</b>
-<b class="fc"><i>15</i>&nbsp;        menu.chooseOption();</b>
-<i>16</i>&nbsp;
-<i>17</i>&nbsp;
-<b class="fc"><i>18</i>&nbsp;    }</b>
-<i>19</i>&nbsp;}
+<i>13</i>&nbsp;    @Override
+<i>14</i>&nbsp;    public void displayStrategy() {
+<b class="fc"><i>15</i>&nbsp;        String input = consoleInputOutput.getInputAsString();</b>
+<b class="fc"><i>16</i>&nbsp;        boolean success=books.returnBook(input);</b>
+<b class="fc"><i>17</i>&nbsp;        if (success)</b>
+<i>18</i>&nbsp;        {
+<b class="fc"><i>19</i>&nbsp;            consoleInputOutput.print(Messages.SUCCESS_RETURN);</b>
+<i>20</i>&nbsp;        }
+<i>21</i>&nbsp;        else
+<b class="fc"><i>22</i>&nbsp;            consoleInputOutput.print(Messages.UNSUCCESSFUL_RETURN);</b>
+<b class="fc"><i>23</i>&nbsp;    }</b>
+<i>24</i>&nbsp;}
 </div>
 </div>
 

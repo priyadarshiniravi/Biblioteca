@@ -50,12 +50,12 @@
     100%
   </span>
   <span class="absValue">
-    (9/ 9)
+    (11/ 11)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">ConsoleInputOutput$$EnhancerByMockitoWithCGLIB$$cf21f8cc</td>
+    <td class="name">ConsoleInputOutput$$EnhancerByMockitoWithCGLIB$$e3073462</td>
   </tr>
 <tr>
   <td class="name"><strong>total</strong></td>
@@ -72,7 +72,7 @@
     100%
   </span>
   <span class="absValue">
-    (9/ 9)
+    (11/ 11)
   </span>
 </td>
 </tr>
@@ -84,37 +84,41 @@
 
 <div class="sourceCode"><i>1</i>&nbsp;package com.twu.biblioteca;
 <i>2</i>&nbsp;
-<i>3</i>&nbsp;import java.util.Scanner;
-<i>4</i>&nbsp;
-<i>5</i>&nbsp;public class ConsoleInputOutput {
-<i>6</i>&nbsp;    private Scanner consoleInput;
-<i>7</i>&nbsp;
-<b class="fc"><i>8</i>&nbsp;    public ConsoleInputOutput(Scanner consoleInput) {</b>
-<b class="fc"><i>9</i>&nbsp;        this.consoleInput = consoleInput;</b>
-<b class="fc"><i>10</i>&nbsp;    }</b>
-<i>11</i>&nbsp;
-<i>12</i>&nbsp;    public int getInputAsNumber() {
-<i>13</i>&nbsp;
-<b class="fc"><i>14</i>&nbsp;        int option = consoleInput.nextInt();</b>
-<b class="fc"><i>15</i>&nbsp;        return option;</b>
-<i>16</i>&nbsp;    }
-<i>17</i>&nbsp;
-<i>18</i>&nbsp;    public String getInputAsString() {
-<b class="fc"><i>19</i>&nbsp;        String input=consoleInput.nextLine();</b>
-<b class="fc"><i>20</i>&nbsp;        return input;</b>
-<i>21</i>&nbsp;    }
-<i>22</i>&nbsp;
-<i>23</i>&nbsp;    public void print(String output) {
-<b class="fc"><i>24</i>&nbsp;        System.out.println(output);</b>
-<i>25</i>&nbsp;
-<b class="fc"><i>26</i>&nbsp;    }</b>
-<i>27</i>&nbsp;}
+<i>3</i>&nbsp;import java.util.InputMismatchException;
+<i>4</i>&nbsp;import java.util.Scanner;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public class ConsoleInputOutput {
+<i>7</i>&nbsp;    private Scanner consoleInput;
+<i>8</i>&nbsp;
+<b class="fc"><i>9</i>&nbsp;    public ConsoleInputOutput(Scanner consoleInput) {</b>
+<b class="fc"><i>10</i>&nbsp;        this.consoleInput = consoleInput;</b>
+<b class="fc"><i>11</i>&nbsp;    }</b>
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;    public int getInputAsNumber() {
+<i>14</i>&nbsp;        try {
+<b class="fc"><i>15</i>&nbsp;            return consoleInput.nextInt();</b>
+<b class="fc"><i>16</i>&nbsp;        }catch (InputMismatchException e)</b>
+<b class="fc"><i>17</i>&nbsp;        {   consoleInput.nextLine();</b>
+<b class="fc"><i>18</i>&nbsp;            return -1;</b>
+<i>19</i>&nbsp;        }
+<i>20</i>&nbsp;    }
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    public String getInputAsString() {
+<b class="fc"><i>23</i>&nbsp;        String input=consoleInput.nextLine();</b>
+<b class="fc"><i>24</i>&nbsp;        return input;</b>
+<i>25</i>&nbsp;    }
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    public void print(String output) {
+<b class="fc"><i>28</i>&nbsp;        System.out.println(output);</b>
+<i>29</i>&nbsp;
+<b class="fc"><i>30</i>&nbsp;    }</b>
+<i>31</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2015-06-13 21:53</div>
+    <div style="float:right;">generated on 2015-06-15 00:44</div>
 </div>
 </body>
 </html>

@@ -15,7 +15,7 @@ public class CheckoutBookTest {
         Books books=mock(Books.class);
         CheckoutBook checkoutBook=new CheckoutBook(consoleInputOutput,books);
 
-        checkoutBook.displayStrategy();
+        checkoutBook.action();
 
         verify(consoleInputOutput,times(1)).getInputAsString();
 
@@ -31,7 +31,7 @@ public class CheckoutBookTest {
                 .thenReturn(true);
         CheckoutBook checkoutBook=new CheckoutBook(consoleInputOutput,books);
 
-        checkoutBook.displayStrategy();
+        checkoutBook.action();
 
         verify(consoleInputOutput,times(1)).print(Messages.SUCCESS_CHECKOUT);
 
@@ -47,7 +47,7 @@ public class CheckoutBookTest {
                 .thenReturn(false);
         CheckoutBook checkoutBook=new CheckoutBook(consoleInputOutput,books);
 
-        checkoutBook.displayStrategy();
+        checkoutBook.action();
 
         verify(consoleInputOutput,times(1)).print(Messages.UNSUCCESS_CHECKOUT);
 

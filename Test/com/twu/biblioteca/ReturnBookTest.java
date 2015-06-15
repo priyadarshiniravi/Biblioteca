@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
 import static org.mockito.Matchers.anyString;
@@ -14,7 +13,7 @@ public class ReturnBookTest {
         Books books=mock(Books.class);
         CheckoutBook checkoutBook=new CheckoutBook(consoleInputOutput,books);
 
-        checkoutBook.displayStrategy();
+        checkoutBook.action();
 
         verify(consoleInputOutput,times(1)).getInputAsString();
 
@@ -30,7 +29,7 @@ public class ReturnBookTest {
                 .thenReturn(false);
         ReturnBook returnBook=new ReturnBook(consoleInputOutput,books);
 
-        returnBook.displayStrategy();
+        returnBook.action();
 
         verify(consoleInputOutput,times(1)).print(Messages.UNSUCCESSFUL_RETURN);
 
@@ -46,7 +45,7 @@ public class ReturnBookTest {
                 .thenReturn(true);
         ReturnBook returnBook=new ReturnBook(consoleInputOutput,books);
 
-        returnBook.displayStrategy();
+        returnBook.action();
 
         verify(consoleInputOutput,times(1)).print(Messages.SUCCESS_RETURN);
 

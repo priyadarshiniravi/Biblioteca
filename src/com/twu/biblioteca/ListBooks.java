@@ -10,7 +10,7 @@ public class ListBooks implements Options {
     }
 
     @Override
-    public void displayStrategy() {
+    public void action() {
         consoleInputOutput.print(books.toString());
 
     }

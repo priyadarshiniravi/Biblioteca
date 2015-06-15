@@ -20,7 +20,7 @@ public class Menu {
             if (option == null) {
                 consoleInputOutput.print(Messages.INVALID_MESSAGE);
             } else {
-                option.displayStrategy();
+                option.action();
             }
             consoleInputOutput.print(menuOption.toString());
             input = consoleInputOutput.getInputAsNumber();

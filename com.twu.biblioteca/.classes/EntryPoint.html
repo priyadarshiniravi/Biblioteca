@@ -61,7 +61,7 @@
     0%
   </span>
   <span class="absValue">
-    (0/ 22)
+    (0/ 33)
   </span>
 </td>
 </tr>
@@ -76,41 +76,52 @@
 <i>2</i>&nbsp;
 <i>3</i>&nbsp;import java.util.ArrayList;
 <i>4</i>&nbsp;import java.util.HashMap;
-<i>5</i>&nbsp;import java.util.Scanner;
-<i>6</i>&nbsp;
-<b class="nc"><i>7</i>&nbsp;public class EntryPoint {</b>
-<i>8</i>&nbsp;    public static void main(String args[]) {
-<b class="nc"><i>9</i>&nbsp;        ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(new Scanner(System.in));</b>
-<b class="nc"><i>10</i>&nbsp;        HashMap&lt;Integer, Options&gt; menuOptions = new HashMap&lt;&gt;();</b>
-<b class="nc"><i>11</i>&nbsp;        ArrayList&lt;Book&gt; bookList = new ArrayList&lt;&gt;();</b>
-<b class="nc"><i>12</i>&nbsp;        Book bookone = new Book(&quot;C++&quot;, &quot;Jones&quot;, 1992);</b>
-<b class="nc"><i>13</i>&nbsp;        bookList.add(bookone);</b>
-<b class="nc"><i>14</i>&nbsp;        Book booktwo = new Book(&quot;Java&quot;, &quot;Charles&quot;, 1993);</b>
-<b class="nc"><i>15</i>&nbsp;        bookList.add(booktwo);</b>
-<i>16</i>&nbsp;
-<b class="nc"><i>17</i>&nbsp;        HashMap&lt;Book,Boolean&gt; booksDetail=new HashMap&lt;&gt;();</b>
-<b class="nc"><i>18</i>&nbsp;        booksDetail.put(bookone,true);</b>
-<b class="nc"><i>19</i>&nbsp;        booksDetail.put(booktwo,false);</b>
-<i>20</i>&nbsp;
-<b class="nc"><i>21</i>&nbsp;        Books books = new Books(bookList);</b>
-<b class="nc"><i>22</i>&nbsp;        ListBooks listBooks = new ListBooks(consoleInputOutput, books);</b>
-<b class="nc"><i>23</i>&nbsp;        menuOptions.put(1, listBooks);</b>
-<b class="nc"><i>24</i>&nbsp;        Parser parser = new Parser(menuOptions);</b>
-<b class="nc"><i>25</i>&nbsp;        ArrayList&lt;String&gt; options = new ArrayList&lt;&gt;();</b>
-<b class="nc"><i>26</i>&nbsp;        options.add(&quot;Display Books&quot;);</b>
-<b class="nc"><i>27</i>&nbsp;        options.add(&quot;Exit&quot;);</b>
-<b class="nc"><i>28</i>&nbsp;        MenuOption menuOption = new MenuOption(options);</b>
-<b class="nc"><i>29</i>&nbsp;        Menu menu = new Menu(consoleInputOutput, parser, menuOption);</b>
-<b class="nc"><i>30</i>&nbsp;        App app = new App(consoleInputOutput, menu);</b>
-<b class="nc"><i>31</i>&nbsp;        app.start();</b>
-<i>32</i>&nbsp;    }
-<i>33</i>&nbsp;}
+<i>5</i>&nbsp;import java.util.LinkedHashMap;
+<i>6</i>&nbsp;import java.util.Scanner;
+<i>7</i>&nbsp;
+<b class="nc"><i>8</i>&nbsp;public class EntryPoint {</b>
+<i>9</i>&nbsp;    public static void main(String args[]) {
+<b class="nc"><i>10</i>&nbsp;        ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(new Scanner(System.in));</b>
+<b class="nc"><i>11</i>&nbsp;        HashMap&lt;Integer, Options&gt; menuOptions = new HashMap&lt;&gt;();</b>
+<b class="nc"><i>12</i>&nbsp;        ArrayList&lt;Book&gt; bookList = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>13</i>&nbsp;        Book bookone = new Book(&quot;C++&quot;, &quot;Jones&quot;, 1992);</b>
+<b class="nc"><i>14</i>&nbsp;        bookList.add(bookone);</b>
+<b class="nc"><i>15</i>&nbsp;        Book booktwo = new Book(&quot;Java&quot;, &quot;Charles&quot;, 1993);</b>
+<b class="nc"><i>16</i>&nbsp;        bookList.add(booktwo);</b>
+<b class="nc"><i>17</i>&nbsp;        Book bookthree = new Book(&quot;J2EE&quot;, &quot;Charles&quot;, 1993);</b>
+<b class="nc"><i>18</i>&nbsp;        bookList.add(bookthree);</b>
+<i>19</i>&nbsp;
+<b class="nc"><i>20</i>&nbsp;        LinkedHashMap&lt;Book, Boolean&gt; booksDetail = new LinkedHashMap&lt;&gt;();</b>
+<b class="nc"><i>21</i>&nbsp;        booksDetail.put(bookone, true);</b>
+<b class="nc"><i>22</i>&nbsp;        booksDetail.put(booktwo, false);</b>
+<b class="nc"><i>23</i>&nbsp;        booksDetail.put(bookthree,true);</b>
+<b class="nc"><i>24</i>&nbsp;        BookParser bookParser=new BookParser();</b>
+<b class="nc"><i>25</i>&nbsp;        Books books = new Books(booksDetail, bookParser);</b>
+<b class="nc"><i>26</i>&nbsp;        ListBooks listBooks = new ListBooks(consoleInputOutput, books);</b>
+<b class="nc"><i>27</i>&nbsp;        ConsoleInputOutput consoleInputOutput1 = new ConsoleInputOutput(new Scanner(System.in));</b>
+<b class="nc"><i>28</i>&nbsp;        CheckoutBook checkoutbook=new CheckoutBook(consoleInputOutput1,books);</b>
+<b class="nc"><i>29</i>&nbsp;        ReturnBook returnBook=new ReturnBook(consoleInputOutput1,books);</b>
+<b class="nc"><i>30</i>&nbsp;        menuOptions.put(1, listBooks);</b>
+<b class="nc"><i>31</i>&nbsp;        menuOptions.put(3, checkoutbook);</b>
+<b class="nc"><i>32</i>&nbsp;        menuOptions.put(4,returnBook);</b>
+<b class="nc"><i>33</i>&nbsp;        Parser parser = new Parser(menuOptions);</b>
+<b class="nc"><i>34</i>&nbsp;        ArrayList&lt;String&gt; options = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>35</i>&nbsp;        options.add(&quot;Display Books&quot;);</b>
+<b class="nc"><i>36</i>&nbsp;        options.add(&quot;Exit&quot;);</b>
+<b class="nc"><i>37</i>&nbsp;        options.add(&quot;Checkout&quot;);</b>
+<b class="nc"><i>38</i>&nbsp;        options.add(&quot;Return&quot;);</b>
+<b class="nc"><i>39</i>&nbsp;        MenuOption menuOption = new MenuOption(options);</b>
+<b class="nc"><i>40</i>&nbsp;        Menu menu = new Menu(consoleInputOutput, parser, menuOption);</b>
+<b class="nc"><i>41</i>&nbsp;        App app = new App(consoleInputOutput, menu);</b>
+<b class="nc"><i>42</i>&nbsp;        app.start();</b>
+<i>43</i>&nbsp;    }
+<i>44</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2015-06-13 21:53</div>
+    <div style="float:right;">generated on 2015-06-15 00:44</div>
 </div>
 </body>
 </html>
