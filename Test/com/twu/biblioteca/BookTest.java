@@ -49,13 +49,6 @@ public class BookTest {
     }
 
     @Test
-    public void equalityShouldReturnFalseOnPassingOtherObject() {
-        AvailableBook bookOne = new AvailableBook("C++", "author", 1995);
-
-        assertFalse(bookOne.equals(new String("Hello, World")));
-    }
-
-    @Test
     public void whenTwoObjectsAreEqualThenTheirHashCodeMustBeEqual() {
         AvailableBook bookOne = new AvailableBook("C++", "author", 1995);
         AvailableBook bookTwo = new AvailableBook("C++", "author", 1995);

@@ -19,6 +19,7 @@ public class Library {
 
     public synchronized Book returnBook(String title) {
         Book book = search(title);
+        books.remove(book);
         books.add(book.returnBook());
         return book.returnBook();
     }
