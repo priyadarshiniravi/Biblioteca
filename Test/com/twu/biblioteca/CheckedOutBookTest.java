@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import static com.twu.biblioteca.Messages.*;
 import static org.junit.Assert.assertEquals;
 
 public class CheckedOutBookTest {
@@ -27,4 +28,12 @@ public class CheckedOutBookTest {
 
     }
 
+    @Test
+    public void shouldBeSuccessCheckoutInCheckoutBook() {
+        CheckedOutBook book = new CheckedOutBook("C", "XYZ", 1998);
+
+        String actualMessage = book.checkoutMessage();
+
+        assertEquals(SUCCESS_CHECKOUT,actualMessage);
+    }
 }

@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 
 
+import static com.twu.biblioteca.Messages.*;
+
 public class CheckedOutBook extends Book {
 
     public CheckedOutBook(String name, String author, int yearOfPublication) {
@@ -19,6 +21,11 @@ public class CheckedOutBook extends Book {
 
     public NullBook checkoutBook() {
         return NullBook.createNullBook();
+    }
+
+    public String checkoutMessage()
+    {
+        return SUCCESS_CHECKOUT;
     }
 
 }
