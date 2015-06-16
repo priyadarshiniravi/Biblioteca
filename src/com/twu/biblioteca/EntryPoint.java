@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Scanner;
 
 public class EntryPoint {
@@ -17,12 +16,14 @@ public class EntryPoint {
         Book bookthree = new Book("J2EE", "Charles", 1993);
         bookList.add(bookthree);
 
-        LinkedHashMap<Book, Boolean> booksDetail = new LinkedHashMap<>();
-        booksDetail.put(bookone, true);
-        booksDetail.put(booktwo, false);
-        booksDetail.put(bookthree, true);
+        ArrayList<Book> availableBooks = new ArrayList<>();
+        availableBooks.add(bookone);
+        availableBooks.add(bookthree);
+        ArrayList<Book> checkoutBooks = new ArrayList<>();
+        checkoutBooks.add(booktwo);
+
         BookParser bookParser = new BookParser();
-        Library library = new Library(booksDetail, bookParser);
+        Library library = new Library(availableBooks,checkoutBooks);
         ListBooks listBooks = new ListBooks(consoleInputOutput, library);
         ConsoleInputOutput consoleInputOutput1 = new ConsoleInputOutput(new Scanner(System.in));
         CheckoutBook checkoutbook = new CheckoutBook(consoleInputOutput1, library);

@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 import static junit.framework.TestCase.assertEquals;
@@ -12,13 +13,16 @@ public class LibraryTest {
     @Test
     public void shouldBeBooksDetailList() {
 
-        Book firstBookStub = new Book("Java", "Jones", 1992);
-        Book secondBookStub = new Book("OOPs", "Patric", 1992);
-        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
-        bookDetailsList.put(firstBookStub, true);
-        bookDetailsList.put(secondBookStub, true);
-        BookParser parser = new BookParser();
-        Library library = new Library(bookDetailsList, parser);
+        Book firstBook = new Book("Java", "Jones", 1992);
+        Book secondBook = new Book("OOPs", "Patric", 1992);
+
+        ArrayList<Book> availableBooks = new ArrayList<>();
+        ArrayList<Book> checkoutBooks = new ArrayList<>();
+        availableBooks.add(firstBook);
+        availableBooks.add(secondBook);
+
+
+        Library library = new Library(availableBooks, checkoutBooks);
 
         String bookList = library.toString();
 
@@ -32,11 +36,13 @@ public class LibraryTest {
         Book firstBook = new Book("Java", "Jones", 1992);
         Book secondBook = new Book("C", "Jones", 1995);
 
-        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
-        bookDetailsList.put(firstBook, true);
-        bookDetailsList.put(secondBook, false);
-        BookParser parser = new BookParser();
-        Library library = new Library(bookDetailsList, parser);
+        ArrayList<Book> availableBooks = new ArrayList<>();
+        ArrayList<Book> checkoutBooks = new ArrayList<>();
+        availableBooks.add(firstBook);
+        checkoutBooks.add(secondBook);
+
+
+        Library library = new Library(availableBooks, checkoutBooks);
 
         String bookList = library.toString();
 
@@ -48,16 +54,21 @@ public class LibraryTest {
         Book book = new Book("C", "Jones", 1995);
         Book firstBookStub = mock(Book.class);
         Book secondBookStub = mock(Book.class);
-        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
-        bookDetailsList.put(firstBookStub, true);
-        bookDetailsList.put(secondBookStub, false);
-        bookDetailsList.put(book, true);
-        BookParser parser = mock(BookParser.class);
-        when(parser.parse("any"))
-                .thenReturn(book);
-        Library library = new Library(bookDetailsList, parser);
+//        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
+//        bookDetailsList.put(firstBookStub, true);
+//        bookDetailsList.put(secondBookStub, false);
+//        bookDetailsList.put(book, true);
 
-        boolean success = library.checkout("any");
+        ArrayList<Book> availableBooks = new ArrayList<>();
+        ArrayList<Book> checkoutBooks = new ArrayList<>();
+        availableBooks.add(firstBookStub);
+        checkoutBooks.add(secondBookStub);
+        availableBooks.add(book);
+
+
+        Library library = new Library(availableBooks, checkoutBooks);
+
+        boolean success = library.checkout("C");
 
         assertEquals(true, success);
     }
@@ -67,14 +78,18 @@ public class LibraryTest {
         Book book = new Book("C", "Jones", 1995);
         Book firstBookStub = mock(Book.class);
         Book secondBookStub = mock(Book.class);
-        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
-        bookDetailsList.put(firstBookStub, true);
-        bookDetailsList.put(secondBookStub, false);
-        bookDetailsList.put(book, false);
-        BookParser parser = mock(BookParser.class);
-        when(parser.parse("any"))
-                .thenReturn(book);
-        Library library = new Library(bookDetailsList, parser);
+//        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
+//        bookDetailsList.put(firstBookStub, true);
+//        bookDetailsList.put(secondBookStub, false);
+//        bookDetailsList.put(book, false);
+        ArrayList<Book> availableBooks = new ArrayList<>();
+        ArrayList<Book> checkoutBooks = new ArrayList<>();
+        availableBooks.add(firstBookStub);
+        checkoutBooks.add(secondBookStub);
+        checkoutBooks.add(book);
+
+
+        Library library = new Library(availableBooks, checkoutBooks);
 
         boolean success = library.checkout("any");
 
@@ -86,16 +101,17 @@ public class LibraryTest {
         Book book = new Book("C", "Jones", 1995);
         Book firstBookStub = mock(Book.class);
         Book secondBookStub = mock(Book.class);
-        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
-        bookDetailsList.put(firstBookStub, true);
-        bookDetailsList.put(secondBookStub, false);
-        bookDetailsList.put(book, false);
-        BookParser parser = mock(BookParser.class);
-        when(parser.parse("any"))
-                .thenReturn(book);
-        Library library = new Library(bookDetailsList, parser);
-
-        boolean success = library.returnBook("any");
+//        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
+//        bookDetailsList.put(firstBookStub, true);
+//        bookDetailsList.put(secondBookStub, false);
+//        bookDetailsList.put(book, false);
+        ArrayList<Book> availableBooks = new ArrayList<>();
+        ArrayList<Book> checkoutBooks = new ArrayList<>();
+        availableBooks.add(firstBookStub);
+        checkoutBooks.add(secondBookStub);
+        checkoutBooks.add(book);
+        Library library = new Library(availableBooks, checkoutBooks);
+        boolean success = library.returnBook("C");
 
         assertEquals(true, success);
     }
@@ -105,14 +121,16 @@ public class LibraryTest {
         Book book = new Book("C", "Jones", 1995);
         Book firstBookStub = mock(Book.class);
         Book secondBookStub = mock(Book.class);
-        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
-        bookDetailsList.put(firstBookStub, true);
-        bookDetailsList.put(secondBookStub, false);
-        bookDetailsList.put(book, true);
-        BookParser parser = mock(BookParser.class);
-        when(parser.parse("any"))
-                .thenReturn(book);
-        Library library = new Library(bookDetailsList, parser);
+//        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
+//        bookDetailsList.put(firstBookStub, true);
+//        bookDetailsList.put(secondBookStub, false);
+//        bookDetailsList.put(book, true);
+        ArrayList<Book> availableBooks = new ArrayList<>();
+        ArrayList<Book> checkoutBooks = new ArrayList<>();
+        availableBooks.add(firstBookStub);
+        checkoutBooks.add(secondBookStub);
+        availableBooks.add(book);
+        Library library = new Library(availableBooks, checkoutBooks);
 
         boolean success = library.returnBook("any");
 

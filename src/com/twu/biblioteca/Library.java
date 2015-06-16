@@ -1,22 +1,24 @@
 package com.twu.biblioteca;
 
 
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
 
 public class Library {
-    private LinkedHashMap<Book, Boolean> bookBooleanHashMap = new LinkedHashMap<>();
-    private BookParser parser;
+    private ArrayList<Book> availableBooks;
+    private ArrayList<Book> checkoutBooks;
 
 
-    public Library(LinkedHashMap<Book, Boolean> bookBooleanHashMap, BookParser parser) {
-        this.bookBooleanHashMap = bookBooleanHashMap;
-        this.parser = parser;
+    public Library(ArrayList<Book> availableBooks, ArrayList<Book> checkoutBooks) {
+        this.availableBooks = availableBooks;
+        this.checkoutBooks = checkoutBooks;
+
     }
 
     public boolean checkout(String title) {
-        for (Book book : bookBooleanHashMap.keySet()) {
-            if (bookBooleanHashMap.get(book) && book.equals(parser.parse(title))) {
-                bookBooleanHashMap.put(book, false);
+        for (Book book : availableBooks) {
+            if (book.equals(new Book(title, "", 0))) {
+                availableBooks.remove(book);
+                checkoutBooks.add(book);
                 return true;
             }
         }
@@ -24,9 +26,10 @@ public class Library {
     }
 
     public boolean returnBook(String title) {
-        for (Book book : bookBooleanHashMap.keySet()) {
-            if (!bookBooleanHashMap.get(book) && book.equals(parser.parse(title))) {
-                bookBooleanHashMap.put(book, true);
+        for (Book book : checkoutBooks) {
+            if (book.equals(new Book(title, "", 0))) {
+                checkoutBooks.remove(book);
+                availableBooks.add(book);
                 return true;
             }
         }
@@ -36,9 +39,8 @@ public class Library {
     @Override
     public String toString() {
         BooksPresenter booksPresenter = new BooksPresenter(new String());
-        for (Book book : bookBooleanHashMap.keySet()) {
-            if (bookBooleanHashMap.get(book))
-                book.appendBooks(booksPresenter);
+        for (Book book : availableBooks) {
+            book.appendBooks(booksPresenter);
         }
         return booksPresenter.toString();
     }
