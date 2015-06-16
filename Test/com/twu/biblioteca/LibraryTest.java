@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 import static junit.framework.TestCase.assertEquals;
@@ -18,11 +17,12 @@ public class LibraryTest {
         HashSet<Book> books = new HashSet<>();
         books.add(firstBook);
         books.add(secondBook);
+        HashSet<Movie> movies=new HashSet<>();
 
 
-        Library library = new Library(books);
+        Library library = new Library(books, movies);
 
-        String bookList = library.toString();
+        String bookList = library.formattedBookString();
 
         assertEquals("OOPs                          |Patric                        |1992\n" +
                 "Java                          |Jones                         |1992\n", bookList);
@@ -38,11 +38,12 @@ public class LibraryTest {
         HashSet<Book> books = new HashSet<>();
         books.add(firstBook);
         books.add(secondBook);
+        HashSet<Movie> movies=new HashSet<>();
 
 
-        Library library = new Library(books);
+        Library library = new Library(books, movies);
 
-        String bookList = library.toString();
+        String bookList = library.formattedBookString();
 
         assertEquals("Java                          |Jones                         |1992\n", bookList);
     }
@@ -56,11 +57,12 @@ public class LibraryTest {
         books.add(firstBookStub);
         books.add(secondBookStub);
         books.add(book);
+        HashSet<Movie> movies=new HashSet<>();
 
 
-        Library library = new Library(books);
+        Library library = new Library(books, movies);
 
-        Book success = library.checkout("C");
+        Book success = library.checkoutBook("C");
 
         assertEquals(Messages.SUCCESS_CHECKOUT, success.checkoutMessage());
     }
@@ -71,15 +73,16 @@ public class LibraryTest {
         AvailableBook firstBookStub = mock(AvailableBook.class);
         CheckedOutBook secondBookStub = mock(CheckedOutBook.class);
         HashSet<Book> books = new HashSet<>();
+        HashSet<Movie> movies=new HashSet<>();
 
         books.add(firstBookStub);
         books.add(secondBookStub);
         books.add(book);
 
 
-        Library library = new Library(books);
+        Library library = new Library(books, movies);
 
-        Book success = library.checkout("any");
+        Book success = library.checkoutBook("any");
 
         assertEquals(Messages.UNSUCCESS_CHECKOUT, success.checkoutMessage());
     }
@@ -89,7 +92,9 @@ public class LibraryTest {
         CheckedOutBook book = new CheckedOutBook("C", "Jones", 1995);
         HashSet<Book> books=new HashSet<>();
         books.add(book);
-        Library library = new Library(books);
+        HashSet<Movie> movies=new HashSet<>();
+
+        Library library = new Library(books, movies);
         Book success = library.returnBook("C");
 
         assertEquals(Messages.SUCCESS_RETURN, success.returnMessage());
@@ -104,7 +109,8 @@ public class LibraryTest {
         books.add(firstBookStub);
         books.add(secondBookStub);
         books.add(book);
-        Library library = new Library(books);
+        HashSet<Movie> movies=new HashSet<>();
+        Library library = new Library(books, movies);
 
         Book success = library.returnBook("any");
 

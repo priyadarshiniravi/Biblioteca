@@ -11,7 +11,7 @@ public class CheckoutOptionTest {
     public void ShouldTakeInputInvalid() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
-        when(library.checkout(anyString()))
+        when(library.checkoutBook(anyString()))
                 .thenReturn(new NullBook("","",0));
         CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, library);
 
@@ -26,7 +26,7 @@ public class CheckoutOptionTest {
     public void shouldBeSuccessfulCheckout() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
-        when(library.checkout(anyString()))
+        when(library.checkoutBook(anyString()))
                 .thenReturn(new CheckedOutBook("","",0));
         CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, library);
 
@@ -41,7 +41,7 @@ public class CheckoutOptionTest {
     public void shouldBeUnsuccessfulCheckout() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
-        when(library.checkout(anyString()))
+        when(library.checkoutBook(anyString()))
                 .thenReturn(new NullBook(null,null,0));
         CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, library);
 

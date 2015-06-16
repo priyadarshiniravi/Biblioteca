@@ -9,7 +9,7 @@ public class ListBooksTest {
     public void shouldCheckBookDisplayStrategy() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
-        when(library.toString())
+        when(library.formattedBookString())
                 .thenReturn("Books list");
         ListBooks listBooks = new ListBooks(consoleInputOutput, library);
 

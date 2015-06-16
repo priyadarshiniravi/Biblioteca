@@ -13,7 +13,7 @@ public class CheckoutOption implements Options {
     @Override
     public void action() {
         String input = consoleInputOutput.getInputAsString();
-        Book book = library.checkout(input);
+        Book book = library.checkoutBook(input);
         consoleInputOutput.print(book.checkoutMessage());
     }
 }

@@ -5,12 +5,14 @@ import java.util.HashSet;
 
 public class Library {
     private HashSet<Book> books;
+    private HashSet<Movie> movies;
 
-    public Library(HashSet<Book> books) {
+    public Library(HashSet<Book> books, HashSet<Movie> movies) {
         this.books = books;
+        this.movies = movies;
     }
 
-    public synchronized Book checkout(String title) {
+    public synchronized Book checkoutBook(String title) {
         Book book = search(title);
         books.remove(book);
         books.add(book.checkoutBook());
@@ -24,8 +26,7 @@ public class Library {
         return book.returnBook();
     }
 
-    @Override
-    public String toString() {
+    public String formattedBookString() {
         BooksPresenter booksPresenter = new BooksPresenter(new String());
         for (Book book:books) {
             if(book instanceof AvailableBook) {
