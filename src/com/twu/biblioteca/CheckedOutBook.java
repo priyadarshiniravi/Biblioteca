@@ -10,11 +10,15 @@ public class CheckedOutBook extends Book {
 
     public static CheckedOutBook createCheckoutBook(AvailableBook availableBook) {
 
-        return new CheckedOutBook(availableBook.name,availableBook.author,availableBook.yearOfPublication);
+        return new CheckedOutBook(availableBook.name, availableBook.author, availableBook.yearOfPublication);
     }
 
     public AvailableBook returnBook() {
         return AvailableBook.createAvailableBook(this);
+    }
+
+    public NullBook checkoutBook() {
+        return NullBook.createNullBook();
     }
 
 }

@@ -16,4 +16,15 @@ public class CheckedOutBookTest {
 
     }
 
+    @Test
+    public void shouldBeNullBookForCheckingOutCheckedOutBook() {
+        CheckedOutBook book = new CheckedOutBook("C", "XYZ", 1998);
+
+        NullBook actualBookAvailable = book.checkoutBook();
+        NullBook expectedBook = new NullBook(null, null, 0);
+
+        assertEquals(expectedBook, actualBookAvailable);
+
+    }
+
 }
