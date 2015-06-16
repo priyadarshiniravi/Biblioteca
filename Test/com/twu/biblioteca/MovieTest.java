@@ -9,7 +9,7 @@ public class MovieTest {
     @Test
     public void shouldAppendMovieToFormattedMovies() {
         MoviesPresenter moviesPresenter = mock(MoviesPresenter.class);
-        Movie movie=new Movie("Minions", 2015, "xyz", 10);
+        CheckedOutMovie movie=new CheckedOutMovie("Minions", 2015, "xyz", 10);
 
         movie.appendToMovies(moviesPresenter);
 

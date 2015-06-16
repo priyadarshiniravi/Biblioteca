@@ -17,14 +17,14 @@ public class Library {
     }
 
     public synchronized Book checkoutBook(String title) {
-        Book book = search(title);
+        Book book = BookSearch(title);
         books.remove(book);
         books.add(book.checkoutBook());
         return book.checkoutBook();
     }
 
     public synchronized Book returnBook(String title) {
-        Book book = search(title);
+        Book book = BookSearch(title);
         books.remove(book);
         books.add(book.returnBook());
         return book.returnBook();
@@ -39,7 +39,8 @@ public class Library {
         return booksPresenter.toString();
     }
 
-    private Book search(String title) {
+
+    private Book BookSearch(String title) {
         for (Book book : books) {
             if (book.isTitleMatch(title))
                 return book;

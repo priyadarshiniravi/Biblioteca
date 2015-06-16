@@ -21,6 +21,7 @@ public class AvailableBook extends Book {
     public static AvailableBook createAvailableBook(CheckedOutBook checkedOutBook) {
         return new AvailableBook(checkedOutBook.name, checkedOutBook.author, checkedOutBook.yearOfPublication);
     }
+
     @Override
     public String returnMessage() {
         return SUCCESS_RETURN;

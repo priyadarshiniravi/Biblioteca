@@ -13,13 +13,13 @@ public class LibraryTest {
 
         AvailableBook firstBook = new AvailableBook("Java", "Jones", 1992);
         AvailableBook secondBook = new AvailableBook("OOPs", "Patric", 1992);
-        BooksPresenter booksPresenter=new BooksPresenter("");
-        MoviesPresenter moviesPresenter=new MoviesPresenter("");
+        BooksPresenter booksPresenter = new BooksPresenter("");
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
 
         HashSet<Book> books = new HashSet<>();
         books.add(firstBook);
         books.add(secondBook);
-        HashSet<Movie> movies=new HashSet<>();
+        HashSet<Movie> movies = new HashSet<>();
 
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
@@ -36,13 +36,13 @@ public class LibraryTest {
 
         AvailableBook firstBook = new AvailableBook("Java", "Jones", 1992);
         CheckedOutBook secondBook = new CheckedOutBook("C", "Jones", 1995);
-        BooksPresenter booksPresenter=new BooksPresenter("");
-        MoviesPresenter moviesPresenter=new MoviesPresenter("");
+        BooksPresenter booksPresenter = new BooksPresenter("");
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
 
         HashSet<Book> books = new HashSet<>();
         books.add(firstBook);
         books.add(secondBook);
-        HashSet<Movie> movies=new HashSet<>();
+        HashSet<Movie> movies = new HashSet<>();
 
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
@@ -61,9 +61,9 @@ public class LibraryTest {
         books.add(firstBookStub);
         books.add(secondBookStub);
         books.add(book);
-        HashSet<Movie> movies=new HashSet<>();
-        BooksPresenter booksPresenter=new BooksPresenter("");
-        MoviesPresenter moviesPresenter=new MoviesPresenter("");
+        HashSet<Movie> movies = new HashSet<>();
+        BooksPresenter booksPresenter = new BooksPresenter("");
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
 
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
@@ -79,9 +79,9 @@ public class LibraryTest {
         AvailableBook firstBookStub = mock(AvailableBook.class);
         CheckedOutBook secondBookStub = mock(CheckedOutBook.class);
         HashSet<Book> books = new HashSet<>();
-        HashSet<Movie> movies=new HashSet<>();
-        BooksPresenter booksPresenter=new BooksPresenter("");
-        MoviesPresenter moviesPresenter=new MoviesPresenter("");
+        HashSet<Movie> movies = new HashSet<>();
+        BooksPresenter booksPresenter = new BooksPresenter("");
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
 
         books.add(firstBookStub);
         books.add(secondBookStub);
@@ -98,11 +98,11 @@ public class LibraryTest {
     @Test
     public void shouldReturnIfBookIsCheckout() {
         CheckedOutBook book = new CheckedOutBook("C", "Jones", 1995);
-        HashSet<Book> books=new HashSet<>();
+        HashSet<Book> books = new HashSet<>();
         books.add(book);
-        HashSet<Movie> movies=new HashSet<>();
-        BooksPresenter booksPresenter=new BooksPresenter("");
-        MoviesPresenter moviesPresenter=new MoviesPresenter("");
+        HashSet<Movie> movies = new HashSet<>();
+        BooksPresenter booksPresenter = new BooksPresenter("");
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
         Book success = library.returnBook("C");
@@ -115,13 +115,13 @@ public class LibraryTest {
         AvailableBook book = new AvailableBook("C", "Jones", 1995);
         AvailableBook firstBookStub = mock(AvailableBook.class);
         CheckedOutBook secondBookStub = mock(CheckedOutBook.class);
-        HashSet<Book> books=new HashSet<>();
+        HashSet<Book> books = new HashSet<>();
         books.add(firstBookStub);
         books.add(secondBookStub);
         books.add(book);
-        HashSet<Movie> movies=new HashSet<>();
-        BooksPresenter booksPresenter=new BooksPresenter("");
-        MoviesPresenter moviesPresenter=new MoviesPresenter("");
+        HashSet<Movie> movies = new HashSet<>();
+        BooksPresenter booksPresenter = new BooksPresenter("");
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
 
         Book success = library.returnBook("any");
