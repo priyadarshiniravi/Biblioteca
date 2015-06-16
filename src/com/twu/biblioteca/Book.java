@@ -45,4 +45,9 @@ public class Book {
     public void appendBooks(BooksPresenter booksPresenter) {
         booksPresenter.addBook(name, author, yearOfPublication);
     }
+
+    public boolean isTitleMatch(String name)
+    {
+        return this.name.equals(name);
+    }
 }

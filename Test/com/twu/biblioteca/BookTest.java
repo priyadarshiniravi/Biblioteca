@@ -102,5 +102,14 @@ public class BookTest {
 
     }
 
+    @Test
+    public void shouldMatchTitle() {
+        Book book = new Book("C", "XYZ", 1992);
+
+        boolean actualCompare = book.isTitleMatch("C");
+
+        Assert.assertEquals(true, actualCompare);
+    }
+
 
 }
