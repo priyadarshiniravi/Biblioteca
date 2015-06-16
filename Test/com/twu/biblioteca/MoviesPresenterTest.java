@@ -10,9 +10,9 @@ public class MoviesPresenterTest {
         String FormattedMovies = "MyString";
         MoviesPresenter moviesPresenter = new MoviesPresenter(FormattedMovies);
 
-        String actualString=moviesPresenter.toString();
+        String actualString = moviesPresenter.toString();
 
-        assertEquals("MyString",actualString);
+        assertEquals("MyString", actualString);
     }
 
     @Test
@@ -22,8 +22,8 @@ public class MoviesPresenterTest {
 
         moviesPresenter.addMovie("Minions", 2015, "xyz", 10);
         moviesPresenter.addMovie("UP", 2013, "xyz", 9);
-        String actualFormattedMovies=moviesPresenter.toString();
+        String actualFormattedMovies = moviesPresenter.toString();
 
-        assertEquals("Minions,2015,xyz,10\nUP,2013,xyz,9\n",actualFormattedMovies);
+        assertEquals("Minions,2015,xyz,10\nUP,2013,xyz,9\n", actualFormattedMovies);
     }
 }
