@@ -8,6 +8,8 @@ import static junit.framework.TestCase.assertFalse;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 
 public class BookTest {
@@ -87,6 +89,17 @@ public class BookTest {
         Book bookTwo = new Book("C++", "author", 1995);
 
         assertThat(bookOne.hashCode(), is(equalTo(bookTwo.hashCode())));
+    }
+
+    @Test
+    public void shouldAppendBookToFormattedBooks() {
+        BooksPresenter booksPresenter = mock(BooksPresenter.class);
+        Book book = new Book("Minions", "xyz", 2010);
+
+        book.appendBooks(booksPresenter);
+
+        verify(booksPresenter).addBook("Minions", "xyz", 2010);
+
     }
 
 

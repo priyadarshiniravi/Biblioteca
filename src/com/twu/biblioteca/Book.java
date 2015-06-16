@@ -42,4 +42,7 @@ public class Book {
     }
 
 
+    public void appendBooks(BooksPresenter booksPresenter) {
+        booksPresenter.addBook(name,author,yearOfPublication);
+    }
 }
