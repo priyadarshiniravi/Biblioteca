@@ -16,4 +16,12 @@ public class MoviesPresenter {
     public String toString() {
         return formattedMovies;
     }
+
+    public void addMovie(String name, int year, String director, int rating) {
+        formattedMovies+=name+ ",";
+        formattedMovies+=year+ ",";
+        formattedMovies+=director+",";
+        formattedMovies+=rating;
+        formattedMovies+="\n";
+    }
 }
