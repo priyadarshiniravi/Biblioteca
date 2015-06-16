@@ -22,25 +22,7 @@ public class BookTest {
         assertEquals("Java,Jones,1992", bookdetails);
     }
 
-    @Test
-    public void shouldReturnLengthOfBookTitle() {
-        Book book = new Book("Java", "Jones", 1992);
 
-        int nameLength = book.nameLength();
-
-        Assert.assertEquals(4, nameLength);
-
-    }
-
-    @Test
-    public void shouldReturnLengthOfBookAuthor() {
-        Book book = new Book("Java", "Jones", 1992);
-
-        int nameLength = book.authorLength();
-
-        Assert.assertEquals(5, nameLength);
-
-    }
 
     @Test
     public void equalityShouldSatisfyReflexivity() {

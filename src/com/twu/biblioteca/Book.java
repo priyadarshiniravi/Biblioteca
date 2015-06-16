@@ -12,18 +12,12 @@ public class Book {
         this.yearOfPublication = yearOfPublication;
     }
 
-    public int nameLength() {
-        return name.length();
-    }
 
     @Override
     public String toString() {
         return name + "," + author + "," + yearOfPublication;
     }
 
-    public int authorLength() {
-        return author.length();
-    }
 
     @Override
     public boolean equals(Object o) {
