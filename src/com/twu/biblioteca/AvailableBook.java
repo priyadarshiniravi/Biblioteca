@@ -13,4 +13,7 @@ public class AvailableBook extends Book {
         return CheckedOutBook.createCheckoutBook(this);
     }
 
+    public static AvailableBook createAvailableBook(CheckedOutBook checkedOutBook) {
+        return new AvailableBook(checkedOutBook.name,checkedOutBook.author,checkedOutBook.yearOfPublication);
+    }
 }
