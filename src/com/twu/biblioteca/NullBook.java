@@ -6,8 +6,8 @@ public class NullBook extends Book {
         super(name, author, yearOfPublication);
     }
 
-    public static NullBook createNullBook(AvailableBook availableBook) {
+    public static NullBook createNullBook() {
 
-        return new NullBook(availableBook.name,availableBook.author,availableBook.yearOfPublication);
+        return new NullBook(null,null,0);
     }
 }

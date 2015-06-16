@@ -21,7 +21,7 @@ public class AvailableBookTest {
         AvailableBook book = new AvailableBook("C", "XYZ", 1998);
 
         NullBook actualBookCheckedOut = book.ReturnBook();
-        NullBook expectedBook = new NullBook("C", "XYZ", 1998);
+        NullBook expectedBook = new NullBook(null, null,0 );
 
         assertEquals(expectedBook, actualBookCheckedOut);
 

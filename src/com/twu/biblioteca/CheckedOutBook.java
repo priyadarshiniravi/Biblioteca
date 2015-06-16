@@ -16,4 +16,5 @@ public class CheckedOutBook extends Book {
     public AvailableBook returnBook() {
         return AvailableBook.createAvailableBook(this);
     }
+
 }

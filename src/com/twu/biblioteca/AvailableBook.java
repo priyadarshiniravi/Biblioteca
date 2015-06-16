@@ -11,7 +11,7 @@ public class AvailableBook extends Book {
     }
 
     public NullBook ReturnBook() {
-        return NullBook.createNullBook(this);
+        return NullBook.createNullBook();
     }
 
     public static AvailableBook createAvailableBook(CheckedOutBook checkedOutBook) {
