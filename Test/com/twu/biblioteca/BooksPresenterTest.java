@@ -21,7 +21,6 @@ public class BooksPresenterTest {
         String FormattedMovies = new String();
         BooksPresenter booksPresenter = new BooksPresenter(FormattedMovies);
 
-        booksPresenter.addBook("C++", "ABC", 1998);
         booksPresenter.addBook("UP", "xyz", 1987);
         String actualFormattedMovies = booksPresenter.toString();
 

@@ -15,8 +15,8 @@ public class BooksPresenter {
     }
 
     public void addBook(String name, String author, int year) {
-        formattedBooks = String.format("%-" + maximunNameLength + "s", name) + "|"
+        formattedBooks += String.format("%-" + maximunNameLength + "s", name) + "|"
                 + String.format("%-" + maximumAuthorLength + "s", author) + "|"
-                + String.format("%-" + "4" + "s", year);
+                + String.format("%-" + "4" + "s", year)+"\n";
     }
 }

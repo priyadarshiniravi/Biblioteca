@@ -35,11 +35,11 @@ public class Library {
 
     @Override
     public String toString() {
-        String bookList = new String();
+        BooksPresenter booksPresenter = new BooksPresenter(new String());
         for (Book book : bookBooleanHashMap.keySet()) {
             if (bookBooleanHashMap.get(book))
-                bookList += book.toString() + "\n";
+                book.appendBooks(booksPresenter);
         }
-        return bookList;
+        return booksPresenter.toString();
     }
 }

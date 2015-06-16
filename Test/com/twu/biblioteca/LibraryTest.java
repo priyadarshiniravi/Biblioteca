@@ -12,12 +12,8 @@ public class LibraryTest {
     @Test
     public void shouldBeBooksDetailList() {
 
-        Book firstBookStub = mock(Book.class);
-        Book secondBookStub = mock(Book.class);
-        when(firstBookStub.toString())
-                .thenReturn("Java,Jones,1992");
-        when(secondBookStub.toString())
-                .thenReturn("OOPs,Patric,1992");
+        Book firstBookStub = new Book("Java", "Jones", 1992);
+        Book secondBookStub = new Book("OOPs", "Patric", 1992);
         LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
         bookDetailsList.put(firstBookStub, true);
         bookDetailsList.put(secondBookStub, true);
@@ -26,28 +22,25 @@ public class LibraryTest {
 
         String bookList = library.toString();
 
-        assertEquals("Java,Jones,1992\nOOPs,Patric,1992\n", bookList);
+        assertEquals("Java                          |Jones                         |1992\nOOPs                          |Patric                        |1992\n", bookList);
     }
 
 
     @Test
     public void shouldBeBooksDetailListWhichAreNotCheckedOut() {
 
-        Book firstBookStub = mock(Book.class);
-        Book secondBookStub = mock(Book.class);
-        when(firstBookStub.toString())
-                .thenReturn("Java,Jones,1992");
-        when(secondBookStub.toString())
-                .thenReturn("OOPs,Patric,1992");
+        Book firstBook = new Book("Java", "Jones", 1992);
+        Book secondBook = new Book("C", "Jones", 1995);
+
         LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
-        bookDetailsList.put(firstBookStub, true);
-        bookDetailsList.put(secondBookStub, false);
+        bookDetailsList.put(firstBook, true);
+        bookDetailsList.put(secondBook, false);
         BookParser parser = new BookParser();
         Library library = new Library(bookDetailsList, parser);
 
         String bookList = library.toString();
 
-        assertEquals("Java,Jones,1992\n", bookList);
+        assertEquals("Java                          |Jones                         |1992\n", bookList);
     }
 
     @Test
