@@ -108,7 +108,7 @@ public class BookTest {
 
         boolean actualCompare = book.isTitleMatch("C");
 
-        Assert.assertEquals(true, actualCompare);
+        assertEquals(true, actualCompare);
     }
 
 
