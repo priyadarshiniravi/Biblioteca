@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
 

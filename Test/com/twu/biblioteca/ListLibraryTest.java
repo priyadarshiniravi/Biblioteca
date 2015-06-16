@@ -4,18 +4,18 @@ import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
-public class ListBooksTest {
+public class ListLibraryTest {
     @Test
     public void shouldCheckBookDisplayStrategy() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
         when(library.toString())
-                .thenReturn("Books list");
+                .thenReturn("Library list");
         ListBooks listBooks = new ListBooks(consoleInputOutput, library);
 
         listBooks.action();
 
-        verify(consoleInputOutput).print("Books list");
+        verify(consoleInputOutput).print("Library list");
 
 
     }

@@ -2,16 +2,16 @@ package com.twu.biblioteca;
 
 public class ListBooks implements Options {
     ConsoleInputOutput consoleInputOutput;
-    Books books;
+    Library library;
 
-    public ListBooks(ConsoleInputOutput consoleInputOutput, Books books) {
+    public ListBooks(ConsoleInputOutput consoleInputOutput, Library library) {
         this.consoleInputOutput = consoleInputOutput;
-        this.books = books;
+        this.library = library;
     }
 
     @Override
     public void action() {
-        consoleInputOutput.print(books.toString());
+        consoleInputOutput.print(library.toString());
 
     }
 }

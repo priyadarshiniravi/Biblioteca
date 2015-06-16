@@ -3,22 +3,20 @@ package com.twu.biblioteca;
 
 public class ReturnBook implements Options {
     ConsoleInputOutput consoleInputOutput;
-    Books books;
+    Library library;
 
-    public ReturnBook(ConsoleInputOutput consoleInputOutput, Books books) {
+    public ReturnBook(ConsoleInputOutput consoleInputOutput, Library library) {
         this.consoleInputOutput = consoleInputOutput;
-        this.books = books;
+        this.library = library;
     }
 
     @Override
     public void action() {
         String input = consoleInputOutput.getInputAsString();
-        boolean success=books.returnBook(input);
-        if (success)
-        {
+        boolean success = library.returnBook(input);
+        if (success) {
             consoleInputOutput.print(Messages.SUCCESS_RETURN);
-        }
-        else
+        } else
             consoleInputOutput.print(Messages.UNSUCCESSFUL_RETURN);
     }
 }

@@ -1,9 +1,6 @@
 package com.twu.biblioteca;
 
-import junit.framework.TestCase;
-import junit.framework.TestResult;
 import org.junit.Test;
-import org.mockito.internal.matchers.Equals;
 
 import java.util.ArrayList;
 

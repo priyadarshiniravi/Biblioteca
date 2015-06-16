@@ -13,14 +13,14 @@ public class ConsoleInputOutput {
     public int getInputAsNumber() {
         try {
             return consoleInput.nextInt();
-        }catch (InputMismatchException e)
-        {   consoleInput.nextLine();
+        } catch (InputMismatchException e) {
+            consoleInput.nextLine();
             return -1;
         }
     }
 
     public String getInputAsString() {
-        String input=consoleInput.nextLine();
+        String input = consoleInput.nextLine();
         return input;
     }
 
