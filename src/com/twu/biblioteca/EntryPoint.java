@@ -26,7 +26,7 @@ public class EntryPoint {
         Library library = new Library(availableBooks,checkoutBooks);
         ListBooks listBooks = new ListBooks(consoleInputOutput, library);
         ConsoleInputOutput consoleInputOutput1 = new ConsoleInputOutput(new Scanner(System.in));
-        CheckoutBook checkoutbook = new CheckoutBook(consoleInputOutput1, library);
+        CheckoutOption checkoutbook = new CheckoutOption(consoleInputOutput1, library);
         ReturnBook returnBook = new ReturnBook(consoleInputOutput1, library);
         menuOptions.put(1, listBooks);
         menuOptions.put(3, checkoutbook);

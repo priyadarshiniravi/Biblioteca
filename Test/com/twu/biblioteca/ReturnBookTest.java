@@ -10,9 +10,9 @@ public class ReturnBookTest {
     public void ShouldTakeInput() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
-        CheckoutBook checkoutBook = new CheckoutBook(consoleInputOutput, library);
+        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, library);
 
-        checkoutBook.action();
+        checkoutOption.action();
 
         verify(consoleInputOutput, times(1)).getInputAsString();
 
