@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 
-public class Book {
+public abstract class Book {
     protected String name;
     protected String author;
     protected int yearOfPublication;
@@ -12,17 +12,11 @@ public class Book {
         this.yearOfPublication = yearOfPublication;
     }
 
-
-    @Override
-    public String toString() {
-        return name + "," + author + "," + yearOfPublication;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null) return false;
+        if(!(o instanceof Book)||!(o instanceof CheckedOutBook)||!(o instanceof AvailableBook)) return false;
 
         Book book = (Book) o;
 
@@ -43,5 +37,16 @@ public class Book {
     public boolean isTitleMatch(String name) {
         return this.name.equals(name);
     }
+
+    public abstract Book checkoutBook();
+
+    public abstract Book returnBook();
+
+    public abstract String returnMessage();
+
+    public abstract String checkoutMessage();
+
+
+
 
 }

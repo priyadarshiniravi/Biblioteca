@@ -19,6 +19,11 @@ public class CheckedOutBook extends Book {
         return AvailableBook.createAvailableBook(this);
     }
 
+    @Override
+    public String returnMessage() {
+        return null;
+    }
+
     public NullBook checkoutBook() {
         return NullBook.createNullBook();
     }

@@ -9,7 +9,7 @@ public class BookParserTest {
         BookParser bookParser = new BookParser();
 
         Book actualBook = bookParser.parse("C++");
-        Book expectedBook = new Book("C++", "", 0);
+        Book expectedBook = new AvailableBook("C++", "", 0);
 
         Assert.assertEquals(expectedBook, actualBook);
 

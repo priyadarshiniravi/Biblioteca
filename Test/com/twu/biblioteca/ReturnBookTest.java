@@ -10,9 +10,11 @@ public class ReturnBookTest {
     public void ShouldTakeInput() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
-        CheckoutOption checkoutOption = new CheckoutOption(consoleInputOutput, library);
+        when(library.returnBook(anyString()))
+                .thenReturn(new NullBook("","",0));
+        ReturnBook returnBook = new ReturnBook(consoleInputOutput, library);
 
-        checkoutOption.action();
+        returnBook.action();
 
         verify(consoleInputOutput, times(1)).getInputAsString();
 
@@ -24,7 +26,7 @@ public class ReturnBookTest {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
         when(library.returnBook(anyString()))
-                .thenReturn(false);
+                .thenReturn(new NullBook("","",0));
         ReturnBook returnBook = new ReturnBook(consoleInputOutput, library);
 
         returnBook.action();
@@ -39,7 +41,7 @@ public class ReturnBookTest {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
         when(library.returnBook(anyString()))
-                .thenReturn(true);
+                .thenReturn(new AvailableBook("","",0));
         ReturnBook returnBook = new ReturnBook(consoleInputOutput, library);
 
         returnBook.action();

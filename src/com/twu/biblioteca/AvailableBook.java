@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import static com.twu.biblioteca.Messages.SUCCESS_CHECKOUT;
 import static com.twu.biblioteca.Messages.SUCCESS_RETURN;
 
 public class AvailableBook extends Book {
@@ -9,11 +8,13 @@ public class AvailableBook extends Book {
         super(name, author, yearOfPublication);
     }
 
-    public CheckedOutBook checkoutBook() {
+    @Override
+    public Book checkoutBook() {
         return CheckedOutBook.createCheckoutBook(this);
     }
 
-    public NullBook ReturnBook() {
+    @Override
+    public Book returnBook() {
         return NullBook.createNullBook();
     }
 
@@ -21,9 +22,13 @@ public class AvailableBook extends Book {
         return new AvailableBook(checkedOutBook.name, checkedOutBook.author, checkedOutBook.yearOfPublication);
     }
 
-    public String returnMessage()
-    {
+    public String returnMessage() {
         return SUCCESS_RETURN;
+    }
+
+    @Override
+    public String checkoutMessage() {
+        return null;
     }
 
 

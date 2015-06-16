@@ -9,6 +9,16 @@ public class NullBook extends Book {
         super(name, author, yearOfPublication);
     }
 
+    @Override
+    public Book checkoutBook() {
+        return createNullBook();
+    }
+
+    @Override
+    public Book returnBook() {
+        return createNullBook();
+    }
+
     public static NullBook createNullBook() {
 
         return new NullBook(null, null, 0);

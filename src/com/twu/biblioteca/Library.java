@@ -1,47 +1,43 @@
 package com.twu.biblioteca;
 
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Library {
-    private ArrayList<Book> availableBooks;
-    private ArrayList<Book> checkoutBooks;
+    private HashSet<Book> books;
 
-
-    public Library(ArrayList<Book> availableBooks, ArrayList<Book> checkoutBooks) {
-        this.availableBooks = availableBooks;
-        this.checkoutBooks = checkoutBooks;
-
+    public Library(HashSet<Book> books) {
+        this.books = books;
     }
 
-    public boolean checkout(String title) {
-        for (Book book : availableBooks) {
-            if (book.isTitleMatch(title)) {
-                availableBooks.remove(book);
-                checkoutBooks.add(book);
-                return true;
-            }
-        }
-        return false;
+    public synchronized Book checkout(String title) {
+        Book book = search(title);
+        books.add(book.checkoutBook());
+        return book.checkoutBook();
     }
 
-    public boolean returnBook(String title) {
-        for (Book book : checkoutBooks) {
-            if (book.isTitleMatch(title)) {
-                checkoutBooks.remove(book);
-                availableBooks.add(book);
-                return true;
-            }
-        }
-        return false;
+    public synchronized Book returnBook(String title) {
+        Book book = search(title);
+        books.add(book.returnBook());
+        return book.returnBook();
     }
 
     @Override
     public String toString() {
         BooksPresenter booksPresenter = new BooksPresenter(new String());
-        for (Book book : availableBooks) {
-            book.appendBooks(booksPresenter);
+        for (Book book:books) {
+            if(book instanceof AvailableBook) {
+                book.appendBooks(booksPresenter);
+            }
         }
         return booksPresenter.toString();
+    }
+
+    private Book search(String title) {
+        for (Book book : books) {
+            if (book.isTitleMatch(title))
+                return book;
+        }
+        return new NullBook(null, null, 0);
     }
 }

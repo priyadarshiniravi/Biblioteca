@@ -13,10 +13,8 @@ public class ReturnBook implements Options {
     @Override
     public void action() {
         String input = consoleInputOutput.getInputAsString();
-        boolean success = library.returnBook(input);
-        if (success) {
-            consoleInputOutput.print(Messages.SUCCESS_RETURN);
-        } else
-            consoleInputOutput.print(Messages.UNSUCCESSFUL_RETURN);
+        Book book = library.returnBook(input);
+        consoleInputOutput.print(book.returnMessage());
+
     }
 }
