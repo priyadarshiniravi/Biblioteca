@@ -24,7 +24,7 @@ public class BooksPresenterTest {
         booksPresenter.addBook("UP", "xyz", 1987);
         String actualFormattedMovies = booksPresenter.toString();
 
-        assertEquals("UP                            |xyz                           |1987", actualFormattedMovies);
+        assertEquals("UP                            |xyz                           |1987\n", actualFormattedMovies);
     }
 
 }
