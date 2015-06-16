@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class MoviesPresenterTest {
     @Test
-    public void shouldAddMovieToTheFormattedMovieList() {
+    public void shouldReturnToString() {
         String FormattedMovies = "MyString";
         MoviesPresenter moviesPresenter = new MoviesPresenter(FormattedMovies);
 
@@ -15,4 +15,5 @@ public class MoviesPresenterTest {
         assertEquals("MyString",actualString);
     }
 
+  
 }
