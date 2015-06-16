@@ -3,11 +3,9 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class LibraryTest {
     @Test
