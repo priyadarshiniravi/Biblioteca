@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import static com.twu.biblioteca.Messages.UNSUCCESSFUL_RETURN;
+
 public class NullBook extends Book {
 
     public NullBook(String name, String author, int yearOfPublication) {
@@ -8,6 +10,11 @@ public class NullBook extends Book {
 
     public static NullBook createNullBook() {
 
-        return new NullBook(null,null,0);
+        return new NullBook(null, null, 0);
     }
+
+    public String returnMessage() {
+        return UNSUCCESSFUL_RETURN;
+    }
+
 }
