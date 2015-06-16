@@ -8,7 +8,7 @@ public class AvailableBook extends Book {
         super(name, author, yearOfPublication);
     }
 
-    public CheckedOutBook checkout()
+    public CheckedOutBook checkoutBook()
     {
         return CheckedOutBook.createCheckoutBook(this);
     }

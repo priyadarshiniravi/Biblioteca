@@ -13,7 +13,7 @@ public class CheckedOutBook extends Book {
         return new CheckedOutBook(availableBook.name,availableBook.author,availableBook.yearOfPublication);
     }
 
-    public AvailableBook checkout() {
+    public AvailableBook returnBook() {
         return AvailableBook.createAvailableBook(this);
     }
 }

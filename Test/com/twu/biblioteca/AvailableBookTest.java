@@ -9,7 +9,7 @@ public class AvailableBookTest {
     public void shouldBeSuccessForCheckingOutAvailableBook() {
         AvailableBook book = new AvailableBook("C", "XYZ", 1998);
 
-        CheckedOutBook actualBookCheckedOut = book.checkout();
+        CheckedOutBook actualBookCheckedOut = book.checkoutBook();
         CheckedOutBook expectedBook = new CheckedOutBook("C", "XYZ", 1998);
 
         assertEquals(expectedBook, actualBookCheckedOut);
