@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import static com.twu.biblioteca.Messages.SUCCESS_CHECKOUT;
 import static com.twu.biblioteca.Messages.SUCCESS_RETURN;
 import static org.junit.Assert.assertEquals;
 
@@ -30,7 +29,7 @@ public class AvailableBookTest {
     }
 
     @Test
-    public void shouldBeSuccessCheckoutInCheckoutBook() {
+    public void shouldBeSuccessReturnInAvailableBook() {
         AvailableBook book = new AvailableBook("C", "XYZ", 1998);
 
         String actualMessage = book.returnMessage();
