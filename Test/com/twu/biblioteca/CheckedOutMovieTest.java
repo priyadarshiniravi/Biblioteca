@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import static com.twu.biblioteca.Messages.SUCCESS_CHECKOUT;
 import static org.junit.Assert.assertEquals;
 
 public class CheckedOutMovieTest {
@@ -14,5 +15,25 @@ public class CheckedOutMovieTest {
 
         assertEquals(expectedMovie, actualMovieAvailable);
 
+    }
+
+    @Test
+    public void shouldBeNullMovieForCheckoutOfCheckedOutMovie() {
+        CheckedOutMovie movie = new CheckedOutMovie("C", 1998,"XYZ",10);
+
+        Movie actualMovieAvailable = movie.checkoutMovie();
+        NullMovie expectedMovie = new NullMovie(null, 0,null,0);
+
+        assertEquals(expectedMovie, actualMovieAvailable);
+
+    }
+
+    @Test
+    public void shouldBeSuccessMessageCheckoutInCheckoutMovie() {
+        CheckedOutMovie movie = new CheckedOutMovie("C", 1998,"XYZ",10);
+
+        String actualMessage = movie.checkoutMessage();
+
+        assertEquals(SUCCESS_CHECKOUT,actualMessage);
     }
 }

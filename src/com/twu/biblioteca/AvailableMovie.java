@@ -10,6 +10,16 @@ public class AvailableMovie extends Movie {
         return null;
     }
 
+    @Override
+    public Movie checkoutMovie() {
+        return null;
+    }
+
+    @Override
+    public String checkoutMessage() {
+        return null;
+    }
+
     public static AvailableMovie createAvailableMovie(CheckedOutMovie availableMovie) {
 
         return new AvailableMovie(availableMovie.name, availableMovie.year, availableMovie.director, availableMovie.rating);

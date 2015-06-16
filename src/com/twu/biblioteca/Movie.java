@@ -34,4 +34,8 @@ public abstract class Movie {
     }
 
     public abstract Movie returnMovie();
+
+    public abstract Movie checkoutMovie();
+
+    public abstract String checkoutMessage();
 }
