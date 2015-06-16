@@ -54,11 +54,6 @@ public class LibraryTest {
         Book book = new Book("C", "Jones", 1995);
         Book firstBookStub = mock(Book.class);
         Book secondBookStub = mock(Book.class);
-//        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
-//        bookDetailsList.put(firstBookStub, true);
-//        bookDetailsList.put(secondBookStub, false);
-//        bookDetailsList.put(book, true);
-
         ArrayList<Book> availableBooks = new ArrayList<>();
         ArrayList<Book> checkoutBooks = new ArrayList<>();
         availableBooks.add(firstBookStub);
@@ -78,10 +73,6 @@ public class LibraryTest {
         Book book = new Book("C", "Jones", 1995);
         Book firstBookStub = mock(Book.class);
         Book secondBookStub = mock(Book.class);
-//        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
-//        bookDetailsList.put(firstBookStub, true);
-//        bookDetailsList.put(secondBookStub, false);
-//        bookDetailsList.put(book, false);
         ArrayList<Book> availableBooks = new ArrayList<>();
         ArrayList<Book> checkoutBooks = new ArrayList<>();
         availableBooks.add(firstBookStub);
@@ -101,10 +92,6 @@ public class LibraryTest {
         Book book = new Book("C", "Jones", 1995);
         Book firstBookStub = mock(Book.class);
         Book secondBookStub = mock(Book.class);
-//        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
-//        bookDetailsList.put(firstBookStub, true);
-//        bookDetailsList.put(secondBookStub, false);
-//        bookDetailsList.put(book, false);
         ArrayList<Book> availableBooks = new ArrayList<>();
         ArrayList<Book> checkoutBooks = new ArrayList<>();
         availableBooks.add(firstBookStub);
@@ -121,10 +108,6 @@ public class LibraryTest {
         Book book = new Book("C", "Jones", 1995);
         Book firstBookStub = mock(Book.class);
         Book secondBookStub = mock(Book.class);
-//        LinkedHashMap<Book, Boolean> bookDetailsList = new LinkedHashMap<>();
-//        bookDetailsList.put(firstBookStub, true);
-//        bookDetailsList.put(secondBookStub, false);
-//        bookDetailsList.put(book, true);
         ArrayList<Book> availableBooks = new ArrayList<>();
         ArrayList<Book> checkoutBooks = new ArrayList<>();
         availableBooks.add(firstBookStub);
