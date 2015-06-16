@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import static com.twu.biblioteca.Messages.UNSUCCESSFUL_RETURN;
+import static com.twu.biblioteca.Messages.UNSUCCESS_CHECKOUT;
 
 public class NullBook extends Book {
 
@@ -17,4 +18,7 @@ public class NullBook extends Book {
         return UNSUCCESSFUL_RETURN;
     }
 
+    public String checkoutMessage() {
+        return UNSUCCESS_CHECKOUT;
+    }
 }
