@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
-import org.mockito.internal.matchers.Null;
 
 import static org.junit.Assert.assertEquals;
 
