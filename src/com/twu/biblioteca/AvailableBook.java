@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import static com.twu.biblioteca.Messages.SUCCESS_CHECKOUT;
+import static com.twu.biblioteca.Messages.SUCCESS_RETURN;
+
 public class AvailableBook extends Book {
 
     public AvailableBook(String name, String author, int yearOfPublication) {
@@ -16,6 +19,11 @@ public class AvailableBook extends Book {
 
     public static AvailableBook createAvailableBook(CheckedOutBook checkedOutBook) {
         return new AvailableBook(checkedOutBook.name, checkedOutBook.author, checkedOutBook.yearOfPublication);
+    }
+
+    public String returnMessage()
+    {
+        return SUCCESS_RETURN;
     }
 
 
