@@ -29,6 +29,7 @@ public class BookTest {
         assertThat(bookTwo, is(equalTo(bookOne)));
     }
 
+
     @Test
     public void equalityShouldSatisfyTransitivity() {
         AvailableBook bookOne = new AvailableBook("C++", "author", 1995);
@@ -70,7 +71,6 @@ public class BookTest {
         book.appendBooks(booksPresenter);
 
         verify(booksPresenter).addBook("Minions", "xyz", 2010);
-
     }
 
 

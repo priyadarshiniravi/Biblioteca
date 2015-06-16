@@ -12,6 +12,7 @@ public class Library {
 
     public synchronized Book checkout(String title) {
         Book book = search(title);
+        books.remove(book);
         books.add(book.checkoutBook());
         return book.checkoutBook();
     }

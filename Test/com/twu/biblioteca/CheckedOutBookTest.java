@@ -10,7 +10,7 @@ public class CheckedOutBookTest {
     public void shouldBeSuccessForReturningCheckedOutBook() {
         CheckedOutBook book = new CheckedOutBook("C", "XYZ", 1998);
 
-        AvailableBook actualBookAvailable = book.returnBook();
+        Book actualBookAvailable = book.returnBook();
         AvailableBook expectedBook = new AvailableBook("C", "XYZ", 1998);
 
         assertEquals(expectedBook, actualBookAvailable);

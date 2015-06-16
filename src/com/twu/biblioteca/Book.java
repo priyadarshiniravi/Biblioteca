@@ -15,7 +15,7 @@ public abstract class Book {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || !(o  instanceof Book)||!(o  instanceof AvailableBook) ||!(o instanceof CheckedOutBook ))return false;
 
         Book book = (Book) o;
 
@@ -44,8 +44,6 @@ public abstract class Book {
     public abstract String returnMessage();
 
     public abstract String checkoutMessage();
-
-
 
 
 }

@@ -14,8 +14,8 @@ public class CheckedOutBook extends Book {
 
         return new CheckedOutBook(availableBook.name, availableBook.author, availableBook.yearOfPublication);
     }
-
-    public AvailableBook returnBook() {
+    @Override
+    public Book returnBook() {
         return AvailableBook.createAvailableBook(this);
     }
 
@@ -23,11 +23,11 @@ public class CheckedOutBook extends Book {
     public String returnMessage() {
         return null;
     }
-
+    @Override
     public NullBook checkoutBook() {
         return NullBook.createNullBook();
     }
-
+    @Override
     public String checkoutMessage()
     {
         return SUCCESS_CHECKOUT;
