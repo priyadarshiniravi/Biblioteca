@@ -17,7 +17,9 @@ public class EntryPoint {
         CheckedOutBook bookthree = new CheckedOutBook("J2EE", "Charles", 1993);
         bookList.add(bookthree);
         HashSet<Movie> movies=new HashSet<>();
-        Library library = new Library(bookList, movies);
+        BooksPresenter booksPresenter=new BooksPresenter("");
+        MoviesPresenter moviesPresenter=new MoviesPresenter("");
+        Library library = new Library(bookList, movies, booksPresenter, moviesPresenter);
         ListBooks listBooks = new ListBooks(consoleInputOutput, library);
         ConsoleInputOutput consoleInputOutput1 = new ConsoleInputOutput(new Scanner(System.in));
         CheckoutOption checkoutbook = new CheckoutOption(consoleInputOutput1, library);
