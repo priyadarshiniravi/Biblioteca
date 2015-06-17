@@ -31,7 +31,6 @@ public class Library {
     }
 
 
-
     public synchronized Book returnBook(String title) {
         Book book = BookSearch(title);
         books.remove(book);
@@ -53,9 +52,8 @@ public class Library {
             if (movie.isTitleMatch(title))
                 return movie;
         }
-        return new NullMovie(null,0, null, 0);
+        return new NullMovie(null, 0, null, 0);
     }
-
 
 
     private Book BookSearch(String title) {
