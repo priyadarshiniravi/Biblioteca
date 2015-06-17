@@ -51,6 +51,16 @@ public class Library {
         return booksPresenter.toString();
     }
 
+    public String formattedMovieString() {
+        MoviesPresenter moviesPresenter=new MoviesPresenter("");
+        for (Movie movie : movies) {
+            if (movie instanceof AvailableMovie) {
+                movie.appendToMovies(moviesPresenter);
+            }
+        }
+        return moviesPresenter.toString();
+    }
+
     private Movie movieSearch(String title) {
         for (Movie movie : movies) {
             if (movie.isTitleMatch(title))

@@ -34,6 +34,8 @@ public abstract class Movie {
     }
 
     public boolean isTitleMatch(String name) {
+        if(name==null)
+            return false;
         return this.name.equals(name);
     }
 
