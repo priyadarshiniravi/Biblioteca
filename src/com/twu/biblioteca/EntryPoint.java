@@ -31,6 +31,7 @@ public class EntryPoint {
         ConsoleInputOutput consoleInputOutput1 = new ConsoleInputOutput(new Scanner(System.in));
         CheckoutOptionBook checkoutbook = new CheckoutOptionBook(consoleInputOutput1, library);
         CheckoutOptionMovie checkoutmovie = new CheckoutOptionMovie(consoleInputOutput1, library);
+        ReturnMovie returnMovie=new ReturnMovie(consoleInputOutput1, library);
         ListMovie listMovie=new ListMovie(consoleInputOutput1, library);
         ReturnBook returnBook = new ReturnBook(consoleInputOutput1, library);
         menuOptions.put(1, listBooks);
@@ -38,6 +39,7 @@ public class EntryPoint {
         menuOptions.put(4, returnBook);
         menuOptions.put(5, listMovie);
         menuOptions.put(6,checkoutmovie);
+        menuOptions.put(7, returnMovie);
         Parser parser = new Parser(menuOptions);
         ArrayList<String> options = new ArrayList<>();
         options.add("Display Books");
@@ -46,6 +48,7 @@ public class EntryPoint {
         options.add("Return");
         options.add("List Movie");
         options.add("Checkout Movie");
+        options.add("Return Movie");
         MenuOption menuOption = new MenuOption(options);
         Menu menu = new Menu(consoleInputOutput, parser, menuOption);
         App app = new App(consoleInputOutput, menu);

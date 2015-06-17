@@ -13,7 +13,8 @@ public class ReturnMovie implements Options {
     @Override
     public void action() {
         String input = consoleInputOutput.getInputAsString();
-
+        Movie book = library.returnMovie(input);
+        consoleInputOutput.print(book.returnMessage());
 
     }
 }

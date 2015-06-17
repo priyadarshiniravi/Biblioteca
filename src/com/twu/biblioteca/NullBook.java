@@ -32,3 +32,4 @@ public class NullBook extends Book {
         return UNSUCCESS_CHECKOUT_BOOK;
     }
 }
+

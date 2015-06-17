@@ -21,4 +21,19 @@ public class ReturnMovieTest {
 
     }
 
+    @Test
+    public void shouldBeSuccessfulReturn() {
+        ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
+        Library library = mock(Library.class);
+        when(library.returnMovie(anyString()))
+                .thenReturn(new AvailableMovie("",0,"",0));
+        ReturnMovie returnMovie = new ReturnMovie(consoleInputOutput, library);
+
+        returnMovie.action();
+
+        verify(consoleInputOutput, times(1)).print(Messages.SUCCESS_RETURN_MOVIE);
+
+
+    }
+
 }
