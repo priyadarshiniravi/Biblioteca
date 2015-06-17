@@ -33,6 +33,9 @@ public abstract class Movie {
         return name != null ? name.hashCode() : 0;
     }
 
+    public boolean isTitleMatch(String name) {
+        return this.name.equals(name);
+    }
 
     public abstract Movie returnMovie();
 

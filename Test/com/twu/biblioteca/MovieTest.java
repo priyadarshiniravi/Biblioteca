@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -64,5 +65,13 @@ public class MovieTest {
         assertThat(movieOne.hashCode(), is(equalTo(movieTwo.hashCode())));
     }
 
+    @Test
+    public void shouldMatchTitle()
+    {
+        AvailableMovie movieOne = new AvailableMovie("C++",1889, "author", 5);
 
+        boolean actualIsExist=movieOne.isTitleMatch("C++");
+
+        assertEquals(true,actualIsExist);
+    }
 }
