@@ -21,7 +21,7 @@ public class AvailableMovie extends Movie {
 
     @Override
     public String returnMessage() {
-        return Messages.SUCCESS_RETURN_BOOK;
+        return Messages.SUCCESS_RETURN_MOVIE;
     }
 
     @Override

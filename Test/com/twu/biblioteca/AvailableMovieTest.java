@@ -1,18 +1,16 @@
 package com.twu.biblioteca;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
-import static com.twu.biblioteca.Messages.SUCCESS_RETURN_BOOK;
 import static org.junit.Assert.assertEquals;
 
 public class AvailableMovieTest {
     @Test
     public void shouldBeNullMovieForReturnAvailableMovie() {
-        AvailableMovie movie = new AvailableMovie("C",1934, "XYZ", 1);
+        AvailableMovie movie = new AvailableMovie("C", 1934, "XYZ", 1);
 
         Movie actualMovieCheckedOut = movie.returnMovie();
-        NullMovie expectedMovie = new NullMovie(null,0, null, 0);
+        NullMovie expectedMovie = new NullMovie(null, 0, null, 0);
 
         assertEquals(expectedMovie, actualMovieCheckedOut);
 
@@ -20,10 +18,10 @@ public class AvailableMovieTest {
 
     @Test
     public void shouldBeSuccessForCheckingOutAvailableMovie() {
-        AvailableMovie movie = new AvailableMovie("C",1934, "XYZ", 1);
+        AvailableMovie movie = new AvailableMovie("C", 1934, "XYZ", 1);
 
         Movie actualMovieCheckedOut = movie.checkoutMovie();
-        CheckedOutMovie expectedMovie = new CheckedOutMovie("C",1934, "XYZ", 1);
+        CheckedOutMovie expectedMovie = new CheckedOutMovie("C", 1934, "XYZ", 1);
 
         assertEquals(expectedMovie, actualMovieCheckedOut);
 
@@ -31,11 +29,11 @@ public class AvailableMovieTest {
 
     @Test
     public void shouldBeSuccessReturnInAvailableMovie() {
-        AvailableMovie movie = new AvailableMovie("C",1934, "XYZ", 1);
+        AvailableMovie movie = new AvailableMovie("C", 1934, "XYZ", 1);
 
         String actualMessage = movie.returnMessage();
 
-        assertEquals(Messages.SUCCESS_RETURN_BOOK, actualMessage);
+        assertEquals(Messages.SUCCESS_RETURN_MOVIE, actualMessage);
     }
 
 }

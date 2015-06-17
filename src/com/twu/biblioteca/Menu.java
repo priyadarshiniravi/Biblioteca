@@ -17,6 +17,7 @@ public class Menu {
         while (input != 2) {
 
             Options option = parser.parse(input);
+            //TODO null should be avoided
             if (option == null) {
                 consoleInputOutput.print(Messages.INVALID_MESSAGE);
             } else {
