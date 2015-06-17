@@ -17,4 +17,15 @@ public class AvailableMovieTest {
 
     }
 
+    @Test
+    public void shouldBeSuccessForCheckingOutAvailableMovie() {
+        AvailableMovie movie = new AvailableMovie("C",1934, "XYZ", 1);
+
+        Movie actualMovieCheckedOut = movie.checkoutMovie();
+        CheckedOutMovie expectedMovie = new CheckedOutMovie("C",1934, "XYZ", 1);
+
+        assertEquals(expectedMovie, actualMovieCheckedOut);
+
+    }
+
 }

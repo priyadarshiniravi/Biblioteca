@@ -12,7 +12,7 @@ public class AvailableMovie extends Movie {
 
     @Override
     public Movie checkoutMovie() {
-        return null;
+        return CheckedOutMovie.createCheckoutMovie(this);
     }
 
     @Override
