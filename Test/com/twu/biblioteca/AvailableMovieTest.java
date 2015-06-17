@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import junit.framework.TestCase;
 import org.junit.Test;
 
+import static com.twu.biblioteca.Messages.SUCCESS_RETURN_BOOK;
 import static org.junit.Assert.assertEquals;
 
 public class AvailableMovieTest {
@@ -26,6 +27,15 @@ public class AvailableMovieTest {
 
         assertEquals(expectedMovie, actualMovieCheckedOut);
 
+    }
+
+    @Test
+    public void shouldBeSuccessReturnInAvailableMovie() {
+        AvailableMovie movie = new AvailableMovie("C",1934, "XYZ", 1);
+
+        String actualMessage = movie.returnMessage();
+
+        assertEquals(Messages.SUCCESS_RETURN_BOOK, actualMessage);
     }
 
 }

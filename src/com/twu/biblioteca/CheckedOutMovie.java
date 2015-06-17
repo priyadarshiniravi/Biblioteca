@@ -29,4 +29,9 @@ public class CheckedOutMovie extends Movie {
 
     }
 
+    @Override
+    public String returnMessage() {
+        return null;
+    }
+
 }

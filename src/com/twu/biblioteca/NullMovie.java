@@ -26,4 +26,9 @@ public class NullMovie extends Movie {
     public String checkoutMessage() {
         return null;
     }
+
+    @Override
+    public String returnMessage() {
+        return null;
+    }
 }

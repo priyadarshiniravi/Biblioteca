@@ -1,5 +1,9 @@
 package com.twu.biblioteca;
 
+import sun.misc.resources.Messages_es;
+
+import static com.twu.biblioteca.Messages.SUCCESS_RETURN_BOOK;
+
 public class AvailableMovie extends Movie {
     public AvailableMovie(String name, int year, String director, int rating) {
         super(name, year, director, rating);
@@ -13,6 +17,11 @@ public class AvailableMovie extends Movie {
     @Override
     public Movie checkoutMovie() {
         return CheckedOutMovie.createCheckoutMovie(this);
+    }
+
+    @Override
+    public String returnMessage() {
+        return Messages.SUCCESS_RETURN_BOOK;
     }
 
     @Override

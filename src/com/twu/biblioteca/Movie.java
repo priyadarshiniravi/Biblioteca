@@ -38,4 +38,6 @@ public abstract class Movie {
     public abstract Movie checkoutMovie();
 
     public abstract String checkoutMessage();
+
+    public abstract String returnMessage();
 }
