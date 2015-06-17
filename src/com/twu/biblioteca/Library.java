@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class Library {
@@ -19,7 +18,7 @@ public class Library {
 
     public synchronized Book checkoutBook(String title) {
         Book book = BookSearch(title);
-        book =book.checkoutBook();
+        book = book.checkoutBook();
         books.remove(book);
         books.add(book);
         return book;
@@ -27,22 +26,23 @@ public class Library {
 
     public synchronized Movie checkoutMovie(String title) {
         Movie movie = movieSearch(title);
+        movie = movie.checkoutMovie();
         movies.remove(movie);
-        movies.add(movie.checkoutMovie());
-        return movie.checkoutMovie();
+        movies.add(movie);
+        return movie;
     }
 
 
     public synchronized Book returnBook(String title) {
         Book book = BookSearch(title);
-        book=book.returnBook();
+        book = book.returnBook();
         books.remove(book);
         books.add(book);
         return book;
     }
 
     public String formattedBookString() {
-        BooksPresenter booksPresenter=new BooksPresenter("");
+        BooksPresenter booksPresenter = new BooksPresenter("");
         for (Book book : books) {
             if (book instanceof AvailableBook) {
                 book.appendBooks(booksPresenter);
@@ -52,7 +52,7 @@ public class Library {
     }
 
     public String formattedMovieString() {
-        MoviesPresenter moviesPresenter=new MoviesPresenter("");
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
         for (Movie movie : movies) {
             if (movie instanceof AvailableMovie) {
                 movie.appendToMovies(moviesPresenter);

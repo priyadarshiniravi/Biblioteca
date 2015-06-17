@@ -193,4 +193,28 @@ public class LibraryTest {
         assertEquals("OOPs,1995,Patric,5\n" +
                 "Java,1993,Jones,1\n", bookList);
     }
+
+    @Test
+    public void shouldCheckoutMovie() {
+
+        AvailableMovie firstMovie = new AvailableMovie("Java",1993, "Jones", 1);
+        AvailableMovie secondMovie = new AvailableMovie("OOPs",1995, "Patric", 5);
+        BooksPresenter booksPresenter = new BooksPresenter("");
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
+
+        HashSet<Book> books = new HashSet<>();
+
+        HashSet<Movie> movies = new HashSet<>();
+        movies.add(firstMovie);
+        movies.add(secondMovie);
+
+
+        Library library = new Library(books, movies, booksPresenter, moviesPresenter);
+
+        Movie movieList = library.checkoutMovie("OOPs");
+
+        assertEquals(Messages.SUCCESS_CHECKOUT_MOVIE,movieList.checkoutMessage());
+    }
+
+
 }
