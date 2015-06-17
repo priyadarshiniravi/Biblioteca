@@ -19,12 +19,12 @@ public class NullMovie extends Movie {
     }
     @Override
     public Movie checkoutMovie() {
-        return null;
+        return createNullMovie();
     }
 
     @Override
     public String checkoutMessage() {
-        return null;
+        return Messages.UNSUCCESS_CHECKOUT_MOVIE;
     }
 
     @Override

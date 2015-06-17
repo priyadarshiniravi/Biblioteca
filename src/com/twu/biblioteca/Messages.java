@@ -9,4 +9,5 @@ public interface Messages {
     String UNSUCCESSFUL_RETURN_BOOK = "That is not a valid book to return.";
     String SUCCESS_CHECKOUT_MOVIE = "Thank you! Enjoy the movie";
     String SUCCESS_RETURN_MOVIE = "Thank you for returning the movie";
+    String UNSUCCESS_CHECKOUT_MOVIE="That book is not available";
 }
