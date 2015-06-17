@@ -34,6 +34,6 @@ public class CheckedOutBookTest {
 
         String actualMessage = book.checkoutMessage();
 
-        assertEquals(SUCCESS_CHECKOUT,actualMessage);
+        assertEquals(SUCCESS_CHECKOUT_BOOK,actualMessage);
     }
 }

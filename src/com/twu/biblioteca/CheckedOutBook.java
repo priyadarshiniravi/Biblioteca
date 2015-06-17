@@ -30,7 +30,7 @@ public class CheckedOutBook extends Book {
     @Override
     public String checkoutMessage()
     {
-        return SUCCESS_CHECKOUT;
+        return SUCCESS_CHECKOUT_BOOK;
     }
 
 }

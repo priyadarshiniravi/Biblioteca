@@ -32,7 +32,7 @@ public class CheckoutOptionTest {
 
         checkoutOption.action();
 
-        verify(consoleInputOutput, times(1)).print(Messages.SUCCESS_CHECKOUT);
+        verify(consoleInputOutput, times(1)).print(Messages.SUCCESS_CHECKOUT_BOOK);
 
 
     }
@@ -47,7 +47,7 @@ public class CheckoutOptionTest {
 
         checkoutOption.action();
 
-        verify(consoleInputOutput, times(1)).print(Messages.UNSUCCESS_CHECKOUT);
+        verify(consoleInputOutput, times(1)).print(Messages.UNSUCCESS_CHECKOUT_BOOK);
 
 
     }

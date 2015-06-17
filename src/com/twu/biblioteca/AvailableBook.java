@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-import static com.twu.biblioteca.Messages.SUCCESS_RETURN;
+import static com.twu.biblioteca.Messages.SUCCESS_RETURN_BOOK;
 
 public class AvailableBook extends Book {
 
@@ -24,7 +24,7 @@ public class AvailableBook extends Book {
 
     @Override
     public String returnMessage() {
-        return SUCCESS_RETURN;
+        return SUCCESS_RETURN_BOOK;
     }
 
     @Override

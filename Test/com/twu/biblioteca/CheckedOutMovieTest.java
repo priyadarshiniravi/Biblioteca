@@ -2,7 +2,8 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import static com.twu.biblioteca.Messages.SUCCESS_CHECKOUT;
+import static com.twu.biblioteca.Messages.SUCCESS_CHECKOUT_BOOK;
+import static com.twu.biblioteca.Messages.SUCCESS_CHECKOUT_MOVIE;
 import static org.junit.Assert.assertEquals;
 
 public class CheckedOutMovieTest {
@@ -34,6 +35,6 @@ public class CheckedOutMovieTest {
 
         String actualMessage = movie.checkoutMessage();
 
-        assertEquals(SUCCESS_CHECKOUT,actualMessage);
+        assertEquals(SUCCESS_CHECKOUT_MOVIE,actualMessage);
     }
 }

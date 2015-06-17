@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import static com.twu.biblioteca.Messages.SUCCESS_CHECKOUT;
-
 public class CheckedOutMovie extends Movie {
 
     public CheckedOutMovie(String name, int year, String director, int rating) {
@@ -24,10 +22,11 @@ public class CheckedOutMovie extends Movie {
     public NullMovie checkoutMovie() {
         return NullMovie.createNullMovie();
     }
+
     @Override
-    public String checkoutMessage()
-    {
-        return SUCCESS_CHECKOUT;
+    public String checkoutMessage() {
+        return Messages.SUCCESS_CHECKOUT_MOVIE;
+
     }
 
 }

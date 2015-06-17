@@ -2,8 +2,8 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import static com.twu.biblioteca.Messages.UNSUCCESSFUL_RETURN;
-import static com.twu.biblioteca.Messages.UNSUCCESS_CHECKOUT;
+import static com.twu.biblioteca.Messages.UNSUCCESSFUL_RETURN_BOOK;
+import static com.twu.biblioteca.Messages.UNSUCCESS_CHECKOUT_BOOK;
 import static org.junit.Assert.assertEquals;
 
 public class NullBookTest {
@@ -13,7 +13,7 @@ public class NullBookTest {
 
         String actualMessage = book.returnMessage();
 
-        assertEquals(UNSUCCESSFUL_RETURN, actualMessage);
+        assertEquals(UNSUCCESSFUL_RETURN_BOOK, actualMessage);
     }
 
     @Test
@@ -22,7 +22,7 @@ public class NullBookTest {
 
         String actualMessage = book.checkoutMessage();
 
-        assertEquals(UNSUCCESS_CHECKOUT, actualMessage);
+        assertEquals(UNSUCCESS_CHECKOUT_BOOK, actualMessage);
     }
 
 

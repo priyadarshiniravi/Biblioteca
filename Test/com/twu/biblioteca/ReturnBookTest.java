@@ -31,7 +31,7 @@ public class ReturnBookTest {
 
         returnBook.action();
 
-        verify(consoleInputOutput, times(1)).print(Messages.UNSUCCESSFUL_RETURN);
+        verify(consoleInputOutput, times(1)).print(Messages.UNSUCCESSFUL_RETURN_BOOK);
 
 
     }
@@ -46,7 +46,7 @@ public class ReturnBookTest {
 
         returnBook.action();
 
-        verify(consoleInputOutput, times(1)).print(Messages.SUCCESS_RETURN);
+        verify(consoleInputOutput, times(1)).print(Messages.SUCCESS_RETURN_BOOK);
 
 
     }

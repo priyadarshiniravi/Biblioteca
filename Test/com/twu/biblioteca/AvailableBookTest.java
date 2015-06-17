@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import static com.twu.biblioteca.Messages.SUCCESS_RETURN;
+import static com.twu.biblioteca.Messages.SUCCESS_RETURN_BOOK;
 import static org.junit.Assert.assertEquals;
 
 public class AvailableBookTest {
@@ -34,7 +34,7 @@ public class AvailableBookTest {
 
         String actualMessage = book.returnMessage();
 
-        assertEquals(SUCCESS_RETURN, actualMessage);
+        assertEquals(SUCCESS_RETURN_BOOK, actualMessage);
     }
 
 }

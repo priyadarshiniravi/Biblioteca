@@ -70,7 +70,7 @@ public class LibraryTest {
 
         Book success = library.checkoutBook("C");
 
-        assertEquals(Messages.SUCCESS_CHECKOUT, success.checkoutMessage());
+        assertEquals(Messages.SUCCESS_CHECKOUT_BOOK, success.checkoutMessage());
     }
 
     @Test
@@ -92,7 +92,7 @@ public class LibraryTest {
 
         Book success = library.checkoutBook("any");
 
-        assertEquals(Messages.UNSUCCESS_CHECKOUT, success.checkoutMessage());
+        assertEquals(Messages.UNSUCCESS_CHECKOUT_BOOK, success.checkoutMessage());
     }
 
     @Test
@@ -107,7 +107,7 @@ public class LibraryTest {
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
         Book success = library.returnBook("C");
 
-        assertEquals(Messages.SUCCESS_RETURN, success.returnMessage());
+        assertEquals(Messages.SUCCESS_RETURN_BOOK, success.returnMessage());
     }
 
     @Test
@@ -126,7 +126,7 @@ public class LibraryTest {
 
         Book success = library.returnBook("any");
 
-        assertEquals(Messages.UNSUCCESSFUL_RETURN, success.returnMessage());
+        assertEquals(Messages.UNSUCCESSFUL_RETURN_BOOK, success.returnMessage());
     }
 
 
