@@ -20,7 +20,7 @@ public abstract class Movie {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null) return false;
 
         Movie movie = (Movie) o;
 
@@ -34,8 +34,9 @@ public abstract class Movie {
     }
 
     public boolean isTitleMatch(String name) {
-        if(name==null)
+        if (this.name == null) {
             return false;
+        }
         return this.name.equals(name);
     }
 
