@@ -23,6 +23,15 @@ public class Library {
         return book.checkoutBook();
     }
 
+    public synchronized Movie checkoutMovie(String title) {
+        Movie movie = movieSearch(title);
+        movies.remove(movie);
+        movies.add(movie.checkoutMovie());
+        return movie.checkoutMovie();
+    }
+
+
+
     public synchronized Book returnBook(String title) {
         Book book = BookSearch(title);
         books.remove(book);
@@ -37,6 +46,14 @@ public class Library {
             }
         }
         return booksPresenter.toString();
+    }
+
+    private Movie movieSearch(String title) {
+        for (Movie movie : movies) {
+            if (movie.isTitleMatch(title))
+                return movie;
+        }
+        return new NullMovie(null,0, null, 0);
     }
 
 

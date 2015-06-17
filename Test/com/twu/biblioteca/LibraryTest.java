@@ -129,5 +129,26 @@ public class LibraryTest {
         assertEquals(Messages.UNSUCCESSFUL_RETURN_BOOK, success.returnMessage());
     }
 
+    @Test
+    public void shouldCheckoutIfMovieIsNotCheckoutAndAvailable() {
+        AvailableMovie book = new AvailableMovie("C",1883, "Jones", 1);
+        AvailableMovie firstMovieStub = mock(AvailableMovie.class);
+        CheckedOutMovie secondMovieStub = mock(CheckedOutMovie.class);
+        HashSet<Book> books = new HashSet<>();
+        HashSet<Movie> movies = new HashSet<>();
+        movies.add(firstMovieStub);
+        movies.add(secondMovieStub);
+        movies.add(book);
+        BooksPresenter booksPresenter = new BooksPresenter("");
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
+
+
+        Library library = new Library(books, movies, booksPresenter, moviesPresenter);
+
+        Movie success = library.checkoutMovie("C");
+
+        assertEquals(Messages.SUCCESS_CHECKOUT_MOVIE, success.checkoutMessage());
+    }
+
 
 }
