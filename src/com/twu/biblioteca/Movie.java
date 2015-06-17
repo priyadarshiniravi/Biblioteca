@@ -33,6 +33,7 @@ public abstract class Movie {
         return name != null ? name.hashCode() : 0;
     }
 
+
     public abstract Movie returnMovie();
 
     public abstract Movie checkoutMovie();
