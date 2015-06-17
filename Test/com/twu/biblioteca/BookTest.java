@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -65,6 +66,8 @@ public class BookTest {
 
         verify(booksPresenter).addBook("Minions", "xyz", 2010);
     }
+
+
 
 
 }

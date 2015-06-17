@@ -15,7 +15,7 @@ public abstract class Book {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null)return false;
+        if (o == null) return false;
 
         Book book = (Book) o;
 
@@ -34,6 +34,8 @@ public abstract class Book {
     }
 
     public boolean isTitleMatch(String name) {
+        if (this.name == null){
+        return false;}
         return this.name.equals(name);
     }
 

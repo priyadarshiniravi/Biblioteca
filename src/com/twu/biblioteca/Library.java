@@ -2,14 +2,15 @@ package com.twu.biblioteca;
 
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class Library {
-    private HashSet<Book> books;
-    private HashSet<Movie> movies;
+    private Set<Book> books;
+    private Set<Movie> movies;
     private BooksPresenter booksPresenter;
     private MoviesPresenter moviesPresenter;
 
-    public Library(HashSet<Book> books, HashSet<Movie> movies, BooksPresenter booksPresenter, MoviesPresenter moviesPresenter) {
+    public Library(Set<Book> books, Set<Movie> movies, BooksPresenter booksPresenter, MoviesPresenter moviesPresenter) {
         this.books = books;
         this.movies = movies;
         this.booksPresenter = booksPresenter;
@@ -18,9 +19,10 @@ public class Library {
 
     public synchronized Book checkoutBook(String title) {
         Book book = BookSearch(title);
+        book =book.checkoutBook();
         books.remove(book);
-        books.add(book.checkoutBook());
-        return book.checkoutBook();
+        books.add(book);
+        return book;
     }
 
     public synchronized Movie checkoutMovie(String title) {
@@ -33,9 +35,10 @@ public class Library {
 
     public synchronized Book returnBook(String title) {
         Book book = BookSearch(title);
+        book=book.returnBook();
         books.remove(book);
-        books.add(book.returnBook());
-        return book.returnBook();
+        books.add(book);
+        return book;
     }
 
     public String formattedBookString() {
