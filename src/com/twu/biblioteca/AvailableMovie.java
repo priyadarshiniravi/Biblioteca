@@ -7,7 +7,7 @@ public class AvailableMovie extends Movie {
 
     @Override
     public Movie returnMovie() {
-        return null;
+        return NullMovie.createNullMovie();
     }
 
     @Override
