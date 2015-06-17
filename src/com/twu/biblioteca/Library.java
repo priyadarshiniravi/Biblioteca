@@ -32,6 +32,14 @@ public class Library {
         return movie;
     }
 
+    public synchronized Movie returnMovie(String title) {
+        Movie movie = movieSearch(title);
+        movie = movie.returnMovie();
+        movies.remove(movie);
+        movies.add(movie);
+        return movie;
+    }
+
 
     public synchronized Book returnBook(String title) {
         Book book = BookSearch(title);
