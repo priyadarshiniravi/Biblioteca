@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
 import static org.mockito.Matchers.anyString;
@@ -12,12 +11,27 @@ public class CheckoutOptionMovieTest {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
         when(library.checkoutMovie(anyString()))
-                .thenReturn(new NullMovie("",0,"",0));
+                .thenReturn(new NullMovie("", 0, "", 0));
         CheckoutOptionMovie checkoutOptionMovie = new CheckoutOptionMovie(consoleInputOutput, library);
 
         checkoutOptionMovie.action();
 
         verify(consoleInputOutput, times(1)).getInputAsString();
+
+
+    }
+
+    @Test
+    public void shouldBeSuccessfulCheckout() {
+        ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
+        Library library = mock(Library.class);
+        when(library.checkoutMovie(anyString()))
+                .thenReturn(new CheckedOutMovie("", 0, "", 0));
+        CheckoutOptionMovie checkoutOptionMovie = new CheckoutOptionMovie(consoleInputOutput, library);
+
+        checkoutOptionMovie.action();
+
+        verify(consoleInputOutput, times(1)).print(Messages.SUCCESS_CHECKOUT_MOVIE);
 
 
     }

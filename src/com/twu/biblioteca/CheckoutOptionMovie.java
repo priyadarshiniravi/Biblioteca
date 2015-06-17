@@ -15,6 +15,8 @@ public class CheckoutOptionMovie implements Options {
     @Override
     public void action() {
         String input = consoleInputOutput.getInputAsString();
+        Movie movie = library.checkoutMovie(input);
+        consoleInputOutput.print(movie.checkoutMessage());
     }
 }
 
