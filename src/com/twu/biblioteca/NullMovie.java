@@ -10,7 +10,7 @@ public class NullMovie extends Movie {
 
     @Override
     public Movie returnMovie() {
-        return null;
+        return createNullMovie();
     }
 
     public static NullMovie createNullMovie() {
@@ -29,6 +29,6 @@ public class NullMovie extends Movie {
 
     @Override
     public String returnMessage() {
-        return null;
+        return Messages.UNSUCCESSFUL_RETURN_MOVIE;
     }
 }
