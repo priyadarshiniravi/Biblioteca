@@ -12,12 +12,12 @@ public class MenuDispatcher {
     }
 
 
-    public void callMenu(ValidUser user) {
-        validUserMenu.chooseOption();
+    public int callMenu(ValidUser user) {
+        return validUserMenu.chooseOption();
     }
 
-    public void callMenu(InvalidUser user) {
-        invalidUserMenu.chooseOption();
+    public int callMenu(InvalidUser user) {
+        return invalidUserMenu.chooseOption();
     }
 
 

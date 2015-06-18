@@ -11,9 +11,9 @@ public class ValidUser extends User {
 
     }
 
-    public void dispatchMenu(MenuDispatcher menuDispatcher)
+    public int dispatchMenu(MenuDispatcher menuDispatcher)
     {
-        menuDispatcher.callMenu(this);
+        return menuDispatcher.callMenu(this);
     }
 
 

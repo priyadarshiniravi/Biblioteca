@@ -16,13 +16,14 @@ public class App {
 
     public void start() {
         User user;
+        int option;
      do{
         consoleInputOutput.print(Messages.WELCOME_MESSAGE);
         user=login.loginWindow();
-        user.dispatchMenu(menuDispatcher);
+        option=user.dispatchMenu(menuDispatcher);
 
     }
-    while (true);
+    while (option!=2);
 
 
     }

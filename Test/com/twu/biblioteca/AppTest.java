@@ -2,9 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class AppTest {
 
@@ -16,12 +14,14 @@ public class AppTest {
         MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
         when(login.loginWindow())
                 .thenReturn(new ValidUser("","","","",99999));
+        when(login.loginWindow().dispatchMenu(menuDispatcher))
+                .thenReturn(1,2);
         App app = new App(consoleInputOutput, menu,login, menuDispatcher);
 
 
         app.start();
 
-        verify(consoleInputOutput).print(Messages.WELCOME_MESSAGE);
+        verify(consoleInputOutput,times(2)).print(Messages.WELCOME_MESSAGE);
     }
 
     @Test
@@ -32,11 +32,13 @@ public class AppTest {
         MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
         when(login.loginWindow())
                 .thenReturn(new ValidUser("","","","",99999));
+        when(login.loginWindow().dispatchMenu(menuDispatcher))
+                .thenReturn(1,2);
         App app = new App(consoleInputOutput, menu,login, menuDispatcher);
 
         app.start();
 
-        verify(login).loginWindow();
+        verify(login,times(3)).loginWindow();
     }
 
 
