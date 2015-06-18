@@ -8,7 +8,10 @@ import java.util.Scanner;
 public class EntryPoint {
     public static void main(String args[]) {
         ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(new Scanner(System.in));
-        HashMap<Integer, Options> menuOptions = new HashMap<>();
+        HashMap<Integer, Options> menuOptionsValiduser = new HashMap<>();
+        HashMap<Integer, Options> menuOptionsInvaliduser = new HashMap<>();
+        HashMap<Integer, Options> menuOptionsLibrarianuser = new HashMap<>();
+
         HashSet<Book> bookList = new HashSet<>();
         AvailableBook bookone = new AvailableBook("C++", "Jones", 1992);
         bookList.add(bookone);
@@ -34,13 +37,13 @@ public class EntryPoint {
         ReturnMovie returnMovie=new ReturnMovie(consoleInputOutput1, library);
         ListMovie listMovie=new ListMovie(consoleInputOutput1, library);
         ReturnBook returnBook = new ReturnBook(consoleInputOutput1, library);
-        menuOptions.put(1, listBooks);
-        menuOptions.put(3, checkoutbook);
-        menuOptions.put(4, returnBook);
-        menuOptions.put(5, listMovie);
-        menuOptions.put(6,checkoutmovie);
-        menuOptions.put(7, returnMovie);
-        Parser parser = new Parser(menuOptions);
+        menuOptionsValiduser.put(1, listBooks);
+        menuOptionsValiduser.put(3, checkoutbook);
+        menuOptionsValiduser.put(4, returnBook);
+        menuOptionsValiduser.put(5, listMovie);
+        menuOptionsValiduser.put(6, checkoutmovie);
+        menuOptionsValiduser.put(7, returnMovie);
+        Parser parser = new Parser(menuOptionsValiduser);
         ArrayList<String> options = new ArrayList<>();
         options.add("Display Books");
         options.add("Exit");
@@ -49,8 +52,28 @@ public class EntryPoint {
         options.add("List Movie");
         options.add("Checkout Movie");
         options.add("Return Movie");
-        MenuOption menuOption = new MenuOption(options);
-        Menu menu = new Menu(consoleInputOutput, parser, menuOption);
+        MenuOption menuOptionValid = new MenuOption(options);
+        Menu menuValidUser = new Menu(consoleInputOutput, parser, menuOptionValid);
+
+        menuOptionsInvaliduser.put(1, listBooks);
+        menuOptionsInvaliduser.put(3, listMovie);
+
+        ArrayList<String> optionsOne = new ArrayList<>();
+        optionsOne.add("Display Books");
+        optionsOne.add("Exit");
+        optionsOne.add("List Movie");
+        Parser parser1=new Parser(menuOptionsInvaliduser);
+
+        MenuOption menuOptionInvalid = new MenuOption(optionsOne);
+        Menu menuInValidUser = new Menu(consoleInputOutput, parser1, menuOptionInvalid);
+
+        Menu menuLibraryUser = new Menu(consoleInputOutput, parser, menuOptionValid);
+
+        MenuDispatcher menuDispatcher=new MenuDispatcher(menuInValidUser,menuValidUser,menuLibraryUser);
+
+
+
+
 
         HashSet<User> listOfUsers = new HashSet<>();
         ValidUser validUser = new ValidUser("9999-999", "priyar", "priya", "priya@gmail.com", 24714844);
@@ -59,7 +82,7 @@ public class EntryPoint {
         listOfUsers.add(new ValidUser("9999-997", "maddy", "madhu", "maddy@gmail.com", 24714846));
         Users users = new Users(listOfUsers);
         Login login=new Login(users,consoleInputOutput);
-        App app = new App(consoleInputOutput, menu,login);
+        App app = new App(consoleInputOutput, menuValidUser,login, menuDispatcher);
         app.start();
     }
 }

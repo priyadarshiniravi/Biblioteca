@@ -11,14 +11,10 @@ public class Login {
 
     public User loginWindow() {
         User user;
-        do {
-            String username = consoleInputOutput.getInputAsString();
-            String password = consoleInputOutput.getInputAsString();
-            user = users.login(username, password);
-            consoleInputOutput.print(user.loginMessage());
-
-        }
-        while (!(user instanceof ValidUser));
+        String username = consoleInputOutput.getInputAsString();
+        String password = consoleInputOutput.getInputAsString();
+        user = users.login(username, password);
+        consoleInputOutput.print(user.loginMessage());
         return user;
 
     }
