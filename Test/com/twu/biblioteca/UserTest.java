@@ -9,7 +9,7 @@ public class UserTest {
     public void shouldMatchUser() {
         ValidUser user = new ValidUser("3333-333", "password", "name", "emailid@gmail.com", 99857969);
 
-        boolean actualMatch = user.MatchUser("3333-333", "password");
+        boolean actualMatch = user.matchUser("3333-333", "password");
 
         assertEquals(true, actualMatch);
 

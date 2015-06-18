@@ -16,7 +16,7 @@ public class Users {
 
     private User search(String UserId, String password) {
         for (User user : users) {
-            if (user.MatchUser(UserId, password)) {
+            if (user.matchUser(UserId, password)) {
                 return user;
             }
         }

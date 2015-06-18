@@ -16,7 +16,7 @@ public abstract class User {
     }
 
 
-    public boolean MatchUser(String userName, String password) {
+    public boolean matchUser(String userName, String password) {
         if (userName == null || password == null) {
             return false;
         }
