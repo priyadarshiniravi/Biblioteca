@@ -11,11 +11,24 @@ public class AppTest {
     public void shouldDisplayWelcomeMessage() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Menu menu = mock(Menu.class);
-        App app = new App(consoleInputOutput, menu);
+        Login login=mock(Login.class);
+        App app = new App(consoleInputOutput, menu,login);
 
         app.start();
 
         verify(consoleInputOutput).print(Messages.WELCOME_MESSAGE);
+    }
+
+    @Test
+    public void shouldCallLogin() {
+        ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
+        Menu menu = mock(Menu.class);
+        Login login=mock(Login.class);
+        App app = new App(consoleInputOutput, menu,login);
+
+        app.start();
+
+        verify(login).loginWindow();
     }
 
 

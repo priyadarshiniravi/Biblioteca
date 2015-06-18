@@ -51,7 +51,15 @@ public class EntryPoint {
         options.add("Return Movie");
         MenuOption menuOption = new MenuOption(options);
         Menu menu = new Menu(consoleInputOutput, parser, menuOption);
-        App app = new App(consoleInputOutput, menu);
+
+        HashSet<User> listOfUsers = new HashSet<>();
+        ValidUser validUser = new ValidUser("9999-999", "priyar", "priya", "priya@gmail.com", 24714844);
+        listOfUsers.add(validUser);
+        listOfUsers.add(new ValidUser("9999-998", "achu", "aswini", "achu@gmail.com", 24714845));
+        listOfUsers.add(new ValidUser("9999-997", "maddy", "madhu", "maddy@gmail.com", 24714846));
+        Users users = new Users(listOfUsers);
+        Login login=new Login(users,consoleInputOutput);
+        App app = new App(consoleInputOutput, menu,login);
         app.start();
     }
 }
