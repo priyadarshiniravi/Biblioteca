@@ -52,12 +52,13 @@ public class Library {
     public String formattedBookString() {
         BooksPresenter booksPresenter = new BooksPresenter("");
         for (Book book : books) {
-            if (book instanceof AvailableBook) {
+
                 book.appendBooks(booksPresenter);
-            }
+
         }
         return booksPresenter.toString();
     }
+
 
     public String formattedMovieString() {
         MoviesPresenter moviesPresenter = new MoviesPresenter("");

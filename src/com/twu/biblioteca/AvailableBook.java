@@ -26,6 +26,9 @@ public class AvailableBook extends Book {
     public String returnMessage() {
         return SUCCESS_RETURN_BOOK;
     }
+    public void appendBooks(BooksPresenter booksPresenter) {
+        booksPresenter.addBook(name, author, yearOfPublication);
+    }
 
     @Override
     public String checkoutMessage() {

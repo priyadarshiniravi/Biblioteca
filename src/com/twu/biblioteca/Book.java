@@ -29,9 +29,7 @@ public abstract class Book {
     }
 
 
-    public void appendBooks(BooksPresenter booksPresenter) {
-        booksPresenter.addBook(name, author, yearOfPublication);
-    }
+    public abstract void appendBooks(BooksPresenter booksPresenter);
 
     public boolean isTitleMatch(String name) {
         if (this.name == null){
