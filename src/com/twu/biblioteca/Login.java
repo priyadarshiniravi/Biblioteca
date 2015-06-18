@@ -12,6 +12,8 @@ public class Login {
     public void loginWindow() {
         String username = consoleInputOutput.getInputAsString();
         String password = consoleInputOutput.getInputAsString();
+        User user=users.login(username,password);
+
 
     }
 }
