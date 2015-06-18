@@ -1,9 +1,11 @@
 package com.twu.biblioteca;
 
 public class Menu {
-    ConsoleInputOutput consoleInputOutput;
-    Parser parser;
-    MenuOption menuOption;
+    private ConsoleInputOutput consoleInputOutput;
+    private Parser parser;
+    private MenuOption menuOption;
+    private int EXIT_OPTION = 2;
+
 
     public Menu(ConsoleInputOutput consoleInputOutput, Parser parser, MenuOption menuOption) {
         this.consoleInputOutput = consoleInputOutput;
@@ -14,10 +16,9 @@ public class Menu {
     void chooseOption() {
         consoleInputOutput.print(menuOption.toString());
         int input = consoleInputOutput.getInputAsNumber();
-        while (input != 2) {
+        while (input != EXIT_OPTION) {
 
             Options option = parser.parse(input);
-            //TODO null should be avoided
             if (option == null) {
                 consoleInputOutput.print(Messages.INVALID_MESSAGE);
             } else {

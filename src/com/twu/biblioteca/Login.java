@@ -9,7 +9,7 @@ public class Login {
         this.consoleInputOutput = consoleInputOutput;
     }
 
-    public void loginWindow() {
+    public User loginWindow() {
         User user;
         do {
             String username = consoleInputOutput.getInputAsString();
@@ -19,6 +19,7 @@ public class Login {
 
         }
         while (!(user instanceof ValidUser));
+        return user;
 
     }
 }
