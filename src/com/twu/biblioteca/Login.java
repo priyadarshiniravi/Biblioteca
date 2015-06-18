@@ -9,9 +9,9 @@ public class Login {
         this.consoleInputOutput = consoleInputOutput;
     }
 
-    public void loginWindow()
-    {
-        String username=consoleInputOutput.getInputAsString();
+    public void loginWindow() {
+        String username = consoleInputOutput.getInputAsString();
+        String password = consoleInputOutput.getInputAsString();
 
     }
 }
