@@ -10,10 +10,13 @@ public class Login {
     }
 
     public void loginWindow() {
-        String username = consoleInputOutput.getInputAsString();
-        String password = consoleInputOutput.getInputAsString();
-        User user=users.login(username,password);
-
+        User user;
+        do {
+            String username = consoleInputOutput.getInputAsString();
+            String password = consoleInputOutput.getInputAsString();
+            user = users.login(username, password);
+        }
+        while (!(user instanceof ValidUser));
 
     }
 }
