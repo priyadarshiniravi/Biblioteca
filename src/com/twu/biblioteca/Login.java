@@ -15,6 +15,7 @@ public class Login {
             String username = consoleInputOutput.getInputAsString();
             String password = consoleInputOutput.getInputAsString();
             user = users.login(username, password);
+
         }
         while (!(user instanceof ValidUser));
 
