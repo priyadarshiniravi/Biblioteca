@@ -23,7 +23,7 @@ public class ValidUserTest {
         ValidUser user = new ValidUser("3333-333", "password", "name", "emailid@gmail.com", 99857969);
         MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        user.dispatchmenu(menuDispatcher);
+        user.dispatchMenu(menuDispatcher);
 
         verify(menuDispatcher).callMenu(user);
 

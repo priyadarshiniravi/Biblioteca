@@ -13,5 +13,10 @@ public class InvalidUser extends User {
 
     }
 
+    @Override
+    public void dispatchMenu(MenuDispatcher menuDispatcher) {
+
+    }
+
 
 }

@@ -16,5 +16,9 @@ public class MenuDispatcher {
         validUserMenu.chooseOption();
     }
 
+    public void callMenu(InvalidUser user) {
+        invalidUserMenu.chooseOption();
+    }
+
 
 }

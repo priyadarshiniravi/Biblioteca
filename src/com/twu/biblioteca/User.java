@@ -49,4 +49,6 @@ public abstract class User {
     }
 
     public abstract String loginMessage();
+
+    public abstract void dispatchMenu(MenuDispatcher menuDispatcher);
 }

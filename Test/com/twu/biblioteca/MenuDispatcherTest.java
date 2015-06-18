@@ -21,4 +21,19 @@ public class MenuDispatcherTest {
 
     }
 
+    @Test
+    public void shouldInvalidUserMenu() {
+        Menu validUserMenuStub = mock(Menu.class);
+        Menu invalidUserMenuStub = mock(Menu.class);
+        Menu librarianUserMenuStub = mock(Menu.class);
+        MenuDispatcher menuDispatcher = new MenuDispatcher(invalidUserMenuStub, validUserMenuStub, librarianUserMenuStub);
+        InvalidUser validUser=new InvalidUser("", "", "", "", 0);
+
+        menuDispatcher.callMenu(validUser);
+
+        verify(invalidUserMenuStub).chooseOption();
+
+
+    }
+
 }
