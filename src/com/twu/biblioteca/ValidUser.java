@@ -7,10 +7,6 @@ public class ValidUser extends User {
         super(id, password, name, emailId, phoneNumber);
     }
 
-    public String loginMessage() {
-        return Messages.SUCCESS_LOGIN;
-
-    }
 
 
 }
