@@ -13,7 +13,7 @@ public class Menu {
         this.menuOption = menuOption;
     }
 
-    public int chooseOption() {
+    public int chooseOption(User user) {
         consoleInputOutput.print(menuOption.toString());
         int input = consoleInputOutput.getInputAsNumber();
         while (input != EXIT_OPTION) {
@@ -22,7 +22,7 @@ public class Menu {
             if (option == null) {
                 consoleInputOutput.print(Messages.INVALID_MESSAGE);
             } else {
-                option.action();
+                option.action(user);
             }
             consoleInputOutput.print(menuOption.toString());
             input = consoleInputOutput.getInputAsNumber();

@@ -11,9 +11,9 @@ public class ReturnBook implements Options {
     }
 
     @Override
-    public void action() {
+    public void action(User user) {
         String input = consoleInputOutput.getInputAsString();
-        Book book = library.returnBook(input);
+        Book book = library.returnBook(input,user);
         consoleInputOutput.print(book.returnMessage());
 
     }

@@ -16,7 +16,7 @@ public class MenuDispatcherTest {
 
         menuDispatcher.callMenu(validUser);
 
-        verify(validUserMenuStub).chooseOption();
+        verify(validUserMenuStub).chooseOption(validUser);
 
 
     }
@@ -31,7 +31,7 @@ public class MenuDispatcherTest {
 
         menuDispatcher.callMenu(validUser);
 
-        verify(invalidUserMenuStub).chooseOption();
+        verify(invalidUserMenuStub).chooseOption(validUser);
 
 
     }

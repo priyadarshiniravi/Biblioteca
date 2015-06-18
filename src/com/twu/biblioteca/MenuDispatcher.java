@@ -13,11 +13,11 @@ public class MenuDispatcher {
 
 
     public int callMenu(ValidUser user) {
-        return validUserMenu.chooseOption();
+        return validUserMenu.chooseOption(user);
     }
 
     public int callMenu(InvalidUser user) {
-        return invalidUserMenu.chooseOption();
+        return invalidUserMenu.chooseOption(user);
     }
 
 

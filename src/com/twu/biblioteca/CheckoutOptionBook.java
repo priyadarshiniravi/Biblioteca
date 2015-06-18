@@ -11,9 +11,9 @@ public class CheckoutOptionBook implements Options {
     }
 
     @Override
-    public void action() {
+    public void action(User user) {
         String input = consoleInputOutput.getInputAsString();
-        Book book = library.checkoutBook(input);
+        Book book = library.checkoutBook(input,user);
         consoleInputOutput.print(book.checkoutMessage());
     }
 }

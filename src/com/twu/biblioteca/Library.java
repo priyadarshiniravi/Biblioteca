@@ -16,9 +16,9 @@ public class Library {
         this.moviesPresenter = moviesPresenter;
     }
 
-    public synchronized Book checkoutBook(String title) {
+    public synchronized Book checkoutBook(String title,User user) {
         Book book = BookSearch(title);
-        book = book.checkoutBook();
+        book = book.checkoutBook(user);
         books.remove(book);
         books.add(book);
         return book;
@@ -41,9 +41,9 @@ public class Library {
     }
 
 
-    public synchronized Book returnBook(String title) {
+    public synchronized Book returnBook(String title,User user) {
         Book book = BookSearch(title);
-        book = book.returnBook();
+        book = book.returnBook(user);
         books.remove(book);
         books.add(book);
         return book;

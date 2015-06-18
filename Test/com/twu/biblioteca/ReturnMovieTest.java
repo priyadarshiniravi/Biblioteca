@@ -13,8 +13,9 @@ public class ReturnMovieTest {
         when(library.returnMovie(anyString()))
                 .thenReturn(new NullMovie("",0, "", 0));
         ReturnMovie returnMovie = new ReturnMovie(consoleInputOutput, library);
+        User user=mock(User.class);
 
-        returnMovie.action();
+        returnMovie.action(user);
 
         verify(consoleInputOutput, times(1)).getInputAsString();
 
@@ -28,8 +29,9 @@ public class ReturnMovieTest {
         when(library.returnMovie(anyString()))
                 .thenReturn(new AvailableMovie("",0,"",0));
         ReturnMovie returnMovie = new ReturnMovie(consoleInputOutput, library);
+        User user=mock(User.class);
 
-        returnMovie.action();
+        returnMovie.action(user);
 
         verify(consoleInputOutput, times(1)).print(Messages.SUCCESS_RETURN_MOVIE);
 

@@ -4,18 +4,20 @@ package com.twu.biblioteca;
 import static com.twu.biblioteca.Messages.*;
 
 public class CheckedOutBook extends Book {
+    private User user;
 
-    public CheckedOutBook(String name, String author, int yearOfPublication) {
+    public CheckedOutBook(String name, String author, int yearOfPublication, User user) {
         super(name, author, yearOfPublication);
+        this.user = user;
     }
 
 
-    public static CheckedOutBook createCheckoutBook(AvailableBook availableBook) {
+    public static CheckedOutBook createCheckoutBook(AvailableBook availableBook,User user) {
 
-        return new CheckedOutBook(availableBook.name, availableBook.author, availableBook.yearOfPublication);
+        return new CheckedOutBook(availableBook.name, availableBook.author, availableBook.yearOfPublication,user);
     }
     @Override
-    public Book returnBook() {
+    public Book returnBook(User user) {
         return AvailableBook.createAvailableBook(this);
     }
 
@@ -24,7 +26,7 @@ public class CheckedOutBook extends Book {
         return null;
     }
     @Override
-    public NullBook checkoutBook() {
+    public NullBook checkoutBook(User user) {
         return NullBook.createNullBook();
     }
     @Override

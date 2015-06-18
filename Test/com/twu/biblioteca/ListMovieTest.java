@@ -11,9 +11,10 @@ public class ListMovieTest {
         Library library = mock(Library.class);
         when(library.formattedMovieString())
                 .thenReturn("Movies list");
+        User user=mock(User.class);
         ListMovie listMovies = new ListMovie(consoleInputOutput, library);
 
-        listMovies.action();
+        listMovies.action(user);
 
         verify(consoleInputOutput).print("Movies list");
 

@@ -12,8 +12,9 @@ public class ListBooksTest {
         when(library.formattedBookString())
                 .thenReturn("Books list");
         ListBooks listBooks = new ListBooks(consoleInputOutput, library);
+        User user=mock(User.class);
 
-        listBooks.action();
+        listBooks.action(user);
 
         verify(consoleInputOutput).print("Books list");
 

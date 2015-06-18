@@ -35,7 +35,8 @@ public class LibraryTest {
     public void shouldBeBooksDetailListWhichAreNotCheckedOut() {
 
         AvailableBook firstBook = new AvailableBook("Java", "Jones", 1992);
-        CheckedOutBook secondBook = new CheckedOutBook("C", "Jones", 1995);
+        User user=mock(User.class);
+        CheckedOutBook secondBook = new CheckedOutBook("C", "Jones", 1995, user);
         BooksPresenter booksPresenter = new BooksPresenter("");
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
 
@@ -64,18 +65,19 @@ public class LibraryTest {
         HashSet<Movie> movies = new HashSet<>();
         BooksPresenter booksPresenter = new BooksPresenter("");
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
-
+        User user=mock(User.class);
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
 
-        Book success = library.checkoutBook("C");
+        Book success = library.checkoutBook("C",user);
 
         assertEquals(Messages.SUCCESS_CHECKOUT_BOOK, success.checkoutMessage());
     }
 
     @Test
     public void shouldNotCheckoutIfBookIsCheckoutAndAvailable() {
-        CheckedOutBook book = new CheckedOutBook("C", "Jones", 1995);
+        User user=mock(User.class);
+        CheckedOutBook book = new CheckedOutBook("C", "Jones", 1995, user);
         AvailableBook firstBookStub = mock(AvailableBook.class);
         CheckedOutBook secondBookStub = mock(CheckedOutBook.class);
         HashSet<Book> books = new HashSet<>();
@@ -90,14 +92,15 @@ public class LibraryTest {
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
 
-        Book success = library.checkoutBook("any");
+        Book success = library.checkoutBook("any",user);
 
         assertEquals(Messages.UNSUCCESS_CHECKOUT_BOOK, success.checkoutMessage());
     }
 
     @Test
     public void shouldReturnIfBookIsCheckout() {
-        CheckedOutBook book = new CheckedOutBook("C", "Jones", 1995);
+        User user=mock(User.class);
+        CheckedOutBook book = new CheckedOutBook("C", "Jones", 1995, user);
         HashSet<Book> books = new HashSet<>();
         books.add(book);
         HashSet<Movie> movies = new HashSet<>();
@@ -105,13 +108,14 @@ public class LibraryTest {
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
-        Book success = library.returnBook("C");
+        Book success = library.returnBook("C",user);
 
         assertEquals(Messages.SUCCESS_RETURN_BOOK, success.returnMessage());
     }
 
     @Test
     public void shouldNotReturnIfBookIsNotCheckoutOrNotAvailable() {
+        User user=mock(User.class);
         AvailableBook book = new AvailableBook("C", "Jones", 1995);
         AvailableBook firstBookStub = mock(AvailableBook.class);
         CheckedOutBook secondBookStub = mock(CheckedOutBook.class);
@@ -124,7 +128,7 @@ public class LibraryTest {
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
 
-        Book success = library.returnBook("any");
+        Book success = library.returnBook("any",user);
 
         assertEquals(Messages.UNSUCCESSFUL_RETURN_BOOK, success.returnMessage());
     }

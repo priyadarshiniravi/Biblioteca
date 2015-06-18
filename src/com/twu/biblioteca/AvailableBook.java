@@ -9,12 +9,12 @@ public class AvailableBook extends Book {
     }
 
     @Override
-    public Book checkoutBook() {
-        return CheckedOutBook.createCheckoutBook(this);
+    public Book checkoutBook(User user) {
+        return CheckedOutBook.createCheckoutBook(this,user);
     }
 
     @Override
-    public Book returnBook() {
+    public Book returnBook(User user) {
         return NullBook.createNullBook();
     }
 

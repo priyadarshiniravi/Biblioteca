@@ -17,7 +17,7 @@ public class EntryPoint {
         bookList.add(bookone);
         AvailableBook booktwo = new AvailableBook("Java", "Charles", 1993);
         bookList.add(booktwo);
-        CheckedOutBook bookthree = new CheckedOutBook("J2EE", "Charles", 1993);
+        AvailableBook bookthree = new AvailableBook("J2EE", "Charles", 1993);
         bookList.add(bookthree);
         HashSet<Movie> movies=new HashSet<>();
         AvailableMovie movieOne=new AvailableMovie("Movie",1888,"XYZ",10);

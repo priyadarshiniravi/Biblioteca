@@ -10,12 +10,12 @@ public class NullBook extends Book {
     }
 
     @Override
-    public Book checkoutBook() {
+    public Book checkoutBook(User user) {
         return createNullBook();
     }
 
     @Override
-    public Book returnBook() {
+    public Book returnBook(User user) {
         return createNullBook();
     }
 

@@ -10,11 +10,12 @@ public class ReturnBookTest {
     public void ShouldTakeInput() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
-        when(library.returnBook(anyString()))
+        User user=mock(User.class);
+        when(library.returnBook(anyString(),(User)any()))
                 .thenReturn(new NullBook("","",0));
         ReturnBook returnBook = new ReturnBook(consoleInputOutput, library);
 
-        returnBook.action();
+        returnBook.action(user);
 
         verify(consoleInputOutput, times(1)).getInputAsString();
 
@@ -25,11 +26,12 @@ public class ReturnBookTest {
     public void shouldBeUnsuccessfulReturn() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
-        when(library.returnBook(anyString()))
+        User user=mock(User.class);
+        when(library.returnBook(anyString(),(User)any()))
                 .thenReturn(new NullBook("","",0));
         ReturnBook returnBook = new ReturnBook(consoleInputOutput, library);
 
-        returnBook.action();
+        returnBook.action(user);
 
         verify(consoleInputOutput, times(1)).print(Messages.UNSUCCESSFUL_RETURN_BOOK);
 
@@ -40,11 +42,12 @@ public class ReturnBookTest {
     public void shouldBeSuccessfulReturn() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
-        when(library.returnBook(anyString()))
+        User user=mock(User.class);
+        when(library.returnBook(anyString(),(User) any()))
                 .thenReturn(new AvailableBook("","",0));
         ReturnBook returnBook = new ReturnBook(consoleInputOutput, library);
 
-        returnBook.action();
+        returnBook.action(user);
 
         verify(consoleInputOutput, times(1)).print(Messages.SUCCESS_RETURN_BOOK);
 

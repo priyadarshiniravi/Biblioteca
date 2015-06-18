@@ -4,13 +4,15 @@ import org.junit.Test;
 
 import static com.twu.biblioteca.Messages.*;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 
 public class CheckedOutBookTest {
     @Test
     public void shouldBeSuccessForReturningCheckedOutBook() {
-        CheckedOutBook book = new CheckedOutBook("C", "XYZ", 1998);
+        User user=mock(User.class);
+        CheckedOutBook book = new CheckedOutBook("C", "XYZ", 1998, user);
 
-        Book actualBookAvailable = book.returnBook();
+        Book actualBookAvailable = book.returnBook(user);
         AvailableBook expectedBook = new AvailableBook("C", "XYZ", 1998);
 
         assertEquals(expectedBook, actualBookAvailable);
@@ -19,9 +21,10 @@ public class CheckedOutBookTest {
 
     @Test
     public void shouldBeNullBookForCheckingOutCheckedOutBook() {
-        CheckedOutBook book = new CheckedOutBook("C", "XYZ", 1998);
+        User user=mock(User.class);
+        CheckedOutBook book = new CheckedOutBook("C", "XYZ", 1998, user);
 
-        NullBook actualBookAvailable = book.checkoutBook();
+        NullBook actualBookAvailable = book.checkoutBook(user);
         NullBook expectedBook = new NullBook(null, null, 0);
 
         assertEquals(expectedBook, actualBookAvailable);
@@ -30,7 +33,8 @@ public class CheckedOutBookTest {
 
     @Test
     public void shouldBeSuccessCheckoutInCheckoutBook() {
-        CheckedOutBook book = new CheckedOutBook("C", "XYZ", 1998);
+        User user=mock(User.class);
+        CheckedOutBook book = new CheckedOutBook("C", "XYZ", 1998, user);
 
         String actualMessage = book.checkoutMessage();
 

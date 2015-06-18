@@ -39,9 +39,9 @@ public abstract class Book {
         return this.name.equals(name);
     }
 
-    public abstract Book checkoutBook();
+    public abstract Book checkoutBook(User user);
 
-    public abstract Book returnBook();
+    public abstract Book returnBook(User user);
 
     public abstract String returnMessage();
 
