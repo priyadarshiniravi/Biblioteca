@@ -20,7 +20,7 @@ public class Users {
                 return user;
             }
         }
-        return null;
+        return new InvalidUser("","","","",0);
     }
 
 
