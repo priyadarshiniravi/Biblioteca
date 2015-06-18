@@ -22,4 +22,6 @@ public abstract class User {
         }
         return (this.name.equals(name) && (this.password.equals(password)));
     }
+
+    public abstract String loginMessage();
 }
