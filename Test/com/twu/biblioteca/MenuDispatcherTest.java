@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class MenuDispatcherTest {
     @Test
@@ -14,6 +15,8 @@ public class MenuDispatcherTest {
         ValidUser validUser=new ValidUser("3333-333", "password", "name", "emailid@gmail.com", 99857969);
 
         menuDispatcher.callMenu(validUser);
+
+        verify(validUserMenuStub).chooseOption();
 
 
     }
