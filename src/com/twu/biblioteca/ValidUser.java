@@ -11,7 +11,10 @@ public class ValidUser extends User {
 
     }
 
-
+    public void dispatchmenu(MenuDispatcher menuDispatcher)
+    {
+        menuDispatcher.callMenu(this);
+    }
 
 
 }
