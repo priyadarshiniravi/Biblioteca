@@ -14,4 +14,9 @@ public class LibrarianUser extends User {
     public int dispatchMenu(MenuDispatcher menuDispatcher) {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return this.id+" "+this.name;
+    }
 }
