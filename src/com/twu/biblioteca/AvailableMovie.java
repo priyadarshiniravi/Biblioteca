@@ -35,7 +35,7 @@ public class AvailableMovie extends Movie {
     }
 
 
-    public void appendToMovies(MoviesPresenter moviesPresenter) {
+    public void appendToAvailableMovies(MoviesPresenter moviesPresenter) {
         moviesPresenter.addMovie(name, year, director, rating);
     }
 }

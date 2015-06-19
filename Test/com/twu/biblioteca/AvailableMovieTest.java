@@ -3,6 +3,8 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class AvailableMovieTest {
     @Test
@@ -36,4 +38,14 @@ public class AvailableMovieTest {
         assertEquals(Messages.SUCCESS_RETURN_MOVIE, actualMessage);
     }
 
+    @Test
+    public void shouldAppendMovieToFormattedMovies() {
+        MoviesPresenter moviesPresenter = mock(MoviesPresenter.class);
+        AvailableMovie movie=new AvailableMovie("Minions", 2015, "xyz", 10);
+
+        movie.appendToAvailableMovies(moviesPresenter);
+
+        verify(moviesPresenter).addMovie("Minions", 2015, "xyz", 10);
+
+    }
 }

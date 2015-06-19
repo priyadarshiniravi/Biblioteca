@@ -34,4 +34,9 @@ public class CheckedOutMovie extends Movie {
         return null;
     }
 
+    @Override
+    public void appendToAvailableMovies(MoviesPresenter moviesPresenter) {
+
+    }
+
 }

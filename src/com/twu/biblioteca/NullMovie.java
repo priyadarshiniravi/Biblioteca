@@ -30,4 +30,9 @@ public class NullMovie extends Movie {
     public String returnMessage() {
         return Messages.UNSUCCESSFUL_RETURN_MOVIE;
     }
+
+    @Override
+    public void appendToAvailableMovies(MoviesPresenter moviesPresenter) {
+
+    }
 }

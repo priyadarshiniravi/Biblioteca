@@ -76,7 +76,7 @@ public class Library {
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
         for (Movie movie : movies) {
             if (movie instanceof AvailableMovie) {
-                movie.appendToMovies(moviesPresenter);
+                movie.appendToAvailableMovies(moviesPresenter);
             }
         }
         return moviesPresenter.toString();
