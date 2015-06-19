@@ -20,5 +20,9 @@ public class MenuDispatcher {
         return invalidUserMenu.chooseOption(user);
     }
 
+    public int callMenu(LibrarianUser user) {
+        return librarianMenu.chooseOption(user);
+    }
+
 
 }

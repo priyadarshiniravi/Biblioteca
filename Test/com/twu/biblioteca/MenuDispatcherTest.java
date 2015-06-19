@@ -36,4 +36,19 @@ public class MenuDispatcherTest {
 
     }
 
+    @Test
+    public void shouldLibrarianUserMenu() {
+        Menu validUserMenuStub = mock(Menu.class);
+        Menu invalidUserMenuStub = mock(Menu.class);
+        Menu librarianUserMenuStub = mock(Menu.class);
+        MenuDispatcher menuDispatcher = new MenuDispatcher(invalidUserMenuStub, validUserMenuStub, librarianUserMenuStub);
+        LibrarianUser librarianUser=new LibrarianUser("3333-333", "password", "name", "emailid@gmail.com", 99857969);
+
+        menuDispatcher.callMenu(librarianUser);
+
+        verify(librarianUserMenuStub).chooseOption(librarianUser);
+
+
+    }
+
 }
