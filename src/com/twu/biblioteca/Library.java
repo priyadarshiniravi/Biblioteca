@@ -60,6 +60,7 @@ public class Library {
     }
 
 
+
     public String formattedMovieString() {
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
         for (Movie movie : movies) {

@@ -18,5 +18,8 @@ public class InvalidUser extends User {
         return menuDispatcher.callMenu(this);
     }
 
-
+    @Override
+    public String toString() {
+        return "";
+    }
 }

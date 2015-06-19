@@ -26,8 +26,8 @@ public class LibraryTest {
 
         String bookList = library.formattedAvailableBookString();
 
-        assertEquals("OOPs                          |Patric                        |1992\n" +
-                "Java                          |Jones                         |1992\n", bookList);
+        assertEquals("OOPs                          |Patric                        |1992|          \n" +
+                "Java                          |Jones                         |1992|          \n", bookList);
     }
 
 
@@ -50,7 +50,7 @@ public class LibraryTest {
 
         String bookList = library.formattedAvailableBookString();
 
-        assertEquals("Java                          |Jones                         |1992\n", bookList);
+        assertEquals("Java                          |Jones                         |1992|          \n", bookList);
     }
 
     @Test

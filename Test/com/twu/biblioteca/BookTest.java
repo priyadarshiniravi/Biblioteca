@@ -64,7 +64,7 @@ public class BookTest {
 
         book.appendAvailableBooks(booksPresenter);
 
-        verify(booksPresenter).addBook("Minions", "xyz", 2010);
+        verify(booksPresenter).addBook("Minions", "xyz", 2010,new InvalidUser("","","","",0));
     }
 
 

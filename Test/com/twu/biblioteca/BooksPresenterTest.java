@@ -21,10 +21,10 @@ public class BooksPresenterTest {
         String FormattedMovies = new String();
         BooksPresenter booksPresenter = new BooksPresenter(FormattedMovies);
 
-        booksPresenter.addBook("UP", "xyz", 1987);
+        booksPresenter.addBook("UP", "xyz", 1987,new InvalidUser("","","","",0));
         String actualFormattedMovies = booksPresenter.toString();
 
-        assertEquals("UP                            |xyz                           |1987\n", actualFormattedMovies);
+        assertEquals("UP                            |xyz                           |1987|          \n", actualFormattedMovies);
     }
 
 }

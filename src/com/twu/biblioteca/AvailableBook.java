@@ -27,7 +27,12 @@ public class AvailableBook extends Book {
         return SUCCESS_RETURN_BOOK;
     }
     public void appendAvailableBooks(BooksPresenter booksPresenter) {
-        booksPresenter.addBook(name, author, yearOfPublication);
+        booksPresenter.addBook(name, author, yearOfPublication,new InvalidUser("","","","",0));
+    }
+
+    @Override
+    public void appendCheckedOutBooks(BooksPresenter booksPresenter) {
+
     }
 
     @Override

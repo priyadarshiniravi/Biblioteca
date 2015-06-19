@@ -31,6 +31,8 @@ public abstract class Book {
 
     public abstract void appendAvailableBooks(BooksPresenter booksPresenter);
 
+    public abstract void appendCheckedOutBooks(BooksPresenter booksPresenter);
+
     public boolean isTitleMatch(String name) {
         if (this.name == null){
         return false;}

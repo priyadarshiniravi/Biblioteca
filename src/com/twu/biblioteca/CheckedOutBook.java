@@ -34,6 +34,11 @@ public class CheckedOutBook extends Book {
     }
 
     @Override
+    public void appendCheckedOutBooks(BooksPresenter booksPresenter) {
+
+    }
+
+    @Override
     public NullBook checkoutBook(User user) {
         return NullBook.createNullBook();
     }
