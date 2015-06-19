@@ -15,7 +15,9 @@ public class MenuTest {
         ArrayList<String> options = new ArrayList<>();
         options.add("Display Books");
         options.add("Exit");
-        MenuOption menuOption = new MenuOption(options);
+        MenuOption menuOption = mock(MenuOption.class);
+        when(menuOption.isExitOption())
+                .thenReturn(2);
         Menu menu = new Menu(consoleInputOutput, parser, menuOption);
         Options optionsStub = mock(Options.class);
         when(consoleInputOutput.getInputAsNumber())
@@ -33,12 +35,11 @@ public class MenuTest {
     public void ShouldTakeInputInvalid() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Parser parser = mock(Parser.class);
-        ArrayList<String> options = new ArrayList<>();
-        options.add("Display Books");
-        options.add("Exit");
-        MenuOption menuOption = new MenuOption(options);
+        MenuOption menuOption = mock(MenuOption.class);
+        when(menuOption.isExitOption())
+                .thenReturn(2);
         Menu menu = new Menu(consoleInputOutput, parser, menuOption);
-        Options optionsStub = mock(Options.class);
+
         when(consoleInputOutput.getInputAsNumber())
                 .thenReturn(300, 2);
         User user=mock(User.class);
@@ -54,12 +55,15 @@ public class MenuTest {
         Parser parser = mock(Parser.class);
         ArrayList<String> options = new ArrayList<>();
         options.add("Display Books");
+        options.add("Checkout Book");
         options.add("Exit");
-        MenuOption menuOption = new MenuOption(options);
+        MenuOption menuOption = mock(MenuOption.class);
+        when(menuOption.isExitOption())
+                .thenReturn(3);
         Menu menu = new Menu(consoleInputOutput, parser, menuOption);
         Options optionsStub = mock(Options.class);
         when(consoleInputOutput.getInputAsNumber())
-                .thenReturn(2);
+                .thenReturn(3);
         User user=mock(User.class);
 
         menu.chooseOption(user);

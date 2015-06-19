@@ -2,7 +2,6 @@
 
 package com.twu.biblioteca;
 
-
 public class CheckoutOptionMovie implements Options {
     ConsoleInputOutput consoleInputOutput;
     Library library;

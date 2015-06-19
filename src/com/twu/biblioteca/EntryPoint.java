@@ -17,7 +17,8 @@ public class EntryPoint {
         bookList.add(bookone);
         AvailableBook booktwo = new AvailableBook("Java", "Charles", 1993);
         bookList.add(booktwo);
-        AvailableBook bookthree = new AvailableBook("J2EE", "Charles", 1993);
+        ValidUser validUser = new ValidUser("9999-999", "priyar", "priya", "priya@gmail.com", 24714844);
+        CheckedOutBook bookthree = new CheckedOutBook("J2EE", "Charles", 1993,validUser);
         bookList.add(bookthree);
         HashSet<Movie> movies=new HashSet<>();
         AvailableMovie movieOne=new AvailableMovie("Movie",1888,"XYZ",10);
@@ -67,10 +68,26 @@ public class EntryPoint {
 
         MenuOption menuOptionInvalid = new MenuOption(optionsOne);
         Menu menuInValidUser = new Menu(consoleInputOutput, parser1, menuOptionInvalid);
-        options.add("List CheckedOut Books");
-        MenuOption menuOptionLibrarian=new MenuOption(options);
-        menuOptionsValiduser.put(8,listCheckedOutBook);
-        Parser parser3 =new Parser(menuOptionsInvaliduser);
+        //options.add("List CheckedOut Books");
+        ArrayList<String> options3 = new ArrayList<>();
+        options3.add("Display Books");
+        options3.add("Exit");
+        options3.add("Checkout");
+        options3.add("Return");
+        options3.add("List Movie");
+        options3.add("Checkout Movie");
+        options3.add("Return Movie");
+        MenuOption menuOptionLibrarian=new MenuOption(options3);
+
+
+        menuOptionsLibrarianuser.put(1, listBooks);
+        menuOptionsLibrarianuser.put(3, checkoutbook);
+        menuOptionsLibrarianuser.put(4, returnBook);
+        menuOptionsLibrarianuser.put(5, listMovie);
+        menuOptionsLibrarianuser.put(6, checkoutmovie);
+        menuOptionsLibrarianuser.put(7, returnMovie);
+        menuOptionsLibrarianuser.put(8,listCheckedOutBook);
+        Parser parser3 =new Parser(menuOptionsLibrarianuser);
 
         Menu menuLibraryUser = new Menu(consoleInputOutput, parser3, menuOptionLibrarian);
 
@@ -81,7 +98,7 @@ public class EntryPoint {
 
 
         HashSet<User> listOfUsers = new HashSet<>();
-        ValidUser validUser = new ValidUser("9999-999", "priyar", "priya", "priya@gmail.com", 24714844);
+
         listOfUsers.add(validUser);
         listOfUsers.add(new LibrarianUser("9999-995", "ishika", "ishika", "ishi@gmail.com", 24714846));
         listOfUsers.add(new ValidUser("9999-998", "achu", "aswini", "achu@gmail.com", 24714845));

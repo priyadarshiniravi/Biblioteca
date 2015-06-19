@@ -20,4 +20,20 @@ public class MenuOption {
         }
         return DisplayOption;
     }
+
+    public int isExitOption() {
+        int iterator = 1;
+        for (String IndividualOption : menuOptions) {
+            if (IndividualOption == "Exit")
+                return iterator;
+            iterator++;
+
+        }
+        return getInfinity();
+
+    }
+
+    private int getInfinity() {
+        return Integer.MAX_VALUE;
+    }
 }

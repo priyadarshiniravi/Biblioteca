@@ -16,7 +16,7 @@ public class Menu {
     public int chooseOption(User user) {
         consoleInputOutput.print(menuOption.toString());
         int input = consoleInputOutput.getInputAsNumber();
-        while (input != EXIT_OPTION) {
+        while (input != menuOption.isExitOption()) {
 
             Options option = parser.parse(input);
             if (option == null) {
