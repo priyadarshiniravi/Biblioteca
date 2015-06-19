@@ -4,13 +4,15 @@ import org.junit.Test;
 
 import static com.twu.biblioteca.Messages.SUCCESS_CHECKOUT_MOVIE;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 
 public class CheckedOutMovieTest {
     @Test
     public void shouldBeSuccessForReturningCheckedOutMovie() {
-        CheckedOutMovie movie = new CheckedOutMovie("C", 1998, "XYZ", 10);
+        User user = mock(User.class);
+        CheckedOutMovie movie = new CheckedOutMovie("C", 1998, "XYZ", 10,user);
 
-        Movie actualMovieAvailable = movie.returnMovie();
+        Movie actualMovieAvailable = movie.returnMovie(user);
         AvailableMovie expectedMovie = new AvailableMovie("C", 1998, "XYZ", 10);
 
         assertEquals(expectedMovie, actualMovieAvailable);
@@ -19,9 +21,10 @@ public class CheckedOutMovieTest {
 
     @Test
     public void shouldBeNullMovieForCheckoutOfCheckedOutMovie() {
-        CheckedOutMovie movie = new CheckedOutMovie("C", 1998, "XYZ", 10);
+        User user = mock(User.class);
+        CheckedOutMovie movie = new CheckedOutMovie("C", 1998, "XYZ", 10,user);
 
-        Movie actualMovieAvailable = movie.checkoutMovie();
+        Movie actualMovieAvailable = movie.checkoutMovie(user);
         NullMovie expectedMovie = new NullMovie(null, 0, null, 0);
 
         assertEquals(expectedMovie, actualMovieAvailable);
@@ -30,7 +33,8 @@ public class CheckedOutMovieTest {
 
     @Test
     public void shouldBeSuccessMessageCheckoutInCheckoutMovie() {
-        CheckedOutMovie movie = new CheckedOutMovie("C", 1998, "XYZ", 10);
+        User user = mock(User.class);
+        CheckedOutMovie movie = new CheckedOutMovie("C", 1998, "XYZ", 10,user);
 
         String actualMessage = movie.checkoutMessage();
 

@@ -7,7 +7,7 @@ public class NullMovie extends Movie {
     }
 
     @Override
-    public Movie returnMovie() {
+    public Movie returnMovie(User user) {
         return createNullMovie();
     }
 
@@ -17,7 +17,7 @@ public class NullMovie extends Movie {
     }
 
     @Override
-    public Movie checkoutMovie() {
+    public Movie checkoutMovie(User user) {
         return createNullMovie();
     }
 
@@ -33,6 +33,11 @@ public class NullMovie extends Movie {
 
     @Override
     public void appendToAvailableMovies(MoviesPresenter moviesPresenter) {
+
+    }
+
+    @Override
+    public void appendToCheckoutMovies(MoviesPresenter moviesPresenter) {
 
     }
 }

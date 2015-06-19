@@ -38,13 +38,15 @@ public abstract class Movie {
         return this.name.equals(name);
     }
 
-    public abstract Movie returnMovie();
+    public abstract Movie returnMovie(User user);
 
-    public abstract Movie checkoutMovie();
+    public abstract Movie checkoutMovie(User user);
 
     public abstract String checkoutMessage();
 
     public abstract String returnMessage();
 
     public abstract void appendToAvailableMovies(MoviesPresenter moviesPresenter);
+
+    public abstract void appendToCheckoutMovies(MoviesPresenter moviesPresenter);
 }

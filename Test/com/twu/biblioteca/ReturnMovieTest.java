@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
+import org.mockito.Matchers;
 
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
@@ -10,7 +11,7 @@ public class ReturnMovieTest {
     public void ShouldTakeInput() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
-        when(library.returnMovie(anyString()))
+        when(library.returnMovie(anyString(), Matchers.<User>any()))
                 .thenReturn(new NullMovie("",0, "", 0));
         ReturnMovie returnMovie = new ReturnMovie(consoleInputOutput, library);
         User user=mock(User.class);
@@ -26,7 +27,7 @@ public class ReturnMovieTest {
     public void shouldBeSuccessfulReturn() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
-        when(library.returnMovie(anyString()))
+        when(library.returnMovie(anyString(), Matchers.<User>any()))
                 .thenReturn(new AvailableMovie("",0,"",0));
         ReturnMovie returnMovie = new ReturnMovie(consoleInputOutput, library);
         User user=mock(User.class);

@@ -145,18 +145,20 @@ public class LibraryTest {
         movies.add(book);
         BooksPresenter booksPresenter = new BooksPresenter("");
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
+        User user = mock(User.class);
 
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
 
-        Movie success = library.checkoutMovie("C");
+        Movie success = library.checkoutMovie("C",user);
 
         assertEquals(Messages.SUCCESS_CHECKOUT_MOVIE, success.checkoutMessage());
     }
 
     @Test
     public void shouldNotCheckoutIfMovieIsCheckoutOrNotAvailable() {
-        CheckedOutMovie book = new CheckedOutMovie("C",1883, "Jones", 1);
+        User user = mock(User.class);
+        CheckedOutMovie book = new CheckedOutMovie("C",1883, "Jones", 1,user);
         AvailableMovie firstMovieStub = mock(AvailableMovie.class);
         CheckedOutMovie secondMovieStub = mock(CheckedOutMovie.class);
         HashSet<Book> books = new HashSet<>();
@@ -170,7 +172,7 @@ public class LibraryTest {
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
 
-        Movie success = library.checkoutMovie("C");
+        Movie success = library.checkoutMovie("C",user);
 
         assertEquals(Messages.UNSUCCESS_CHECKOUT_MOVIE, success.checkoutMessage());
     }
@@ -205,6 +207,7 @@ public class LibraryTest {
         AvailableMovie secondMovie = new AvailableMovie("OOPs",1995, "Patric", 5);
         BooksPresenter booksPresenter = new BooksPresenter("");
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
+        User user = mock(User.class);
 
         HashSet<Book> books = new HashSet<>();
 
@@ -215,18 +218,19 @@ public class LibraryTest {
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
 
-        Movie movieList = library.checkoutMovie("OOPs");
+        Movie movieList = library.checkoutMovie("OOPs",user);
 
         assertEquals(Messages.SUCCESS_CHECKOUT_MOVIE,movieList.checkoutMessage());
     }
 
     @Test
     public void shouldReturnMovie() {
-
+        User user = mock(User.class);
         AvailableMovie firstMovie = new AvailableMovie("Java",1993, "Jones", 1);
-        CheckedOutMovie secondMovie = new CheckedOutMovie("OOPs",1995, "Patric", 5);
+        CheckedOutMovie secondMovie = new CheckedOutMovie("OOPs",1995, "Patric", 5,user);
         BooksPresenter booksPresenter = new BooksPresenter("");
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
+
 
         HashSet<Book> books = new HashSet<>();
 
@@ -237,7 +241,7 @@ public class LibraryTest {
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
 
-        Movie movieList = library.returnMovie("OOPs");
+        Movie movieList = library.returnMovie("OOPs",user);
 
         assertEquals(Messages.SUCCESS_RETURN_MOVIE,movieList.returnMessage());
     }

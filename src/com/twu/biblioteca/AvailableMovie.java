@@ -10,13 +10,13 @@ public class AvailableMovie extends Movie {
     }
 
     @Override
-    public Movie returnMovie() {
+    public Movie returnMovie(User user) {
         return NullMovie.createNullMovie();
     }
 
     @Override
-    public Movie checkoutMovie() {
-        return CheckedOutMovie.createCheckoutMovie(this);
+    public Movie checkoutMovie(User user) {
+        return CheckedOutMovie.createCheckoutMovie(this,user);
     }
 
     @Override
@@ -37,5 +37,10 @@ public class AvailableMovie extends Movie {
 
     public void appendToAvailableMovies(MoviesPresenter moviesPresenter) {
         moviesPresenter.addMovie(name, year, director, rating);
+    }
+
+    @Override
+    public void appendToCheckoutMovies(MoviesPresenter moviesPresenter) {
+
     }
 }

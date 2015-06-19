@@ -23,7 +23,7 @@ public class EntryPoint {
         HashSet<Movie> movies = new HashSet<>();
         AvailableMovie movieOne = new AvailableMovie("Movie", 1888, "XYZ", 10);
         AvailableMovie movieTwo = new AvailableMovie("Movie123", 1888, "XYZ", 10);
-        CheckedOutMovie movieThree = new CheckedOutMovie("Movie555", 1888, "XYZ", 10);
+        CheckedOutMovie movieThree = new CheckedOutMovie("Movie555", 1888, "XYZ", 10,validUser);
         movies.add(movieOne);
         movies.add(movieTwo);
         movies.add(movieThree);

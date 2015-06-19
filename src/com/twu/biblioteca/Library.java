@@ -24,17 +24,17 @@ public class Library {
         return book;
     }
 
-    public synchronized Movie checkoutMovie(String title) {
+    public synchronized Movie checkoutMovie(String title,User user) {
         Movie movie = movieSearch(title);
-        movie = movie.checkoutMovie();
+        movie = movie.checkoutMovie(user);
         movies.remove(movie);
         movies.add(movie);
         return movie;
     }
 
-    public synchronized Movie returnMovie(String title) {
+    public synchronized Movie returnMovie(String title,User user) {
         Movie movie = movieSearch(title);
-        movie = movie.returnMovie();
+        movie = movie.returnMovie(user);
         movies.remove(movie);
         movies.add(movie);
         return movie;
@@ -77,6 +77,16 @@ public class Library {
         for (Movie movie : movies) {
 
                 movie.appendToAvailableMovies(moviesPresenter);
+
+        }
+        return moviesPresenter.toString();
+    }
+
+    public String formattedCheckedOutMovieString() {
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
+        for (Movie movie : movies) {
+
+            movie.appendToCheckoutMovies(moviesPresenter);
 
         }
         return moviesPresenter.toString();
