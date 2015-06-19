@@ -11,7 +11,7 @@ public class ListMovie implements Options {
 
     @Override
     public void action(User user) {
-        consoleInputOutput.print(library.formattedMovieString());
+        consoleInputOutput.print(library.formattedAvailableMovieString());
 
     }
 }

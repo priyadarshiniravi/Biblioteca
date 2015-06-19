@@ -9,7 +9,7 @@ public class ListMovieTest {
     public void shouldCheckMovieDisplayStrategy() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
-        when(library.formattedMovieString())
+        when(library.formattedAvailableMovieString())
                 .thenReturn("Movies list");
         User user=mock(User.class);
         ListMovie listMovies = new ListMovie(consoleInputOutput, library);

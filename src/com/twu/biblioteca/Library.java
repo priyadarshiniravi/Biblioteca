@@ -72,7 +72,7 @@ public class Library {
 
 
 
-    public String formattedMovieString() {
+    public String formattedAvailableMovieString() {
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
         for (Movie movie : movies) {
             if (movie instanceof AvailableMovie) {
