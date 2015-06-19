@@ -35,7 +35,7 @@ public class CheckedOutBook extends Book {
 
     @Override
     public void appendCheckedOutBooks(BooksPresenter booksPresenter) {
-
+        booksPresenter.addBook(name, author, yearOfPublication,user);
     }
 
     @Override

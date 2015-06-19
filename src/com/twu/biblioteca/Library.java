@@ -59,6 +59,17 @@ public class Library {
         return booksPresenter.toString();
     }
 
+    public String formattedCheckoutBookString() {
+        BooksPresenter booksPresenter = new BooksPresenter("");
+        for (Book book : books) {
+
+            book.appendCheckedOutBooks(booksPresenter);
+
+        }
+        return booksPresenter.toString();
+    }
+
+
 
 
     public String formattedMovieString() {

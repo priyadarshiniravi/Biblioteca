@@ -69,7 +69,7 @@ public class LibraryTest {
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
 
-        Book success = library.checkoutBook("C",user);
+        Book success = library.checkoutBook("C", user);
 
         assertEquals(Messages.SUCCESS_CHECKOUT_BOOK, success.checkoutMessage());
     }
@@ -108,7 +108,7 @@ public class LibraryTest {
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
-        Book success = library.returnBook("C",user);
+        Book success = library.returnBook("C", user);
 
         assertEquals(Messages.SUCCESS_RETURN_BOOK, success.returnMessage());
     }
@@ -240,6 +240,28 @@ public class LibraryTest {
         Movie movieList = library.returnMovie("OOPs");
 
         assertEquals(Messages.SUCCESS_RETURN_MOVIE,movieList.returnMessage());
+    }
+
+    @Test
+    public void shouldBeBooksDetailListWhichAreCheckedOut() {
+
+        AvailableBook firstBook = new AvailableBook("Java", "Jones", 1992);
+        User user=new ValidUser("9999-999","priyar","priya","priya@gmail.com",99999999);
+        CheckedOutBook secondBook = new CheckedOutBook("C", "Jones", 1995, user);
+        BooksPresenter booksPresenter = new BooksPresenter("");
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
+
+        HashSet<Book> books = new HashSet<>();
+        books.add(firstBook);
+        books.add(secondBook);
+        HashSet<Movie> movies = new HashSet<>();
+
+
+        Library library = new Library(books, movies, booksPresenter, moviesPresenter);
+
+        String bookList = library.formattedCheckoutBookString();
+
+        assertEquals("C                             |Jones                         |1995|com.twu.biblioteca.ValidUser@ecba6821\n", bookList);
     }
 
 
