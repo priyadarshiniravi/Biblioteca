@@ -29,4 +29,17 @@ public class ValidUserTest {
 
 
     }
+
+    @Test
+    public void shouldBeToString()
+    {
+        ValidUser user = new ValidUser("3333-333", "password", "ishika", "emailid@gmail.com", 99857969);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
+
+        String actualName=user.toString();
+
+       assertEquals("3333-333 ishika",actualName);
+
+
+    }
 }

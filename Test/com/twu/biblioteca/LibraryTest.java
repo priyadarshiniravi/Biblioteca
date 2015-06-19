@@ -261,7 +261,7 @@ public class LibraryTest {
 
         String bookList = library.formattedCheckoutBookString();
 
-        assertEquals("C                             |Jones                         |1995|com.twu.biblioteca.ValidUser@ecba6821\n", bookList);
+        assertEquals("C                             |Jones                         |1995|9999-999 priya\n", bookList);
     }
 
 

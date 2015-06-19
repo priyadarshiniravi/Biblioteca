@@ -16,5 +16,8 @@ public class ValidUser extends User {
         return menuDispatcher.callMenu(this);
     }
 
-
+    @Override
+    public String toString() {
+        return this.id+" "+this.name;
+    }
 }
