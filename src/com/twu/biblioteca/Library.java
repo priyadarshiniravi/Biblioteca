@@ -49,11 +49,11 @@ public class Library {
         return book;
     }
 
-    public String formattedBookString() {
+    public String formattedAvailableBookString() {
         BooksPresenter booksPresenter = new BooksPresenter("");
         for (Book book : books) {
 
-                book.appendBooks(booksPresenter);
+                book.appendAvailableBooks(booksPresenter);
 
         }
         return booksPresenter.toString();

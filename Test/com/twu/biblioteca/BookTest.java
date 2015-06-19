@@ -62,7 +62,7 @@ public class BookTest {
         BooksPresenter booksPresenter = mock(BooksPresenter.class);
         AvailableBook book = new AvailableBook("Minions", "xyz", 2010);
 
-        book.appendBooks(booksPresenter);
+        book.appendAvailableBooks(booksPresenter);
 
         verify(booksPresenter).addBook("Minions", "xyz", 2010);
     }

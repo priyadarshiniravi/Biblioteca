@@ -29,7 +29,7 @@ public class CheckedOutBook extends Book {
     }
 
     @Override
-    public void appendBooks(BooksPresenter booksPresenter) {
+    public void appendAvailableBooks(BooksPresenter booksPresenter) {
 
     }
 

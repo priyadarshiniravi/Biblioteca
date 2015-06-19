@@ -11,7 +11,7 @@ public class ListBooks implements Options {
 
     @Override
     public void action(User user) {
-        consoleInputOutput.print(library.formattedBookString());
+        consoleInputOutput.print(library.formattedAvailableBookString());
 
     }
 }

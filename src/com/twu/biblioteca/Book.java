@@ -29,7 +29,7 @@ public abstract class Book {
     }
 
 
-    public abstract void appendBooks(BooksPresenter booksPresenter);
+    public abstract void appendAvailableBooks(BooksPresenter booksPresenter);
 
     public boolean isTitleMatch(String name) {
         if (this.name == null){
