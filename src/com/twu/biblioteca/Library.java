@@ -75,9 +75,9 @@ public class Library {
     public String formattedAvailableMovieString() {
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
         for (Movie movie : movies) {
-            if (movie instanceof AvailableMovie) {
+
                 movie.appendToAvailableMovies(moviesPresenter);
-            }
+
         }
         return moviesPresenter.toString();
     }
