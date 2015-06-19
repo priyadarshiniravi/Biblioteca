@@ -196,8 +196,8 @@ public class LibraryTest {
 
         String bookList = library.formattedAvailableMovieString();
 
-        assertEquals("OOPs,1995,Patric,5\n" +
-                "Java,1993,Jones,1\n", bookList);
+        assertEquals("OOPs,1995,Patric,5,\n" +
+                "Java,1993,Jones,1,\n", bookList);
     }
 
     @Test

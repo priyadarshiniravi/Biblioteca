@@ -47,7 +47,7 @@ public class AvailableMovieTest {
 
         movie.appendToAvailableMovies(moviesPresenter);
 
-        verify(moviesPresenter).addMovie("Minions", 2015, "xyz", 10);
+        verify(moviesPresenter).addMovie("Minions", 2015, "xyz", 10,new InvalidUser("","","","",0));
 
     }
 }

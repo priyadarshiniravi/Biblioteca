@@ -36,7 +36,7 @@ public class AvailableMovie extends Movie {
 
 
     public void appendToAvailableMovies(MoviesPresenter moviesPresenter) {
-        moviesPresenter.addMovie(name, year, director, rating);
+        moviesPresenter.addMovie(name, year, director, rating,new InvalidUser("","","","",0));
     }
 
     @Override
