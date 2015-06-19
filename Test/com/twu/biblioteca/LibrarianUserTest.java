@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class LibrarianUserTest {
     @Test
@@ -17,14 +18,25 @@ public class LibrarianUserTest {
     }
 
     @Test
-    public void shouldBeToString()
-    {
+    public void shouldBeToString() {
         LibrarianUser user = new LibrarianUser("3333-333", "password", "ishika", "emailid@gmail.com", 99857969);
-        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
+        MenuDispatcher menuDispatcher = mock(MenuDispatcher.class);
 
-        String actualName=user.toString();
+        String actualName = user.toString();
 
-        assertEquals("3333-333 ishika",actualName);
+        assertEquals("3333-333 ishika", actualName);
+
+
+    }
+
+    @Test
+    public void shouldCallMenuDispatcher() {
+        LibrarianUser user = new LibrarianUser("3333-333", "password", "name", "emailid@gmail.com", 99857969);
+        MenuDispatcher menuDispatcher = mock(MenuDispatcher.class);
+
+        user.dispatchMenu(menuDispatcher);
+
+        verify(menuDispatcher).callMenu(user);
 
 
     }

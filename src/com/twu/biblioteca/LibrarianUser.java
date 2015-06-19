@@ -12,7 +12,7 @@ public class LibrarianUser extends User {
 
     @Override
     public int dispatchMenu(MenuDispatcher menuDispatcher) {
-        return 0;
+        return menuDispatcher.callMenu(this);
     }
 
     @Override

@@ -36,6 +36,7 @@ public class EntryPoint {
         CheckoutOptionMovie checkoutmovie = new CheckoutOptionMovie(consoleInputOutput1, library);
         ReturnMovie returnMovie=new ReturnMovie(consoleInputOutput1, library);
         ListMovie listMovie=new ListMovie(consoleInputOutput1, library);
+        ListCheckedOutBook listCheckedOutBook=new ListCheckedOutBook(consoleInputOutput1,library);
         ReturnBook returnBook = new ReturnBook(consoleInputOutput1, library);
         menuOptionsValiduser.put(1, listBooks);
         menuOptionsValiduser.put(3, checkoutbook);
@@ -66,8 +67,12 @@ public class EntryPoint {
 
         MenuOption menuOptionInvalid = new MenuOption(optionsOne);
         Menu menuInValidUser = new Menu(consoleInputOutput, parser1, menuOptionInvalid);
+        options.add("List CheckedOut Books");
+        MenuOption menuOptionLibrarian=new MenuOption(options);
+        menuOptionsValiduser.put(8,listCheckedOutBook);
+        Parser parser3 =new Parser(menuOptionsInvaliduser);
 
-        Menu menuLibraryUser = new Menu(consoleInputOutput, parser, menuOptionValid);
+        Menu menuLibraryUser = new Menu(consoleInputOutput, parser3, menuOptionLibrarian);
 
         MenuDispatcher menuDispatcher=new MenuDispatcher(menuInValidUser,menuValidUser,menuLibraryUser);
 
@@ -78,6 +83,7 @@ public class EntryPoint {
         HashSet<User> listOfUsers = new HashSet<>();
         ValidUser validUser = new ValidUser("9999-999", "priyar", "priya", "priya@gmail.com", 24714844);
         listOfUsers.add(validUser);
+        listOfUsers.add(new LibrarianUser("9999-995", "ishika", "ishika", "ishi@gmail.com", 24714846));
         listOfUsers.add(new ValidUser("9999-998", "achu", "aswini", "achu@gmail.com", 24714845));
         listOfUsers.add(new ValidUser("9999-997", "maddy", "madhu", "maddy@gmail.com", 24714846));
         Users users = new Users(listOfUsers);
