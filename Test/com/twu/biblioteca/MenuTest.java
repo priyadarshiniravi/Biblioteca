@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Matchers;
 
@@ -24,7 +25,7 @@ public class MenuTest {
                 .thenReturn(1, 2);
         when(parser.parse(1))
                 .thenReturn(optionsStub);
-        User user=mock(User.class);
+        User user = mock(User.class);
 
         menu.chooseOption(user);
 
@@ -42,33 +43,48 @@ public class MenuTest {
 
         when(consoleInputOutput.getInputAsNumber())
                 .thenReturn(300, 2);
-        User user=mock(User.class);
+        User user = mock(User.class);
 
         menu.chooseOption(user);
 
         verify(consoleInputOutput, times(3)).print(Matchers.<String>any());
     }
 
+
     @Test
     public void ShouldTakeExitInput() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Parser parser = mock(Parser.class);
-        ArrayList<String> options = new ArrayList<>();
-        options.add("Display Books");
-        options.add("Checkout Book");
-        options.add("Exit");
+
         MenuOption menuOption = mock(MenuOption.class);
         when(menuOption.isExitOption())
                 .thenReturn(3);
         Menu menu = new Menu(consoleInputOutput, parser, menuOption);
-        Options optionsStub = mock(Options.class);
         when(consoleInputOutput.getInputAsNumber())
                 .thenReturn(3);
-        User user=mock(User.class);
+        User user = mock(User.class);
 
         menu.chooseOption(user);
 
         verify(consoleInputOutput, times(1)).getInputAsNumber();
+    }
+
+    @Test
+    public void ShouldReturnExitMenuNumber() {
+        ConsoleInputOutput consoleInputOutput=mock(ConsoleInputOutput.class);
+        Parser parser=mock(Parser.class);
+        MenuOption menuOption=mock(MenuOption.class);
+        when(menuOption.isExitOption())
+                .thenReturn(3);
+        Menu menu = new Menu(consoleInputOutput, parser, menuOption);
+
+        int actualMenuExit=menu.exitOptionInMenu();
+
+        Assert.assertEquals(3,actualMenuExit);
+
+
+
+
     }
 
 

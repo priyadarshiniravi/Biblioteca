@@ -33,5 +33,10 @@ public class Menu {
         return input;
     }
 
+    public int exitOptionInMenu()
+    {
+        return menuOption.isExitOption();
+    }
+
 
 }
