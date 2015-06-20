@@ -42,7 +42,7 @@ public class CheckedOutMovie extends Movie {
 
     @Override
     public void appendToCheckoutMovies(MoviesPresenter moviesPresenter) {
-
+        moviesPresenter.addMovie(name, year, director, rating,this.user);
     }
 
 }

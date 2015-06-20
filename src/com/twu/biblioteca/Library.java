@@ -16,7 +16,7 @@ public class Library {
         this.moviesPresenter = moviesPresenter;
     }
 
-    public synchronized Book checkoutBook(String title,User user) {
+    public synchronized Book checkoutBook(String title, User user) {
         Book book = BookSearch(title);
         book = book.checkoutBook(user);
         books.remove(book);
@@ -24,7 +24,7 @@ public class Library {
         return book;
     }
 
-    public synchronized Movie checkoutMovie(String title,User user) {
+    public synchronized Movie checkoutMovie(String title, User user) {
         Movie movie = movieSearch(title);
         movie = movie.checkoutMovie(user);
         movies.remove(movie);
@@ -32,7 +32,7 @@ public class Library {
         return movie;
     }
 
-    public synchronized Movie returnMovie(String title,User user) {
+    public synchronized Movie returnMovie(String title, User user) {
         Movie movie = movieSearch(title);
         movie = movie.returnMovie(user);
         movies.remove(movie);
@@ -41,7 +41,7 @@ public class Library {
     }
 
 
-    public synchronized Book returnBook(String title,User user) {
+    public synchronized Book returnBook(String title, User user) {
         Book book = BookSearch(title);
         book = book.returnBook(user);
         books.remove(book);
@@ -53,7 +53,7 @@ public class Library {
         BooksPresenter booksPresenter = new BooksPresenter("");
         for (Book book : books) {
 
-                book.appendAvailableBooks(booksPresenter);
+            book.appendAvailableBooks(booksPresenter);
 
         }
         return booksPresenter.toString();
@@ -70,13 +70,11 @@ public class Library {
     }
 
 
-
-
     public String formattedAvailableMovieString() {
         MoviesPresenter moviesPresenter = new MoviesPresenter("");
         for (Movie movie : movies) {
 
-                movie.appendToAvailableMovies(moviesPresenter);
+            movie.appendToAvailableMovies(moviesPresenter);
 
         }
         return moviesPresenter.toString();

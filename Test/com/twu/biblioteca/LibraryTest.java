@@ -150,7 +150,7 @@ public class LibraryTest {
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
 
-        Movie success = library.checkoutMovie("C",user);
+        Movie success = library.checkoutMovie("C", user);
 
         assertEquals(Messages.SUCCESS_CHECKOUT_MOVIE, success.checkoutMessage());
     }
@@ -178,7 +178,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldBeMovieDetailList() {
+    public void shouldAvailableBeMovieDetailList() {
 
         AvailableMovie firstMovie = new AvailableMovie("Java",1993, "Jones", 1);
         AvailableMovie secondMovie = new AvailableMovie("OOPs",1995, "Patric", 5);
@@ -218,7 +218,7 @@ public class LibraryTest {
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
 
-        Movie movieList = library.checkoutMovie("OOPs",user);
+        Movie movieList = library.checkoutMovie("OOPs", user);
 
         assertEquals(Messages.SUCCESS_CHECKOUT_MOVIE,movieList.checkoutMessage());
     }
@@ -241,7 +241,7 @@ public class LibraryTest {
 
         Library library = new Library(books, movies, booksPresenter, moviesPresenter);
 
-        Movie movieList = library.returnMovie("OOPs",user);
+        Movie movieList = library.returnMovie("OOPs", user);
 
         assertEquals(Messages.SUCCESS_RETURN_MOVIE,movieList.returnMessage());
     }
@@ -266,6 +266,29 @@ public class LibraryTest {
         String bookList = library.formattedCheckoutBookString();
 
         assertEquals("C                             |Jones                         |1995|9999-999 priya\n", bookList);
+    }
+
+    @Test
+    public void shouldBeCheckedOutMovieDetailList() {
+
+        AvailableMovie firstMovie = new AvailableMovie("Java",1993, "Jones", 1);
+        User user=new ValidUser("999","pwd","name","eid",999);
+        CheckedOutMovie secondMovie = new CheckedOutMovie("OOPs",1995, "Patric", 5,user);
+        BooksPresenter booksPresenter = new BooksPresenter("");
+        MoviesPresenter moviesPresenter = new MoviesPresenter("");
+
+        HashSet<Book> books = new HashSet<>();
+
+        HashSet<Movie> movies = new HashSet<>();
+        movies.add(firstMovie);
+        movies.add(secondMovie);
+
+
+        Library library = new Library(books, movies, booksPresenter, moviesPresenter);
+
+        String bookList = library.formattedCheckedOutMovieString();
+
+        assertEquals("OOPs,1995,Patric,5,999 name\n", bookList);
     }
 
 
