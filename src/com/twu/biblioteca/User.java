@@ -48,6 +48,15 @@ public abstract class User {
         return result;
     }
 
+
+    public String InformationString() {
+        return "id=" + id +
+                ", name=" + name  +
+                ", emailId=" + emailId +
+                ", phoneNumber=" + phoneNumber +
+                ", password=" + password ;
+    }
+
     public abstract String loginMessage();
 
     public abstract int dispatchMenu(MenuDispatcher menuDispatcher);

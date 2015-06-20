@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import junit.framework.Assert;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertFalse;
@@ -68,5 +69,16 @@ public class UserTest {
         assertThat(validUser, is(equalTo(validUserOther)));
         assertThat(validUser.hashCode(), is(equalTo(validUserOther.hashCode())));
     }
+
+    @Test
+    public void shouldBeUserInformation() {
+        ValidUser validUser = new ValidUser("3333-333", "password", "name", "emailid@gmail.com", 99857969);
+
+        String actualInformation=validUser.InformationString();
+
+        Assert.assertEquals("id=3333-333, name=name, emailId=emailid@gmail.com, phoneNumber=99857969, password=password",actualInformation);
+
+    }
+
 
 }
