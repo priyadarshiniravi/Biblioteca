@@ -11,13 +11,15 @@ public class UserInformationTest {
     public void shouldCheckBookDisplayStrategy() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Library library = mock(Library.class);
+        Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
         UserInformation userInformation = new UserInformation(consoleInputOutput, library);
         User user = mock(User.class);
         when(user.InformationString())
                 .thenReturn("User Information");
 
-        userInformation.action(user);
+        userInformation.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput).print("User Information");
 

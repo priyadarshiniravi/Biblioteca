@@ -15,9 +15,10 @@ public class MenuDispatcherTest {
         ValidUser validUser=new ValidUser("3333-333", "password", "name", "emailid@gmail.com", 99857969);
         Login login=mock(Login.class);
 
-        menuDispatcher.callMenu(validUser,login);
 
-        verify(validUserMenuStub).chooseOption(validUser,login);
+        menuDispatcher.callMenu(validUser,login,menuDispatcher);
+
+        verify(validUserMenuStub).chooseOption(validUser,login,menuDispatcher);
 
 
     }
@@ -31,9 +32,9 @@ public class MenuDispatcherTest {
         InvalidUser validUser=new InvalidUser("", "", "", "", 0);
         Login login=mock(Login.class);
 
-        menuDispatcher.callMenu(validUser,login);
+        menuDispatcher.callMenu(validUser,login,menuDispatcher);
 
-        verify(invalidUserMenuStub).chooseOption(validUser,login);
+        verify(invalidUserMenuStub).chooseOption(validUser,login,menuDispatcher);
 
 
     }
@@ -47,9 +48,9 @@ public class MenuDispatcherTest {
         LibrarianUser librarianUser=new LibrarianUser("3333-333", "password", "name", "emailid@gmail.com", 99857969);
         Login login=mock(Login.class);
 
-        menuDispatcher.callMenu(librarianUser,login);
+        menuDispatcher.callMenu(librarianUser,login,menuDispatcher);
 
-        verify(librarianUserMenuStub).chooseOption(librarianUser,login);
+        verify(librarianUserMenuStub).chooseOption(librarianUser,login,menuDispatcher);
 
 
     }

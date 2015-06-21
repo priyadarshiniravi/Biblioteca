@@ -15,7 +15,7 @@ public class InvalidUser extends User {
 
     @Override
     public int dispatchMenu(MenuDispatcher menuDispatcher,Login login) {
-        return menuDispatcher.callMenu(this,login);
+        return menuDispatcher.callMenu(this,login,menuDispatcher);
     }
 
     @Override

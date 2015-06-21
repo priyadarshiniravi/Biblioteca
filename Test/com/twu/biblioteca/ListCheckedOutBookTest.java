@@ -13,8 +13,10 @@ public class ListCheckedOutBookTest {
                 .thenReturn("Books list");
         ListCheckedOutBook listBooks = new ListCheckedOutBook(consoleInputOutput, library);
         User user = mock(User.class);
+        Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        listBooks.action(user);
+        listBooks.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput).print("Books list");
 

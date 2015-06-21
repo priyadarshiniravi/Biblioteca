@@ -10,7 +10,7 @@ public class ListMovie implements Options {
     }
 
     @Override
-    public void action(User user) {
+    public void action(User user,Login login,MenuDispatcher menuDispatcher) {
         consoleInputOutput.print(library.formattedAvailableMovieString());
 
     }

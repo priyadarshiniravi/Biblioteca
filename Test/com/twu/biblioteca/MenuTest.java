@@ -27,8 +27,9 @@ public class MenuTest {
                 .thenReturn(optionsStub);
         User user = mock(User.class);
         Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        menu.chooseOption(user,login);
+        menu.chooseOption(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(2)).getInputAsNumber();
     }
@@ -41,13 +42,14 @@ public class MenuTest {
         when(menuOption.isExitOption())
                 .thenReturn(2);
         Menu menu = new Menu(consoleInputOutput, parser, menuOption);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
         when(consoleInputOutput.getInputAsNumber())
                 .thenReturn(300, 2);
         User user = mock(User.class);
         Login login=mock(Login.class);
 
-        menu.chooseOption(user,login);
+        menu.chooseOption(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(3)).print(Matchers.<String>any());
     }
@@ -66,8 +68,9 @@ public class MenuTest {
                 .thenReturn(3);
         User user = mock(User.class);
         Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        menu.chooseOption(user,login);
+        menu.chooseOption(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(1)).getInputAsNumber();
     }

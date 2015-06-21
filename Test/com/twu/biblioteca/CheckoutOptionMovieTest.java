@@ -15,8 +15,10 @@ public class CheckoutOptionMovieTest {
         when(library.checkoutMovie(anyString(),(User)any()))
                 .thenReturn(new NullMovie("", 0, "", 0));
         CheckoutOptionMovie checkoutOptionMovie = new CheckoutOptionMovie(consoleInputOutput, library);
+        Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        checkoutOptionMovie.action(user);
+        checkoutOptionMovie.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(1)).getInputAsString();
 
@@ -31,8 +33,10 @@ public class CheckoutOptionMovieTest {
         when(library.checkoutMovie(anyString(), Matchers.<User>any()))
                 .thenReturn(new CheckedOutMovie("", 0, "", 0,user));
         CheckoutOptionMovie checkoutOptionMovie = new CheckoutOptionMovie(consoleInputOutput, library);
+        Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        checkoutOptionMovie.action(user);
+        checkoutOptionMovie.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(1)).print(Messages.SUCCESS_CHECKOUT_MOVIE);
 

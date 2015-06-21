@@ -37,7 +37,7 @@ public class LibrarianUserTest {
 
         user.dispatchMenu(menuDispatcher,login);
 
-        verify(menuDispatcher).callMenu(user,login);
+        verify(menuDispatcher).callMenu(user,login,menuDispatcher);
 
 
     }

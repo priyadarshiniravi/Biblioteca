@@ -13,8 +13,10 @@ public class ListCheckedOutMovieTest {
                 .thenReturn("Movies list");
         User user = mock(User.class);
         ListCheckedOutMovie listMovies = new ListCheckedOutMovie(consoleInputOutput, library);
+        Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        listMovies.action(user);
+        listMovies.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput).print("Movies list");
 

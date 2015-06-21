@@ -24,9 +24,10 @@ public class ValidUserTest {
         MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
         Login login=mock(Login.class);
 
+
         user.dispatchMenu(menuDispatcher,login);
 
-        verify(menuDispatcher).callMenu(user,login);
+        verify(menuDispatcher).callMenu(user,login,menuDispatcher);
 
 
     }

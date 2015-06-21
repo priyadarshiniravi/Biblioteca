@@ -12,16 +12,16 @@ public class MenuDispatcher {
     }
 
 
-    public int callMenu(ValidUser user,Login login) {
-        return validUserMenu.chooseOption(user,login);
+    public int callMenu(ValidUser user,Login login,MenuDispatcher menuDispatcher) {
+        return validUserMenu.chooseOption(user,login,menuDispatcher);
     }
 
-    public int callMenu(InvalidUser user,Login login) {
-        return invalidUserMenu.chooseOption(user,login);
+    public int callMenu(InvalidUser user,Login login,MenuDispatcher menuDispatcher) {
+        return invalidUserMenu.chooseOption(user,login,menuDispatcher);
     }
 
-    public int callMenu(LibrarianUser user,Login login) {
-        return librarianMenu.chooseOption(user,login);
+    public int callMenu(LibrarianUser user,Login login,MenuDispatcher menuDispatcher) {
+        return librarianMenu.chooseOption(user,login,menuDispatcher);
     }
 
 

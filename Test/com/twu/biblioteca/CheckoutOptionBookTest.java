@@ -16,8 +16,10 @@ public class CheckoutOptionBookTest {
         when(library.checkoutBook(anyString(), Matchers.<User>any()))
                 .thenReturn(new NullBook("","",0));
         CheckoutOptionBook checkoutOptionBook = new CheckoutOptionBook(consoleInputOutput, library);
+        Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        checkoutOptionBook.action(user);
+        checkoutOptionBook.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(1)).getInputAsString();
 
@@ -32,8 +34,10 @@ public class CheckoutOptionBookTest {
         when(library.checkoutBook(anyString(), Matchers.<User>any()))
                 .thenReturn(new CheckedOutBook("","",0, user));
         CheckoutOptionBook checkoutOptionBook = new CheckoutOptionBook(consoleInputOutput, library);
+        Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        checkoutOptionBook.action(user);
+        checkoutOptionBook.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(1)).print(Messages.SUCCESS_CHECKOUT_BOOK);
 
@@ -48,8 +52,10 @@ public class CheckoutOptionBookTest {
         when(library.checkoutBook(anyString(), Matchers.<User>any()))
                 .thenReturn(new NullBook(null,null,0));
         CheckoutOptionBook checkoutOptionBook = new CheckoutOptionBook(consoleInputOutput, library);
+        Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        checkoutOptionBook.action(user);
+        checkoutOptionBook.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(1)).print(Messages.UNSUCCESS_CHECKOUT_BOOK);
 

@@ -14,8 +14,10 @@ public class ReturnBookTest {
         when(library.returnBook(anyString(),(User)any()))
                 .thenReturn(new NullBook("","",0));
         ReturnBook returnBook = new ReturnBook(consoleInputOutput, library);
+        Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        returnBook.action(user);
+        returnBook.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(1)).getInputAsString();
 
@@ -30,8 +32,10 @@ public class ReturnBookTest {
         when(library.returnBook(anyString(),(User)any()))
                 .thenReturn(new NullBook("","",0));
         ReturnBook returnBook = new ReturnBook(consoleInputOutput, library);
+        Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        returnBook.action(user);
+        returnBook.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(1)).print(Messages.UNSUCCESSFUL_RETURN_BOOK);
 
@@ -46,8 +50,10 @@ public class ReturnBookTest {
         when(library.returnBook(anyString(),(User) any()))
                 .thenReturn(new AvailableBook("","",0));
         ReturnBook returnBook = new ReturnBook(consoleInputOutput, library);
+        Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        returnBook.action(user);
+        returnBook.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(1)).print(Messages.SUCCESS_RETURN_BOOK);
 

@@ -13,7 +13,7 @@ public class ValidUser extends User {
 
     public int dispatchMenu(MenuDispatcher menuDispatcher,Login login)
     {
-        return menuDispatcher.callMenu(this,login);
+        return menuDispatcher.callMenu(this,login,menuDispatcher);
     }
 
     @Override

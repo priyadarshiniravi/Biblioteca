@@ -15,8 +15,10 @@ public class ReturnMovieTest {
                 .thenReturn(new NullMovie("",0, "", 0));
         ReturnMovie returnMovie = new ReturnMovie(consoleInputOutput, library);
         User user=mock(User.class);
+        Login login=mock(Login.class);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
 
-        returnMovie.action(user);
+        returnMovie.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(1)).getInputAsString();
 
@@ -30,9 +32,11 @@ public class ReturnMovieTest {
         when(library.returnMovie(anyString(), Matchers.<User>any()))
                 .thenReturn(new AvailableMovie("",0,"",0));
         ReturnMovie returnMovie = new ReturnMovie(consoleInputOutput, library);
+        MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
         User user=mock(User.class);
+        Login login=mock(Login.class);
 
-        returnMovie.action(user);
+        returnMovie.action(user,login,menuDispatcher);
 
         verify(consoleInputOutput, times(1)).print(Messages.SUCCESS_RETURN_MOVIE);
 

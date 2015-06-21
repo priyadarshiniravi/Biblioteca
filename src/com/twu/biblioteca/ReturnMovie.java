@@ -11,7 +11,7 @@ public class ReturnMovie implements Options {
     }
 
     @Override
-    public void action(User user) {
+    public void action(User user,Login login,MenuDispatcher menuDispatcher) {
         String input = consoleInputOutput.getInputAsString();
         Movie book = library.returnMovie(input,user);
         consoleInputOutput.print(book.returnMessage());
