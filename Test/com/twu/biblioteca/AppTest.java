@@ -14,6 +14,8 @@ public class AppTest {
         MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
         when(login.loginWindow())
                 .thenReturn(new ValidUser("","","","",99999));
+        when(menu.exitOptionInMenu())
+                .thenReturn(2);
         when(login.loginWindow().dispatchMenu(menuDispatcher))
                 .thenReturn(1,2);
         App app = new App(consoleInputOutput, menu,login, menuDispatcher);
@@ -21,7 +23,7 @@ public class AppTest {
 
         app.start();
 
-        verify(consoleInputOutput,times(2)).print(Messages.WELCOME_MESSAGE);
+        verify(consoleInputOutput,times(1)).print(Messages.WELCOME_MESSAGE);
     }
 
     @Test
@@ -29,6 +31,8 @@ public class AppTest {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         Menu menu = mock(Menu.class);
         Login login=mock(Login.class);
+        when(menu.exitOptionInMenu())
+                .thenReturn(2);
         MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
         when(login.loginWindow())
                 .thenReturn(new ValidUser("","","","",99999));
@@ -38,7 +42,7 @@ public class AppTest {
 
         app.start();
 
-        verify(login,times(3)).loginWindow();
+        verify(login,times(2)).loginWindow();
     }
 
 

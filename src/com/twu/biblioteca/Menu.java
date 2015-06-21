@@ -4,8 +4,7 @@ public class Menu {
     private ConsoleInputOutput consoleInputOutput;
     private Parser parser;
     private MenuOption menuOption;
-    private int EXIT_OPTION = 2;
-
+    
 
     public Menu(ConsoleInputOutput consoleInputOutput, Parser parser, MenuOption menuOption) {
         this.consoleInputOutput = consoleInputOutput;
@@ -33,8 +32,7 @@ public class Menu {
         return input;
     }
 
-    public int exitOptionInMenu()
-    {
+    public int exitOptionInMenu() {
         return menuOption.isExitOption();
     }
 

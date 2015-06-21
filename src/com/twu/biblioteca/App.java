@@ -24,7 +24,7 @@ public class App {
             option = user.dispatchMenu(menuDispatcher);
 
         }
-        while (option != 2);
+        while (menu.exitOptionInMenu()!= 2);
 
 
     }
