@@ -26,8 +26,9 @@ public class MenuTest {
         when(parser.parse(1))
                 .thenReturn(optionsStub);
         User user = mock(User.class);
+        Login login=mock(Login.class);
 
-        menu.chooseOption(user);
+        menu.chooseOption(user,login);
 
         verify(consoleInputOutput, times(2)).getInputAsNumber();
     }
@@ -44,8 +45,9 @@ public class MenuTest {
         when(consoleInputOutput.getInputAsNumber())
                 .thenReturn(300, 2);
         User user = mock(User.class);
+        Login login=mock(Login.class);
 
-        menu.chooseOption(user);
+        menu.chooseOption(user,login);
 
         verify(consoleInputOutput, times(3)).print(Matchers.<String>any());
     }
@@ -63,8 +65,9 @@ public class MenuTest {
         when(consoleInputOutput.getInputAsNumber())
                 .thenReturn(3);
         User user = mock(User.class);
+        Login login=mock(Login.class);
 
-        menu.chooseOption(user);
+        menu.chooseOption(user,login);
 
         verify(consoleInputOutput, times(1)).getInputAsNumber();
     }

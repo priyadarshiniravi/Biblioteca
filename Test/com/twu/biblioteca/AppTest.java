@@ -13,12 +13,13 @@ public class AppTest {
         Login login=mock(Login.class);
         MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
         when(login.loginWindow())
-                .thenReturn(new ValidUser("","","","",99999));
+                .thenReturn(new ValidUser("", "", "", "", 99999));
         when(menu.exitOptionInMenu())
                 .thenReturn(2);
-        when(login.loginWindow().dispatchMenu(menuDispatcher))
-                .thenReturn(1,2);
-        App app = new App(consoleInputOutput, menu,login, menuDispatcher);
+        when(login.loginWindow().dispatchMenu(menuDispatcher,login))
+                .thenReturn(1, 2);
+        User nullUser=new InvalidUser("","","","",0);
+        App app = new App(consoleInputOutput, menu,login, menuDispatcher, nullUser);
 
 
         app.start();
@@ -36,9 +37,10 @@ public class AppTest {
         MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
         when(login.loginWindow())
                 .thenReturn(new ValidUser("","","","",99999));
-        when(login.loginWindow().dispatchMenu(menuDispatcher))
-                .thenReturn(1,2);
-        App app = new App(consoleInputOutput, menu,login, menuDispatcher);
+        when(login.loginWindow().dispatchMenu(menuDispatcher, login))
+                .thenReturn(1, 2);
+        User nullUser=new InvalidUser("","","","",0);
+        App app = new App(consoleInputOutput, menu,login, menuDispatcher, nullUser);
 
         app.start();
 

@@ -22,10 +22,11 @@ public class InvalidUserTest {
     {
         InvalidUser user = new InvalidUser("", "", "", "", 0);
         MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
+        Login login=mock(Login.class);
 
-        user.dispatchMenu(menuDispatcher);
+        user.dispatchMenu(menuDispatcher,login);
 
-        verify(menuDispatcher).callMenu(user);
+        verify(menuDispatcher).callMenu(user,login);
 
 
     }

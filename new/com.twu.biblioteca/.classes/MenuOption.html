@@ -23,12 +23,9 @@
 <h1>Coverage Summary for Class: MenuOption (com.twu.biblioteca)</h1>
 
 <table class="coverageStats">
+
 <tr>
   <th class="name">Class</th>
-<th class="coverageStat 
-">
-  Class, %
-</th>
 <th class="coverageStat 
 ">
   Method, %
@@ -42,30 +39,43 @@
   <td class="name">MenuOption</td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    75%
   </span>
   <span class="absValue">
-    (1/ 1)
+    (3/ 4)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    88.9%
   </span>
   <span class="absValue">
-    (2/ 2)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    100%
-  </span>
-  <span class="absValue">
-    (10/ 10)
+    (16/ 18)
   </span>
 </td>
 </tr>
-
+  <tr>
+    <td class="name">MenuOption$$EnhancerByMockitoWithCGLIB$$20f1c0ea</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.9%
+  </span>
+  <span class="absValue">
+    (16/ 18)
+  </span>
+</td>
+</tr>
 </table>
 
 <br/>
@@ -94,13 +104,29 @@
 <b class="fc"><i>20</i>&nbsp;        }</b>
 <b class="fc"><i>21</i>&nbsp;        return DisplayOption;</b>
 <i>22</i>&nbsp;    }
-<i>23</i>&nbsp;}
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    public int isExitOption() {
+<b class="fc"><i>25</i>&nbsp;        int iterator = 1;</b>
+<b class="fc"><i>26</i>&nbsp;        for (String IndividualOption : menuOptions) {</b>
+<b class="fc"><i>27</i>&nbsp;            if (IndividualOption == &quot;Exit&quot;)</b>
+<b class="fc"><i>28</i>&nbsp;                return iterator;</b>
+<b class="fc"><i>29</i>&nbsp;            iterator++;</b>
+<i>30</i>&nbsp;
+<b class="fc"><i>31</i>&nbsp;        }</b>
+<b class="nc"><i>32</i>&nbsp;        return getInfinity();</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    }
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    private int getInfinity() {
+<b class="nc"><i>37</i>&nbsp;        return Integer.MAX_VALUE;</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2015-06-16 23:35</div>
+    <div style="float:right;">generated on 2015-06-21 22:05</div>
 </div>
 </body>
 </html>

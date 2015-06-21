@@ -12,7 +12,7 @@ public class Menu {
         this.menuOption = menuOption;
     }
 
-    public int chooseOption(User user) {
+    public int chooseOption(User user,Login login) {
         consoleInputOutput.print(menuOption.toString());
         int input = consoleInputOutput.getInputAsNumber();
         while (input != menuOption.isExitOption()) {

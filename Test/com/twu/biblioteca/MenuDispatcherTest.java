@@ -13,10 +13,11 @@ public class MenuDispatcherTest {
         Menu librarianUserMenuStub = mock(Menu.class);
         MenuDispatcher menuDispatcher = new MenuDispatcher(invalidUserMenuStub, validUserMenuStub, librarianUserMenuStub);
         ValidUser validUser=new ValidUser("3333-333", "password", "name", "emailid@gmail.com", 99857969);
+        Login login=mock(Login.class);
 
-        menuDispatcher.callMenu(validUser);
+        menuDispatcher.callMenu(validUser,login);
 
-        verify(validUserMenuStub).chooseOption(validUser);
+        verify(validUserMenuStub).chooseOption(validUser,login);
 
 
     }
@@ -28,10 +29,11 @@ public class MenuDispatcherTest {
         Menu librarianUserMenuStub = mock(Menu.class);
         MenuDispatcher menuDispatcher = new MenuDispatcher(invalidUserMenuStub, validUserMenuStub, librarianUserMenuStub);
         InvalidUser validUser=new InvalidUser("", "", "", "", 0);
+        Login login=mock(Login.class);
 
-        menuDispatcher.callMenu(validUser);
+        menuDispatcher.callMenu(validUser,login);
 
-        verify(invalidUserMenuStub).chooseOption(validUser);
+        verify(invalidUserMenuStub).chooseOption(validUser,login);
 
 
     }
@@ -43,10 +45,11 @@ public class MenuDispatcherTest {
         Menu librarianUserMenuStub = mock(Menu.class);
         MenuDispatcher menuDispatcher = new MenuDispatcher(invalidUserMenuStub, validUserMenuStub, librarianUserMenuStub);
         LibrarianUser librarianUser=new LibrarianUser("3333-333", "password", "name", "emailid@gmail.com", 99857969);
+        Login login=mock(Login.class);
 
-        menuDispatcher.callMenu(librarianUser);
+        menuDispatcher.callMenu(librarianUser,login);
 
-        verify(librarianUserMenuStub).chooseOption(librarianUser);
+        verify(librarianUserMenuStub).chooseOption(librarianUser,login);
 
 
     }

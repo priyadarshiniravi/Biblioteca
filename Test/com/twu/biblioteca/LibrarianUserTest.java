@@ -33,10 +33,11 @@ public class LibrarianUserTest {
     public void shouldCallMenuDispatcher() {
         LibrarianUser user = new LibrarianUser("3333-333", "password", "name", "emailid@gmail.com", 99857969);
         MenuDispatcher menuDispatcher = mock(MenuDispatcher.class);
+        Login login=mock(Login.class);
 
-        user.dispatchMenu(menuDispatcher);
+        user.dispatchMenu(menuDispatcher,login);
 
-        verify(menuDispatcher).callMenu(user);
+        verify(menuDispatcher).callMenu(user,login);
 
 
     }

@@ -61,7 +61,7 @@
     0%
   </span>
   <span class="absValue">
-    (0/ 31)
+    (0/ 90)
   </span>
 </td>
 </tr>
@@ -82,43 +82,114 @@
 <b class="nc"><i>8</i>&nbsp;public class EntryPoint {</b>
 <i>9</i>&nbsp;    public static void main(String args[]) {
 <b class="nc"><i>10</i>&nbsp;        ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(new Scanner(System.in));</b>
-<b class="nc"><i>11</i>&nbsp;        HashMap&lt;Integer, Options&gt; menuOptions = new HashMap&lt;&gt;();</b>
-<b class="nc"><i>12</i>&nbsp;        HashSet&lt;Book&gt; bookList = new HashSet&lt;&gt;();</b>
-<b class="nc"><i>13</i>&nbsp;        AvailableBook bookone = new AvailableBook(&quot;C++&quot;, &quot;Jones&quot;, 1992);</b>
-<b class="nc"><i>14</i>&nbsp;        bookList.add(bookone);</b>
-<b class="nc"><i>15</i>&nbsp;        AvailableBook booktwo = new AvailableBook(&quot;Java&quot;, &quot;Charles&quot;, 1993);</b>
-<b class="nc"><i>16</i>&nbsp;        bookList.add(booktwo);</b>
-<b class="nc"><i>17</i>&nbsp;        CheckedOutBook bookthree = new CheckedOutBook(&quot;J2EE&quot;, &quot;Charles&quot;, 1993);</b>
-<b class="nc"><i>18</i>&nbsp;        bookList.add(bookthree);</b>
-<b class="nc"><i>19</i>&nbsp;        HashSet&lt;Movie&gt; movies=new HashSet&lt;&gt;();</b>
-<b class="nc"><i>20</i>&nbsp;        BooksPresenter booksPresenter=new BooksPresenter(&quot;&quot;);</b>
-<b class="nc"><i>21</i>&nbsp;        MoviesPresenter moviesPresenter=new MoviesPresenter(&quot;&quot;);</b>
-<b class="nc"><i>22</i>&nbsp;        Library library = new Library(bookList, movies, booksPresenter, moviesPresenter);</b>
-<b class="nc"><i>23</i>&nbsp;        ListBooks listBooks = new ListBooks(consoleInputOutput, library);</b>
-<b class="nc"><i>24</i>&nbsp;        ConsoleInputOutput consoleInputOutput1 = new ConsoleInputOutput(new Scanner(System.in));</b>
-<b class="nc"><i>25</i>&nbsp;        CheckoutOption checkoutbook = new CheckoutOption(consoleInputOutput1, library);</b>
-<b class="nc"><i>26</i>&nbsp;        ReturnBook returnBook = new ReturnBook(consoleInputOutput1, library);</b>
-<b class="nc"><i>27</i>&nbsp;        menuOptions.put(1, listBooks);</b>
-<b class="nc"><i>28</i>&nbsp;        menuOptions.put(3, checkoutbook);</b>
-<b class="nc"><i>29</i>&nbsp;        menuOptions.put(4, returnBook);</b>
-<b class="nc"><i>30</i>&nbsp;        Parser parser = new Parser(menuOptions);</b>
-<b class="nc"><i>31</i>&nbsp;        ArrayList&lt;String&gt; options = new ArrayList&lt;&gt;();</b>
-<b class="nc"><i>32</i>&nbsp;        options.add(&quot;Display Books&quot;);</b>
-<b class="nc"><i>33</i>&nbsp;        options.add(&quot;Exit&quot;);</b>
-<b class="nc"><i>34</i>&nbsp;        options.add(&quot;Checkout&quot;);</b>
-<b class="nc"><i>35</i>&nbsp;        options.add(&quot;Return&quot;);</b>
-<b class="nc"><i>36</i>&nbsp;        MenuOption menuOption = new MenuOption(options);</b>
-<b class="nc"><i>37</i>&nbsp;        Menu menu = new Menu(consoleInputOutput, parser, menuOption);</b>
-<b class="nc"><i>38</i>&nbsp;        App app = new App(consoleInputOutput, menu);</b>
-<b class="nc"><i>39</i>&nbsp;        app.start();</b>
-<i>40</i>&nbsp;    }
-<i>41</i>&nbsp;}
+<b class="nc"><i>11</i>&nbsp;        HashMap&lt;Integer, Options&gt; menuOptionsValiduser = new HashMap&lt;&gt;();</b>
+<b class="nc"><i>12</i>&nbsp;        HashMap&lt;Integer, Options&gt; menuOptionsInvaliduser = new HashMap&lt;&gt;();</b>
+<b class="nc"><i>13</i>&nbsp;        HashMap&lt;Integer, Options&gt; menuOptionsLibrarianuser = new HashMap&lt;&gt;();</b>
+<i>14</i>&nbsp;
+<b class="nc"><i>15</i>&nbsp;        HashSet&lt;Book&gt; bookList = new HashSet&lt;&gt;();</b>
+<b class="nc"><i>16</i>&nbsp;        AvailableBook bookone = new AvailableBook(&quot;C++&quot;, &quot;Jones&quot;, 1992);</b>
+<b class="nc"><i>17</i>&nbsp;        bookList.add(bookone);</b>
+<b class="nc"><i>18</i>&nbsp;        AvailableBook booktwo = new AvailableBook(&quot;Java&quot;, &quot;Charles&quot;, 1993);</b>
+<b class="nc"><i>19</i>&nbsp;        bookList.add(booktwo);</b>
+<b class="nc"><i>20</i>&nbsp;        ValidUser validUser = new ValidUser(&quot;9999-999&quot;, &quot;priyar&quot;, &quot;priya&quot;, &quot;priya@gmail.com&quot;, 24714844);</b>
+<b class="nc"><i>21</i>&nbsp;        CheckedOutBook bookthree = new CheckedOutBook(&quot;J2EE&quot;, &quot;Charles&quot;, 1993, validUser);</b>
+<b class="nc"><i>22</i>&nbsp;        bookList.add(bookthree);</b>
+<b class="nc"><i>23</i>&nbsp;        HashSet&lt;Movie&gt; movies = new HashSet&lt;&gt;();</b>
+<b class="nc"><i>24</i>&nbsp;        AvailableMovie movieOne = new AvailableMovie(&quot;Movie&quot;, 1888, &quot;XYZ&quot;, 10);</b>
+<b class="nc"><i>25</i>&nbsp;        AvailableMovie movieTwo = new AvailableMovie(&quot;Movie123&quot;, 1888, &quot;XYZ&quot;, 10);</b>
+<b class="nc"><i>26</i>&nbsp;        CheckedOutMovie movieThree = new CheckedOutMovie(&quot;Movie555&quot;, 1888, &quot;XYZ&quot;, 10,validUser);</b>
+<b class="nc"><i>27</i>&nbsp;        movies.add(movieOne);</b>
+<b class="nc"><i>28</i>&nbsp;        movies.add(movieTwo);</b>
+<b class="nc"><i>29</i>&nbsp;        movies.add(movieThree);</b>
+<i>30</i>&nbsp;
+<b class="nc"><i>31</i>&nbsp;        BooksPresenter booksPresenter = new BooksPresenter(&quot;&quot;);</b>
+<b class="nc"><i>32</i>&nbsp;        MoviesPresenter moviesPresenter = new MoviesPresenter(&quot;&quot;);</b>
+<b class="nc"><i>33</i>&nbsp;        Library library = new Library(bookList, movies, booksPresenter, moviesPresenter);</b>
+<b class="nc"><i>34</i>&nbsp;        ListBooks listBooks = new ListBooks(consoleInputOutput, library);</b>
+<b class="nc"><i>35</i>&nbsp;        ConsoleInputOutput consoleInputOutput1 = new ConsoleInputOutput(new Scanner(System.in));</b>
+<b class="nc"><i>36</i>&nbsp;        CheckoutOptionBook checkoutbook = new CheckoutOptionBook(consoleInputOutput1, library);</b>
+<b class="nc"><i>37</i>&nbsp;        CheckoutOptionMovie checkoutmovie = new CheckoutOptionMovie(consoleInputOutput1, library);</b>
+<b class="nc"><i>38</i>&nbsp;        ReturnMovie returnMovie = new ReturnMovie(consoleInputOutput1, library);</b>
+<b class="nc"><i>39</i>&nbsp;        ListMovie listMovie = new ListMovie(consoleInputOutput1, library);</b>
+<b class="nc"><i>40</i>&nbsp;        ListCheckedOutBook listCheckedOutBook = new ListCheckedOutBook(consoleInputOutput1, library);</b>
+<b class="nc"><i>41</i>&nbsp;        ListCheckedOutMovie listCheckedOutMovie = new ListCheckedOutMovie(consoleInputOutput1, library);</b>
+<b class="nc"><i>42</i>&nbsp;        ReturnBook returnBook = new ReturnBook(consoleInputOutput1, library);</b>
+<b class="nc"><i>43</i>&nbsp;        menuOptionsValiduser.put(1, listBooks);</b>
+<b class="nc"><i>44</i>&nbsp;        menuOptionsValiduser.put(3, checkoutbook);</b>
+<b class="nc"><i>45</i>&nbsp;        menuOptionsValiduser.put(4, returnBook);</b>
+<b class="nc"><i>46</i>&nbsp;        menuOptionsValiduser.put(5, listMovie);</b>
+<b class="nc"><i>47</i>&nbsp;        menuOptionsValiduser.put(6, checkoutmovie);</b>
+<b class="nc"><i>48</i>&nbsp;        menuOptionsValiduser.put(7, returnMovie);</b>
+<b class="nc"><i>49</i>&nbsp;        Parser parser = new Parser(menuOptionsValiduser);</b>
+<b class="nc"><i>50</i>&nbsp;        ArrayList&lt;String&gt; options = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>51</i>&nbsp;        options.add(&quot;Display Books&quot;);</b>
+<b class="nc"><i>52</i>&nbsp;        options.add(&quot;Exit&quot;);</b>
+<b class="nc"><i>53</i>&nbsp;        options.add(&quot;Checkout&quot;);</b>
+<b class="nc"><i>54</i>&nbsp;        options.add(&quot;Return&quot;);</b>
+<b class="nc"><i>55</i>&nbsp;        options.add(&quot;List Movie&quot;);</b>
+<b class="nc"><i>56</i>&nbsp;        options.add(&quot;Checkout Movie&quot;);</b>
+<b class="nc"><i>57</i>&nbsp;        options.add(&quot;Return Movie&quot;);</b>
+<b class="nc"><i>58</i>&nbsp;        MenuOption menuOptionValid = new MenuOption(options);</b>
+<b class="nc"><i>59</i>&nbsp;        Menu menuValidUser = new Menu(consoleInputOutput, parser, menuOptionValid);</b>
+<i>60</i>&nbsp;
+<b class="nc"><i>61</i>&nbsp;        menuOptionsInvaliduser.put(1, listBooks);</b>
+<b class="nc"><i>62</i>&nbsp;        menuOptionsInvaliduser.put(3, listMovie);</b>
+<i>63</i>&nbsp;
+<b class="nc"><i>64</i>&nbsp;        ArrayList&lt;String&gt; optionsOne = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>65</i>&nbsp;        optionsOne.add(&quot;Display Books&quot;);</b>
+<b class="nc"><i>66</i>&nbsp;        optionsOne.add(&quot;Exit&quot;);</b>
+<b class="nc"><i>67</i>&nbsp;        optionsOne.add(&quot;List Movie&quot;);</b>
+<b class="nc"><i>68</i>&nbsp;        Parser parser1 = new Parser(menuOptionsInvaliduser);</b>
+<i>69</i>&nbsp;
+<b class="nc"><i>70</i>&nbsp;        MenuOption menuOptionInvalid = new MenuOption(optionsOne);</b>
+<b class="nc"><i>71</i>&nbsp;        Menu menuInValidUser = new Menu(consoleInputOutput, parser1, menuOptionInvalid);</b>
+<b class="nc"><i>72</i>&nbsp;        ArrayList&lt;String&gt; options3 = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>73</i>&nbsp;        options3.add(&quot;Display Books&quot;);</b>
+<b class="nc"><i>74</i>&nbsp;        options3.add(&quot;Exit&quot;);</b>
+<b class="nc"><i>75</i>&nbsp;        options3.add(&quot;Checkout&quot;);</b>
+<b class="nc"><i>76</i>&nbsp;        options3.add(&quot;Return&quot;);</b>
+<b class="nc"><i>77</i>&nbsp;        options3.add(&quot;List Movie&quot;);</b>
+<b class="nc"><i>78</i>&nbsp;        options3.add(&quot;Checkout Movie&quot;);</b>
+<b class="nc"><i>79</i>&nbsp;        options3.add(&quot;Return Movie&quot;);</b>
+<b class="nc"><i>80</i>&nbsp;        options3.add(&quot;list checked out book &quot;);</b>
+<b class="nc"><i>81</i>&nbsp;        options3.add(&quot;List Checked out Movies&quot;);</b>
+<b class="nc"><i>82</i>&nbsp;        MenuOption menuOptionLibrarian = new MenuOption(options3);</b>
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;
+<b class="nc"><i>85</i>&nbsp;        menuOptionsLibrarianuser.put(1, listBooks);</b>
+<b class="nc"><i>86</i>&nbsp;        menuOptionsLibrarianuser.put(3, checkoutbook);</b>
+<b class="nc"><i>87</i>&nbsp;        menuOptionsLibrarianuser.put(4, returnBook);</b>
+<b class="nc"><i>88</i>&nbsp;        menuOptionsLibrarianuser.put(5, listMovie);</b>
+<b class="nc"><i>89</i>&nbsp;        menuOptionsLibrarianuser.put(6, checkoutmovie);</b>
+<b class="nc"><i>90</i>&nbsp;        menuOptionsLibrarianuser.put(7, returnMovie);</b>
+<b class="nc"><i>91</i>&nbsp;        menuOptionsLibrarianuser.put(8, listCheckedOutBook);</b>
+<b class="nc"><i>92</i>&nbsp;        menuOptionsLibrarianuser.put(9,listCheckedOutMovie);</b>
+<b class="nc"><i>93</i>&nbsp;        Parser parser3 = new Parser(menuOptionsLibrarianuser);</b>
+<i>94</i>&nbsp;
+<b class="nc"><i>95</i>&nbsp;        Menu menuLibraryUser = new Menu(consoleInputOutput, parser3, menuOptionLibrarian);</b>
+<i>96</i>&nbsp;
+<b class="nc"><i>97</i>&nbsp;        MenuDispatcher menuDispatcher = new MenuDispatcher(menuInValidUser, menuValidUser, menuLibraryUser);</b>
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;
+<b class="nc"><i>100</i>&nbsp;        HashSet&lt;User&gt; listOfUsers = new HashSet&lt;&gt;();</b>
+<i>101</i>&nbsp;
+<b class="nc"><i>102</i>&nbsp;        listOfUsers.add(validUser);</b>
+<b class="nc"><i>103</i>&nbsp;        listOfUsers.add(new LibrarianUser(&quot;9999-995&quot;, &quot;ishika&quot;, &quot;ishika&quot;, &quot;ishi@gmail.com&quot;, 24714846));</b>
+<b class="nc"><i>104</i>&nbsp;        listOfUsers.add(new ValidUser(&quot;9999-998&quot;, &quot;achu&quot;, &quot;aswini&quot;, &quot;achu@gmail.com&quot;, 24714845));</b>
+<b class="nc"><i>105</i>&nbsp;        listOfUsers.add(new ValidUser(&quot;9999-997&quot;, &quot;maddy&quot;, &quot;madhu&quot;, &quot;maddy@gmail.com&quot;, 24714846));</b>
+<b class="nc"><i>106</i>&nbsp;        Users users = new Users(listOfUsers);</b>
+<b class="nc"><i>107</i>&nbsp;        Login login = new Login(users, consoleInputOutput);</b>
+<b class="nc"><i>108</i>&nbsp;        User nullUser=new InvalidUser(&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,0);</b>
+<b class="nc"><i>109</i>&nbsp;        App app = new App(consoleInputOutput, menuValidUser, login, menuDispatcher, nullUser);</b>
+<b class="nc"><i>110</i>&nbsp;        app.start();</b>
+<i>111</i>&nbsp;    }
+<i>112</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2015-06-16 23:35</div>
+    <div style="float:right;">generated on 2015-06-21 22:05</div>
 </div>
 </body>
 </html>

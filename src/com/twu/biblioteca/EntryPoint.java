@@ -105,7 +105,8 @@ public class EntryPoint {
         listOfUsers.add(new ValidUser("9999-997", "maddy", "madhu", "maddy@gmail.com", 24714846));
         Users users = new Users(listOfUsers);
         Login login = new Login(users, consoleInputOutput);
-        App app = new App(consoleInputOutput, menuValidUser, login, menuDispatcher);
+        User nullUser= new InvalidUser("","","","",0);
+        App app = new App(consoleInputOutput, menuValidUser, login, menuDispatcher, nullUser);
         app.start();
     }
 }

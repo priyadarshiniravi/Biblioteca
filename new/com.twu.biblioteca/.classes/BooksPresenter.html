@@ -55,7 +55,7 @@
 </td>
 </tr>
   <tr>
-    <td class="name">BooksPresenter$$EnhancerByMockitoWithCGLIB$$c3aa0ee3</td>
+    <td class="name">BooksPresenter$$EnhancerByMockitoWithCGLIB$$77563f84</td>
   </tr>
 <tr>
   <td class="name"><strong>total</strong></td>
@@ -98,10 +98,10 @@
 <b class="fc"><i>14</i>&nbsp;        return formattedBooks;</b>
 <i>15</i>&nbsp;    }
 <i>16</i>&nbsp;
-<i>17</i>&nbsp;    public void addBook(String name, String author, int year) {
+<i>17</i>&nbsp;    public void addBook(String name, String author, int year,User user) {
 <b class="fc"><i>18</i>&nbsp;        formattedBooks += String.format(&quot;%-&quot; + maximunNameLength + &quot;s&quot;, name) + &quot;|&quot;</b>
 <i>19</i>&nbsp;                + String.format(&quot;%-&quot; + maximumAuthorLength + &quot;s&quot;, author) + &quot;|&quot;
-<i>20</i>&nbsp;                + String.format(&quot;%-&quot; + &quot;4&quot; + &quot;s&quot;, year)+&quot;\n&quot;;
+<i>20</i>&nbsp;                + String.format(&quot;%-&quot; + &quot;4&quot; + &quot;s&quot;, year)+&quot;|&quot;+String.format(&quot;%-&quot; + &quot;10&quot; + &quot;s&quot;, user)+&quot;\n&quot;;
 <b class="fc"><i>21</i>&nbsp;    }</b>
 <i>22</i>&nbsp;}
 </div>
@@ -109,7 +109,7 @@
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2015-06-16 23:35</div>
+    <div style="float:right;">generated on 2015-06-21 22:05</div>
 </div>
 </body>
 </html>
