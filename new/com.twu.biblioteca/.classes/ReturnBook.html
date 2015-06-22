@@ -85,7 +85,7 @@
 <b class="fc"><i>11</i>&nbsp;    }</b>
 <i>12</i>&nbsp;
 <i>13</i>&nbsp;    @Override
-<i>14</i>&nbsp;    public void action(User user) {
+<i>14</i>&nbsp;    public void action(User user,Login login,MenuDispatcher menuDispatcher) {
 <b class="fc"><i>15</i>&nbsp;        String input = consoleInputOutput.getInputAsString();</b>
 <b class="fc"><i>16</i>&nbsp;        Book book = library.returnBook(input,user);</b>
 <b class="fc"><i>17</i>&nbsp;        consoleInputOutput.print(book.returnMessage());</b>
@@ -97,7 +97,7 @@
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2015-06-21 22:05</div>
+    <div style="float:right;">generated on 2015-06-22 13:00</div>
 </div>
 </body>
 </html>

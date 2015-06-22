@@ -55,7 +55,7 @@
 </td>
 </tr>
   <tr>
-    <td class="name">Menu$$EnhancerByMockitoWithCGLIB$$6b478fd</td>
+    <td class="name">Menu$$EnhancerByMockitoWithCGLIB$$45e5fd5e</td>
   </tr>
 <tr>
   <td class="name"><strong>total</strong></td>
@@ -96,16 +96,16 @@
 <b class="fc"><i>12</i>&nbsp;        this.menuOption = menuOption;</b>
 <b class="fc"><i>13</i>&nbsp;    }</b>
 <i>14</i>&nbsp;
-<i>15</i>&nbsp;    public int chooseOption(User user,Login login) {
+<i>15</i>&nbsp;    public int chooseOption(User user,Login login,MenuDispatcher menuDispatcher) {
 <b class="fc"><i>16</i>&nbsp;        consoleInputOutput.print(menuOption.toString());</b>
 <b class="fc"><i>17</i>&nbsp;        int input = consoleInputOutput.getInputAsNumber();</b>
-<b class="fc"><i>18</i>&nbsp;        while (input != menuOption.isExitOption()) {</b>
+<b class="fc"><i>18</i>&nbsp;        while (input != menuOption.isExitOption() &amp;&amp; input!=menuOption.isLogoutOption()) {</b>
 <i>19</i>&nbsp;
 <b class="fc"><i>20</i>&nbsp;            Options option = parser.parse(input);</b>
 <b class="fc"><i>21</i>&nbsp;            if (option == null) {</b>
 <b class="fc"><i>22</i>&nbsp;                consoleInputOutput.print(Messages.INVALID_MESSAGE);</b>
 <i>23</i>&nbsp;            } else {
-<b class="fc"><i>24</i>&nbsp;                option.action(user);</b>
+<b class="fc"><i>24</i>&nbsp;                option.action(user,login,menuDispatcher);</b>
 <i>25</i>&nbsp;            }
 <b class="fc"><i>26</i>&nbsp;            consoleInputOutput.print(menuOption.toString());</b>
 <b class="fc"><i>27</i>&nbsp;            input = consoleInputOutput.getInputAsNumber();</b>
@@ -113,21 +113,22 @@
 <i>29</i>&nbsp;
 <b class="fc"><i>30</i>&nbsp;        }</b>
 <b class="fc"><i>31</i>&nbsp;        consoleInputOutput.getInputAsString();</b>
-<b class="fc"><i>32</i>&nbsp;        return input;</b>
-<i>33</i>&nbsp;    }
-<i>34</i>&nbsp;
-<i>35</i>&nbsp;    public int exitOptionInMenu() {
-<b class="fc"><i>36</i>&nbsp;        return menuOption.isExitOption();</b>
-<i>37</i>&nbsp;    }
-<i>38</i>&nbsp;
+<i>32</i>&nbsp;
+<b class="fc"><i>33</i>&nbsp;        return input;</b>
+<i>34</i>&nbsp;    }
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    public int exitOptionInMenu() {
+<b class="fc"><i>37</i>&nbsp;        return menuOption.isExitOption();</b>
+<i>38</i>&nbsp;    }
 <i>39</i>&nbsp;
-<i>40</i>&nbsp;}
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2015-06-21 22:05</div>
+    <div style="float:right;">generated on 2015-06-22 13:00</div>
 </div>
 </body>
 </html>
