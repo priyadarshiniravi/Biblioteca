@@ -10,7 +10,7 @@ public class LoginTest {
     public void shouldTakeInUserNameAndPassword() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         when(consoleInputOutput.getInputAsString())
-                .thenReturn("9999-999", "priyar");
+                .thenReturn("","9999-999", "priyar");
         Users users = mock(Users.class);
         when(users.login("9999-999", "priyar"))
                 .thenReturn(new ValidUser("9999-999", "priyar", "priya", "priya@gmail.com", 24714844));
@@ -18,14 +18,14 @@ public class LoginTest {
 
         login.loginWindow();
 
-        verify(consoleInputOutput, times(2)).getInputAsString();
+        verify(consoleInputOutput, times(3)).getInputAsString();
     }
 
     @Test
     public void shouldLoginOnlyForValidUser() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         when(consoleInputOutput.getInputAsString())
-                .thenReturn("9999-999", "priyar");
+                .thenReturn("","9999-999", "priyar");
         Users users = mock(Users.class);
         when(users.login("9999-999", "priyar"))
                 .thenReturn(new ValidUser("9999-999", "priyar", "priya", "priya@gmail.com", 24714844));
@@ -41,7 +41,7 @@ public class LoginTest {
     public void shouldPrintLoginMessage() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         when(consoleInputOutput.getInputAsString())
-                .thenReturn("9999-999", "priyar");
+                .thenReturn("","9999-999", "priyar");
         Users users = mock(Users.class);
         when(users.login("9999-999", "priyar"))
                 .thenReturn(new ValidUser("9999-999", "priyar", "priya", "priya@gmail.com", 24714844));
