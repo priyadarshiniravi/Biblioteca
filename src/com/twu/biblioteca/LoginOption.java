@@ -11,7 +11,6 @@ public class LoginOption implements Options {
 
     @Override
     public void action(User user,Login login,MenuDispatcher menuDispatcher) {
-        consoleInputOutput.getInputAsString();
         user = login.loginWindow();
         int option=user.dispatchMenu(menuDispatcher, login);
         if(option==2)
