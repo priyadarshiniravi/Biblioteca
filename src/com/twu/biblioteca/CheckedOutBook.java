@@ -20,7 +20,11 @@ public class CheckedOutBook extends Book {
 
     @Override
     public Book returnBook(User user) {
-        return AvailableBook.createAvailableBook(this);
+        if(user==this.user) {
+            return AvailableBook.createAvailableBook(this);
+        }
+        else
+            return NullBook.createNullBook();
     }
 
     @Override

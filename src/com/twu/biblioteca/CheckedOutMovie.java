@@ -16,7 +16,11 @@ public class CheckedOutMovie extends Movie {
 
     @Override
     public Movie returnMovie(User user) {
-        return AvailableMovie.createAvailableMovie(this);
+        if(user==this.user) {
+            return AvailableMovie.createAvailableMovie(this);
+        }
+        else
+            return NullMovie.createNullMovie();
     }
 
     @Override
