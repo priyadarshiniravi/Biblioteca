@@ -11,7 +11,7 @@ public class Login {
 
     public User loginWindow() {
         User user;
-        consoleInputOutput.print("LOGIN");
+        consoleInputOutput.print("LOGIN CREDENTIALS");
         consoleInputOutput.getInputAsString();
         String username = consoleInputOutput.getInputAsString();
         String password = consoleInputOutput.getInputAsString();

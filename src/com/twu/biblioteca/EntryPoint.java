@@ -76,8 +76,8 @@ public class EntryPoint {
         ArrayList<String> options3 = new ArrayList<>();
         options3.add("Display Books");
         options3.add("Exit");
-        options3.add("Checkout");
-        options3.add("Return");
+        options3.add("Checkout Book");
+        options3.add("Return Book");
         options3.add("List Movie");
         options3.add("Checkout Movie");
         options3.add("Return Movie");
@@ -105,9 +105,9 @@ public class EntryPoint {
         HashSet<User> listOfUsers = new HashSet<>();
 
         listOfUsers.add(validUser);
-        listOfUsers.add(new LibrarianUser("9999-995", "ishika", "ishika", "ishi@gmail.com", 24714846));
-        listOfUsers.add(new ValidUser("9999-998", "achu", "aswini", "achu@gmail.com", 24714845));
-        listOfUsers.add(new ValidUser("9999-997", "maddy", "madhu", "maddy@gmail.com", 24714846));
+        listOfUsers.add(new LibrarianUser("999-9995", "ishika", "ishika", "ishi@gmail.com", 24714846));
+        listOfUsers.add(new ValidUser("999-9998", "achu", "aswini", "achu@gmail.com", 24714845));
+        listOfUsers.add(new ValidUser("999-9997", "maddy", "madhu", "maddy@gmail.com", 24714846));
         Users users = new Users(listOfUsers);
         Login login = new Login(users, consoleInputOutput);
         User nullUser= new InvalidUser("","","","",0);
