@@ -15,7 +15,7 @@ public class Menu {
     public int chooseOption(User user,Login login,MenuDispatcher menuDispatcher) {
         consoleInputOutput.print(menuOption.toString());
         int input = consoleInputOutput.getInputAsNumber();
-        while (input != menuOption.isExitOption()) {
+        while (input != menuOption.isExitOption() && input!=menuOption.isLogoutOption()) {
 
             Options option = parser.parse(input);
             if (option == null) {
@@ -29,6 +29,7 @@ public class Menu {
 
         }
         consoleInputOutput.getInputAsString();
+
         return input;
     }
 

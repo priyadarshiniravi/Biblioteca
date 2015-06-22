@@ -32,4 +32,18 @@ public class MenuOptionTest {
         assertEquals(2, actualString);
     }
 
+    @Test
+    public void ShouldLogoutMenuOption() {
+        ArrayList<String> options = new ArrayList<>();
+        options.add("Display Books");
+        options.add("Exit");
+        options.add("ListBook");
+        options.add("Logout");
+        MenuOption menuOption = new MenuOption(options);
+
+        int actualString = menuOption.isLogoutOption();
+
+        assertEquals(4, actualString);
+    }
+
 }

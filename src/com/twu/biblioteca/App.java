@@ -23,11 +23,10 @@ public class App {
 
         do {
             consoleInputOutput.print(Messages.WELCOME_MESSAGE);
-            user = login.loginWindow();
-            option = user.dispatchMenu(menuDispatcher, login);
+            option = this.user.dispatchMenu(menuDispatcher, login);
 
         }
-        while (menu.exitOptionInMenu() != 2);
+        while (menu.exitOptionInMenu() != option);
 
 
     }

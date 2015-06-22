@@ -40,6 +40,7 @@ public class EntryPoint {
         ListCheckedOutBook listCheckedOutBook = new ListCheckedOutBook(consoleInputOutput1, library);
         ListCheckedOutMovie listCheckedOutMovie = new ListCheckedOutMovie(consoleInputOutput1, library);
         ReturnBook returnBook = new ReturnBook(consoleInputOutput1, library);
+        LoginOption loginOption=new LoginOption(consoleInputOutput1,library);
         menuOptionsValiduser.put(1, listBooks);
         menuOptionsValiduser.put(3, checkoutbook);
         menuOptionsValiduser.put(4, returnBook);
@@ -55,16 +56,19 @@ public class EntryPoint {
         options.add("List Movie");
         options.add("Checkout Movie");
         options.add("Return Movie");
+        options.add("Logout");
         MenuOption menuOptionValid = new MenuOption(options);
         Menu menuValidUser = new Menu(consoleInputOutput, parser, menuOptionValid);
 
         menuOptionsInvaliduser.put(1, listBooks);
         menuOptionsInvaliduser.put(3, listMovie);
+        menuOptionsInvaliduser.put(4,loginOption);
 
         ArrayList<String> optionsOne = new ArrayList<>();
         optionsOne.add("Display Books");
         optionsOne.add("Exit");
         optionsOne.add("List Movie");
+        optionsOne.add("Login Option");
         Parser parser1 = new Parser(menuOptionsInvaliduser);
 
         MenuOption menuOptionInvalid = new MenuOption(optionsOne);
@@ -79,6 +83,7 @@ public class EntryPoint {
         options3.add("Return Movie");
         options3.add("list checked out book ");
         options3.add("List Checked out Movies");
+        options3.add("Logout");
         MenuOption menuOptionLibrarian = new MenuOption(options3);
 
 

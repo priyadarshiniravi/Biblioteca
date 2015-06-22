@@ -33,7 +33,21 @@ public class MenuOption {
 
     }
 
+    public int isLogoutOption() {
+        int iterator = 1;
+        for (String IndividualOption : menuOptions) {
+            if (IndividualOption == "Logout")
+                return iterator;
+            iterator++;
+
+        }
+        return getInfinity();
+
+    }
+
     private int getInfinity() {
         return Integer.MAX_VALUE;
     }
+
+
 }

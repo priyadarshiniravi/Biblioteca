@@ -18,13 +18,16 @@ public class AppTest {
                 .thenReturn(2);
         when(login.loginWindow().dispatchMenu(menuDispatcher,login))
                 .thenReturn(1, 2);
-        User nullUser=new InvalidUser("","","","",0);
+        User nullUser=mock(User.class);
+        when(nullUser.dispatchMenu(menuDispatcher, login))
+                .thenReturn(1, 2);
+
         App app = new App(consoleInputOutput, menu,login, menuDispatcher, nullUser);
 
 
         app.start();
 
-        verify(consoleInputOutput,times(1)).print(Messages.WELCOME_MESSAGE);
+        verify(consoleInputOutput,times(2)).print(Messages.WELCOME_MESSAGE);
     }
 
     @Test
@@ -37,14 +40,15 @@ public class AppTest {
         MenuDispatcher menuDispatcher=mock(MenuDispatcher.class);
         when(login.loginWindow())
                 .thenReturn(new ValidUser("","","","",99999));
-        when(login.loginWindow().dispatchMenu(menuDispatcher, login))
+
+        User nullUser=mock(User.class);
+        when(nullUser.dispatchMenu(menuDispatcher, login))
                 .thenReturn(1, 2);
-        User nullUser=new InvalidUser("","","","",0);
         App app = new App(consoleInputOutput, menu,login, menuDispatcher, nullUser);
 
         app.start();
 
-        verify(login,times(2)).loginWindow();
+        verify(nullUser,times(2)).dispatchMenu(menuDispatcher,login);
     }
 
 
