@@ -17,6 +17,7 @@ public class Login {
         String password = consoleInputOutput.getInputAsString();
         user = users.login(username, password);
         consoleInputOutput.print(user.loginMessage());
+        consoleInputOutput.print(user.InformationString());
         return user;
 
     }

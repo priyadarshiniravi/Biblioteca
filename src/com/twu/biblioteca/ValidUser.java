@@ -16,6 +16,14 @@ public class ValidUser extends User {
         return menuDispatcher.callMenu(this,login,menuDispatcher);
     }
 
+    public String InformationString() {
+        return "id=" + id +
+                ", name=" + name  +
+                ", emailId=" + emailId +
+                ", phoneNumber=" + phoneNumber +
+                ", password=" + password ;
+    }
+
     @Override
     public String toString() {
         return this.id+" "+this.name;

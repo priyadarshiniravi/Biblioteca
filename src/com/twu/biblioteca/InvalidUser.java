@@ -8,6 +8,11 @@ public class InvalidUser extends User {
     }
 
     @Override
+    public String InformationString() {
+        return "";
+    }
+
+    @Override
     public String loginMessage() {
         return Messages.UNSUCCESS_LOGIN;
 

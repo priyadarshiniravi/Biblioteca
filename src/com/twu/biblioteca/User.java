@@ -49,13 +49,7 @@ public abstract class User {
     }
 
 
-    public String InformationString() {
-        return "id=" + id +
-                ", name=" + name  +
-                ", emailId=" + emailId +
-                ", phoneNumber=" + phoneNumber +
-                ", password=" + password ;
-    }
+    public abstract String InformationString();
 
     public abstract String loginMessage();
 
